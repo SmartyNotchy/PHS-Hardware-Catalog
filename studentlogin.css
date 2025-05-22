@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+}
+
+body {
+  background-color: #f2f4f8;
+  height: 100vh;
+}
+
+.top-buttons {
+  padding: 20px;
+}
+
+.top-buttons .btn {
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  border: 2px solid #007bff;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.top-buttons .btn:hover {
+  background-color: white;
+  color: #007bff;
+}
+
+.btn.blue {
+  background-color: #007bff;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the login box stays centered in full viewport height */
+  
+}
+
+.login-box {
+  background-color: white;
+  padding: 90px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 550px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Ensures content is vertically centered */
+  align-items: center; /* Centers the form elements horizontally */
+  height: 500px; /* Allows the box to adjust based on content */
+}
+
+.login-box h2 {
+  margin-bottom: 90px;
+  font-size: 32 px;
+  color: #000;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.login-box input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.btn.green {
+  width: 100%;
+  background-color: #28a745;
+  border: 2px solid #28a745;
+  padding: 12px;
+  margin-top: 20px;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.green:hover {
+  background-color: white;
+  color: #28a745;
+}
+
+
