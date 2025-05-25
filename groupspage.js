@@ -1,0 +1,12 @@
+function arrangeBoxes() {
+  const container = document.querySelector('.main-content');
+  const boxes = container.children;
+  const numBoxes = boxes.length;
+
+  const columns = Math.ceil(Math.sqrt(numBoxes));
+  container.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+}
+
+
+
+arrangeBoxes();
