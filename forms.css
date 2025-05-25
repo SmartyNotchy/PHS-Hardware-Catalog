@@ -1,0 +1,108 @@
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+  }
+
+  body {
+    background-color: #f2f4f8;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .topbar{
+    position: fixed;
+    width: 100vw;
+    height: 10vh;
+    background-color: #3d4148;
+    color: white;
+    margin: auto;
+    padding: 3vh;
+  }
+  .sidebar {
+    position: fixed;
+    width: 180px;
+    height: 90vh;
+    background-color: #2f3339;
+    color: white;
+    margin-top: 10vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navigate {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 30px 0;
+  }
+  .logoutbutton {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-top: auto;
+  }
+
+  .main-content {
+    margin-left: 180px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:40px;
+  }
+
+  .report-box {
+    background-color: #e9edf2;
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10vh;
+  }
+
+  .report-box h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .report-box p {
+    margin: 20px 0 10px;
+    font-weight: bold;
+  }
+
+  .report-box textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  .report-box input[type="file"] {
+    margin-top: 10px;
+  }
+
+  .report-box button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .report-box button:hover {
+    background-color: white;
+    color: #007bff;
+    border: 2px solid #007bff;
+  }
