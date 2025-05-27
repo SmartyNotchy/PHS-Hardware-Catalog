@@ -8,9 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>SMCS Hardware Catalog</title>
-  <link rel="icon" type="img/x-icon" href="PFP-logo.png" />
-  <link rel="stylesheet" href="generallayout.css"/>
-  <link rel="stylesheet" href="reportform.css" />
+  <link rel="icon" type="img/x-icon" href="/images/PFP-logo.png" />
+  <link rel="stylesheet" href="/generallayout.css"/>
+  <link rel="stylesheet" href="student-requestform.css" />
 </head>
 
 <header>
@@ -22,33 +22,33 @@
           <div id="menu-label">
               Menu
           </div>
-          <a href="studentcatalog.html" class="button">Catalog<img src="shopping-cart-white.png" id="nav-img" alt=""></a>
-          <a href="studentinventory.html" class="button">Inventory<img src="backpack-white.png" id="nav-img" alt=""></a>
+          <a href="/student-catalog/student-catalog.html" class="button">Catalog<img src="/images/shopping-cart-white.png" id="nav-img" alt=""></a>
+          <a href="/student-inventory/student-inventory.html" class="button">Inventory<img src="/images/backpack-white.png" id="nav-img" alt=""></a>
       </div>
       <div id="bottom-navbar">
-          <a href="studentlogin.html" class="button">Logout</a>
+          <a href="/student-login/student-login.html" class="button">Logout</a>
       </div>
   </nav>
   
   <main>
     <form>
-      <label class="label-header">Broken Item Report</label>
+      <label class="label-header">Request Item</label>
       <label class="name">
         Item Name:
         <span>Arduino Uno Rev3</span>
       </label>
       <label class="name">
         Serial:
-        <span>Jd9Po3</span>
+        <input type="text"></input>
       </label>
       <div id="image-wrapper">
-        <img src="arduino-uno-rev3.png" alt="" /> 
+        <img src="/images/arduino-uno-rev3.png" alt="" /> 
       </div>
 
-      <label class="label">Issue Description</label>
+      <label class="label">Reason for Request</label>
       <div id="textarea-wrapper"><textarea></textarea></div>
       <div id="button-wrapper">
-        <button type="submit">Submit Report</button>
+        <button type="submit">Submit Request</button>
       </div>
     </form>
   </main>

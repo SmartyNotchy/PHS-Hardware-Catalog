@@ -27,7 +27,7 @@ form {
     height: auto;
     width: 100%;
 
-    padding-bottom: 8px;
+    padding: 8px;
 
     display: flex;
     justify-content: center;
@@ -44,7 +44,7 @@ form {
 
     display: flex;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
 
     font-size: 24px;
     font-weight: 400;
@@ -52,30 +52,6 @@ form {
 span {
     margin-left: 12px;
     font-weight: 500;
-}
-input {
-    height: 36px;
-    width: 150px;
-
-    margin-left: var(--space-md);
-    padding: 8px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-
-    background-color: var(--secondary-darker);
-    font-size: 20px;
-    font-weight: 500;
-
-    border: 2px solid var(--primary);
-    border-radius: var(--border-radius);
-}
-input:focus {
-    border: none;
-    outline: 2px solid var(--primary);
-    outline-offset: 2px;
 }
 #image-wrapper {
     height: 30%;
@@ -112,11 +88,12 @@ img {
     height: auto;
     width: 100%;
 
-    padding: 8px;
+    padding: 4px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 textarea {
     height: 80px;
@@ -146,6 +123,7 @@ textarea:focus {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 button {
     height: 48px;
