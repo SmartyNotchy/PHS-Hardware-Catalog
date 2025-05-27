@@ -39,17 +39,6 @@ html, body{
     min-height: 100vh;
     min-width: 100vw;
 }
-body {
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-
-    background-color: var(--secondary);
-}
-button {
-  cursor: pointer;
-}
-
 header {
     position: fixed;
     top: 0;
@@ -70,6 +59,13 @@ header {
     font-size: 75px;
     font-weight: 700;
 }
+body {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+
+    background-color: transparent;
+}
 nav {
     position: fixed;
     top: var(--header-height);
@@ -83,7 +79,6 @@ nav {
     justify-content: space-between;
 
     background-color: var(--primary);
-    color: var(--text-light);
 }
 #top-navbar {
     height: var(--top-navbar-height);
@@ -93,6 +88,9 @@ nav {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
+    background-color: transparent;
+    color: var(--text-light);
 }
 #menu-label {
     height: 72px;
@@ -103,6 +101,8 @@ nav {
     justify-content: center;
     align-items: center;
 
+    background-color: transparent;
+    color: var(--text-light);
     font-size: 35px;
     font-weight: 500;
 }
@@ -114,6 +114,8 @@ nav {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+
+    background-color: transparent;
 }
 nav .button {
     height: var(--button-height);
@@ -126,6 +128,7 @@ nav .button {
     gap: 8px;
     flex-shrink: 0;
 
+    background-color: transparent;
     color: var(--text-light);
     font-size: 18px;
     font-weight: 400;
@@ -146,6 +149,9 @@ main {
     left: var(--nav-width);
     bottom: 0;
     right: 0;
+
+    background-color: var(--secondary);
+    
 }
 ::-webkit-scrollbar {
     height: 16px;
@@ -157,8 +163,10 @@ main {
 ::-webkit-scrollbar-thumb {
     background-color: var(--primary);
 
-    border: 2px solid var(--secondary);
+    border-style: solid;
     border-radius: var(--border-radius);
+    border-width: 2px;
+    border-color: var(--secondary);
 }
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--primary-dark);

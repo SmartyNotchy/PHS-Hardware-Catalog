@@ -5,22 +5,25 @@
   <title>Groups Page</title>
   <link rel="stylesheet" href="generallayout.css"/>
   <link rel="stylesheet" href="teacher.css"/>
-  
 </head>
+
+<header>
+    Teacher
+</header>
 <body>
-  <div class ="topbar">
-    <H1>Teacher Dashboard</H1>
-    
-  </div>
-  <div class="sidebar">
-
-    <a class="navigate" href="#">Menu</a>
-    <a class="navigate" href="#">Catalog</a>
-
-    <a class="logoutbutton" href="#">Logout</a>
-  </div>
-
-  <div class="main-content">
+    <nav>
+        <div id="top-navbar">
+            <div id="menu-label">
+                Menu
+            </div>
+            <a href="studentcatalog.html" class="button">Catalog<img src="shopping-cart-white.png" id="nav-img" alt=""></a>
+            <a href="studentinventory.html" class="button">Inventory<img src="backpack-white.png" id="nav-img" alt=""></a>
+        </div>
+        <div id="bottom-navbar">
+            <a href="studentlogin.html" class="button">Logout</a>
+        </div>
+    </nav>
+  <main class="main-content">
     <div class="group-box" onclick="editGroup(this)"> <!--do this -->
       <h2>Group 1</h2>
       <p>Members: </p>
@@ -52,8 +55,7 @@
       <p>Members: </p>
       <p>bob john jim kim</p>
     </div>
-
-  </div>
+  </main>
   <script src ="groupspage.js"></script>
 </body>
 </html>

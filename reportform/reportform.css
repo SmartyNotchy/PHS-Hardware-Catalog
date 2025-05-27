@@ -1,0 +1,150 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    height: 80%;
+    min-height: 300px;
+    width: 80%;
+    min-width: 200px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    background-color: var(--secondary-dark);
+    color: var(--text-dark);
+
+    border-radius: var(--border-radius);
+
+    overflow: hidden;
+}
+.label-header {
+    height: auto;
+    width: 100%;
+
+    padding-bottom: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 48px;
+    font-weight: 700;
+}
+.name {
+    height: auto;
+    width: 100%;
+    
+    padding: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 24px;
+    font-weight: 400;
+}
+span {
+    margin-left: 12px;
+    font-weight: 500;
+}
+#image-wrapper {
+    height: 30%;
+    width: 100%;
+
+    padding: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.label {
+    height: auto;
+    width: 100%;
+    
+    padding-top: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    font-size: 24px;
+    font-weight: 400;
+}
+#textarea-wrapper {
+    height: auto;
+    width: 100%;
+
+    padding: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+textarea {
+    height: 80px;
+    width: 85%;
+
+    padding: 8px;
+
+    background-color: var(--secondary-darker);
+    font-size: 16px;
+
+    border: 2px solid var(--primary);
+    border-radius: var(--border-radius);
+
+    resize: none;
+}
+textarea:focus {
+    border: none;
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+#button-wrapper {
+    height: auto;
+    width: 100%;
+    
+    padding: var(--space-md);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+button {
+    height: 48px;
+    width: 200px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 24px;
+
+    background-color: var(--primary);
+    color: var(--text-light);
+
+    border: none;
+    border-radius: var(--border-radius);
+
+    cursor: pointer;
+}
+button:hover, button:active {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}

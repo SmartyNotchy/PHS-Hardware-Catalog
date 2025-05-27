@@ -10,6 +10,12 @@ body {
   background-color: #f2f4f8;
   height: 100vh;
 }
+p {
+font-size: medium;
+margin: auto;
+border-width: 5px;
+border-color:  #28a745;
+}
 
 .top-buttons {
   padding: 20px;
@@ -44,6 +50,33 @@ body {
   height: 100vh; /* Ensure the login box stays centered in full viewport height */
   
 }
+.text{
+width: 500px;
+height: auto;
+background-color: #ffffff;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+text-align: center;
+}
+text.h3 {
+margin: 10px;
+font-size: large;
+
+}
+.text-box {
+ background-color: white;
+  padding: 90px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 550px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content:normal; /* Ensures content is vertically centered */
+  align-items: center; /* Centers the form elements horizontally */
+  height: auto; /* Allows the box to adjust based on content */
+
+}
 
 .login-box {
   background-color: white;
@@ -57,13 +90,19 @@ body {
   flex-direction: column;
   justify-content: center; /* Ensures content is vertically centered */
   align-items: center; /* Centers the form elements horizontally */
-  height: 500px; /* Allows the box to adjust based on content */
+  height: auto; /* Allows the box to adjust based on content */
 }
 
 .login-box h2 {
-  margin-bottom: 90px;
-  font-size: 32 px;
+  margin-bottom: 40px;
+  font-size: 40px;
   color: #000;
+}
+.login-box h3 {
+  margin: 40px;
+  font-size: 20px;
+  white-space: nowrap;
+  color: #524d4d;
 }
 
 .login-box input {
@@ -73,6 +112,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
   transition: border-color 0.3s ease;
+  text-align: center;
 }
 
 .login-box input:focus {
@@ -81,11 +121,12 @@ body {
 }
 
 .btn.green {
-  width: 100%;
+  width: 40%;
   background-color: #28a745;
   border: 2px solid #28a745;
   padding: 12px;
-  margin-top: 20px;
+  margin: 20px;
+  margin-top: 40px;
   color: white;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -94,5 +135,3 @@ body {
   background-color: white;
   color: #28a745;
 }
-
-

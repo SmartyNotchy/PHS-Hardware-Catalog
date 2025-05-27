@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    font-style: normal;
+    text-decoration: none;
+}
+:root {
+    --primary: hsl(210, 15%, 25%);
+    --primary-dark: hsl(210, 15%, 20%);
+    --primary-darker: hsl(210, 15%, 15%);
+
+    --secondary: hsl(35, 5%, 90%);
+    --secondary-dark: hsl(35, 5%, 85%);
+    --secondary-darker: hsl(35, 5%, 80%);
+    --secondary-darkest: hsl(35, 5%, 70%);
+
+    --accent: hsl(40, 40%, 55%);
+
+    --text-dark: rgb(0, 0, 0);
+    --text-medium: #3a3a3a;
+    --text-light: #ffffff;
+
+    --space-md: 16px;
+
+    --font-family: 'Inter', 'Segoe UI', sans-serif;
+
+    --header-height: 100px;
+
+    --border-radius: 16px;
+}
+html, body{
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-color: var(--secondary);
+}
+
+header {
+  height: var(--header-height);
+  width: 100%;
+
+  padding: 0px 32px; gap: 16px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.top-buttons {
+  height: 80px;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--primary);
+  color: var(--text-light);
+  font-size: 20px;
+  font-weight: 300px;
+
+  border: none;
+  border-radius: var(--border-radius);
+}
+#teacher-login {
+  width: 200px;
+}
+#teacher-signup {
+  width: 200px;
+}
+#help {
+  width: 100px;
+}
+.top-buttons:hover, .top-buttons:active {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+main {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+#login-box {
+  height: 600px;
+  width: 600px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--secondary-dark);
+  color: var(--text-dark);
+
+  border: 2px solid var(--primary);
+  border-radius: var(--border-radius);
+}
+#student-login {
+  height: 164px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 48px;
+  font-weight: 700;
+}
+#student-id {
+  height: 30px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  font-size: 24px;
+  font-weight: 400;
+}
+#input-wrapper {
+  height: 64px;
+  width: 100%;
+
+  padding-top: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+input {
+  height: 32px;
+  width: 250px;
+
+  padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-color: var(--secondary-darker);
+  font-size: 22px;
+  font-weight: 400;
+
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+}
+input:focus {
+  border: none;
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+#button-wrapper {
+  height: 164px;
+  width: 100%;
+
+  padding-top: 64px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  color: var(--text-dark);
+  font-size: 32px;
+  font-weight: 200;
+}
+#login-button {
+  height: 64px;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--primary);
+  color: var(--text-light);
+  font-size: 32px;
+  font-weight: 400;
+
+  border: none;
+  border-radius: var(--border-radius);
+}
+#login-button:hover {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+button {
+  cursor: pointer;
+}
