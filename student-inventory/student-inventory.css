@@ -63,6 +63,8 @@ main {
     width: auto;
 
     display:inline-block;
+
+    list-style-position: outside;
 }
 
 .table-section {

@@ -9,59 +9,137 @@
 
     <title>SMCS Hardware Catalog</title>
     <link rel="icon" type="img/x-icon" href="/images/PFP-logo.png" />
-    <link rel="stylesheet" href="/generallayout.css" />
-    <link rel="stylesheet" href="student-inventory.css" />
+    
+    <link rel="stylesheet" href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/global.css">
+    <link rel="stylesheet" href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/colorpalette.css">
+    <link rel="stylesheet" href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/searchbar.css">
+    <link rel="stylesheet" href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/generallayout.css">
+    <link rel="stylesheet" href="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-groupspage/teacher-groupspage.css" />
 </head>
 
-<header>
-    Teacher
-</header>
 <body>
-    <nav>
-        <div id="top-navbar">
-            <div id="menu-label">
-                Menu
-            </div>
-            <a href="teacher-groupspage.html" class="button">Groups<img src="" id="nav-img" alt=""></a>
-            <a href="/teacher-catalog/teacher-catalog.html" class="button">Catalog<img src="/images/shopping-cart-white.png" id="nav-img" alt=""></a>
-        </div>
-        <div id="bottom-navbar">
-            <a href="/teacher-login/teacher-login.html" class="button">Logout</a>
-        </div>
-    </nav>
-  <main class="main-content">
-    <div class="group-box" onclick="editGroup(this)"> <!--do this -->
-      <h2>Group 1</h2>
-      <p>Members: </p>
-      <p>bobwdwadawdwadwada johnwadwadwadwadwa jim kim</p>
+<header>
+    <div id="left-header">
+        Teacher
     </div>
+    <div id="right-header">
+        <input id="search-bar" type="text" placeholder="search...">
+    </div>
+</header>
+<nav>
+    <div id="top-navbar">
+        <div id="menu-label">
+            Menu
+        </div>
+        <a href="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-groupspage/teacher-groupspage.html" class="button">Groups<img src="" id="nav-img" alt=""></a>
+        <a href="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html" class="button">Catalog<img src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/shopping-cart-white.png" id="nav-img" alt=""></a>
+    </div>
+    <div id="bottom-navbar">
+        <a href="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-login/teacher-login.html" class="button">Logout</a>
+    </div>
+</nav>
 
-    <div class="group-box" onclick="editGroup(this)">
-      <h2>Group 1</h2>
-      <p>Members: </p>
-      <p>bob john jim kim</p>
+<main>
+    <div id="top-main">
+        <button type="button" class="button">
+            <img src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/.png" class="top-buttons" id="new" alt="new">
+            <span class="tooltip" id="list-tooltip">New</span>
+        </button>
+        <button type="button" class="button">
+            <img src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/.png" class="top-buttons" id="delete" alt="delete">
+            <span class="tooltip" id="list-tooltip">Delete</span>
+        </button>
     </div>
-    <div class="group-box" onclick="editGroup(this)">
-      <h2>Group 1</h2>
-      <p>Members: </p>
-      <p>bob john jim kim</p>
-    </div>
-    <div class="group-box" onclick="editGroup(this)">
-      <h2>Group 1</h2>
-      <p>Members: </p>
-      <p>bob john jim kim</p>
-    </div>
-    <div class="group-box" onclick="editGroup(this)">
-      <h2>Group 1</h2>
-      <p>Members: </p>
-      <p>bob john jim kim</p>
-    </div>
-    <div class="group-box" onclick="editGroup(this)">
-      <h2>Group 1</h2>
-      <p>Members: </p>
-      <p>bob john jim kim</p>
+    <div id="bottom-main">
+      <button type="button" class="group">
+          <label class="group-name">Group 1</label>
+          <div class="group-members-wrapper">
+            <ul>
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+              <li>Pen</li>
+            </ul>
+          </div>
+          <label class="request-status">Any Request Forms:</label>
+          <label class="report-status">Any Report Forms:</label>
+      </button>
+      <button type="button" class="group">
+          <label class="group-name">Group 2</label>
+          <div class="group-members-wrapper">
+            <ul>
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+          </div>
+          <label class="request-status">Any Request Forms:</label>
+          <label class="report-status">Any Report Forms:</label>
+      </button>
+      <button type="button" class="group">
+          <label class="group-name">Group 3</label>
+          <div class="group-members-wrapper">
+            <ul>
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+          </div>
+          <label class="request-status">Any Request Forms:</label>
+          <label class="report-status">Any Report Forms:</label>
+      </button>
+      <button type="button" class="group">
+          <label class="group-name">Group 4</label>
+          <div class="group-members-wrapper">
+            <ul>
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+          </div>
+          <label class="request-status">Any Request Forms:</label>
+          <label class="report-status">Any Report Forms:</label>
+      </button>
+      <button type="button" class="group">
+          <label class="group-name">Group 5</label>
+          <div class="group-members-wrapper">
+            <ul>
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+          </div>
+          <label class="request-status">Any Request Forms:</label>
+          <label class="report-status">Any Report Forms:</label>
+      </button>
+      <button type="button" class="group">
+          <label class="group-name">Group 6</label>
+          <div class="group-members-wrapper">
+            <ul>
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+          </div>
+          <label class="request-status">Any Request Forms:</label>
+          <label class="report-status">Any Report Forms:</label>
+      </button>
+      <button type="button" class="group">
+          <label class="group-name">Group 7</label>
+          <div class="group-members-wrapper">
+            <ul>
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+          </div>
+          <label class="request-status">Any Request Forms:</label>
+          <label class="report-status">Any Report Forms:</label>
+      </button>
     </div>
   </main>
-  <script src ="groupspage.js"></script>
+  
+          
+<script src ="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-groupspage/teacher-groupspage.js"></script>
 </body>
 </html>
