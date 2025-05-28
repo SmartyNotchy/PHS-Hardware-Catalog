@@ -1,34 +1,27 @@
 :root {
     --top-main-height: 48px;
-    --min-item-width: 250px;
-    --border-radius: 8px;
-    --item-height: 264px;
-
-    --item-name-height: 88px;
-    --item-availability-height: 40px;
+    --min-group-width: 250px;
 }
 .tooltip {
     position: absolute;
     visibility: hidden;
     top: 105%;
-    height: 32px;
-    width: 104px;
+    height: auto;
+    width: auto;
+
+    padding: 4px 16px;
     
     display: flex;
     justify-content: center;
     align-items: center;
 
     opacity: 1;
-    padding: 4px;
     background-color: var(--primary-darker);
     color: var(--text-light);
     font-size: 16px;
 
     border: none;
     border-radius: var(--border-radius);
-}
-#top-main #list-tooltip {
-    right: -35%;
 }
 #top-main .button:hover .tooltip {
     visibility: visible;
@@ -44,8 +37,6 @@ main {
 #top-main {
     height: 64px;
     width: 100%;
-    flex-shrink: 0;
-    flex-grow: 0;
     padding-top: var(--space-md);
     padding-right: var(--space-md);
     padding-bottom: 0;
@@ -85,19 +76,20 @@ main {
 #top-main #list-img {
     max-height: 32px;
 }
+
 #bottom-main {
     width: 100%;
     
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--min-item-width), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-group-width), 1fr));
     justify-items: center;
     align-items: center;
     padding: var(--space-md);
     column-gap: var(--space-md);
     row-gap: var(--space-md);
 }
-.item {
-    height: var(--item-height);
+.group {
+    height: auto;
     width: 100%;
 
     display: flex;
@@ -111,9 +103,11 @@ main {
 
     overflow: hidden;
 }
-.name {
+.group-name {
     width: 100%;
-    height: var(--item-name-height);
+    height: auto;
+
+    padding: 8px;
 
     display: flex;
     justify-content: center;
@@ -121,48 +115,72 @@ main {
     flex-shrink: 0;
 
     color: var(--text-dark);
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 500;
 
     border: none;
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
 }
-.item .image-wrapper {
+.group-members-wrapper {
+    min-height: 80px;
     width: 100%;
+
+    padding: 8px;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0;
 
     overflow: hidden;
 }
-.availability {
-    height: var(--item-availability-height);
-    width: 100%;
-    padding: 8px var(--space-md) var(--space-md) var(--space-md);
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     
+    font-size: 16px;
+    font-weight: 400;
+
+    list-style-position: outside;
+}
+.request-status {
+    height: auto;
+    width: 100%;
+
+    padding-top: 8px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 0;
-    flex-shrink: 0;
 
     color: var(--text-dark);
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
+}
+.report-status {
+    height: auto;
+    width: 100%;
+    
+    padding-bottom: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--text-dark);
+    font-size: 16px;
+    font-weight: 600;
     
     border-bottom-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
 }
-.item:hover {
+.group:hover {
     background-color: var(--secondary-darker);
 }
-.item:active {
+.group:active {
     background-color: var(--secondary-darkest);
 }
 img {
