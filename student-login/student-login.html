@@ -10,6 +10,7 @@
   <title>SMCS Hardware Catalog</title>
   <link rel="icon" type="img/x-icon" href="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/PFP-logo.png" />
   <link rel="stylesheet" href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.css" />
+  <script src="student-login.js"></script>
 </head>
 
 <body>
@@ -24,7 +25,9 @@
     <label id="student-login">Student Login</label>
     <label id="student-id">Student ID:</label>
     <div id="input-wrapper">
-      <input type="text" />
+      <select id="student-id-select">
+        <option value="" disabled selected>Select your ID</option>
+      </select>
     </div>
     <div id="button-wrapper">
       <button id="login-button">Login</button>
