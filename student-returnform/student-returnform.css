@@ -8,7 +8,7 @@ form {
     min-height: 300px;
     width: 80%;
     min-width: 200px;
-    
+
     gap: 8px;
 
     display: flex;
@@ -19,6 +19,7 @@ form {
     background-color: var(--secondary-dark);
     color: var(--text-dark);
 
+    border: none;
     border-radius: var(--big-border-radius);
 
     overflow: hidden;
@@ -33,7 +34,7 @@ form h2 {
     align-items: center;
 
     font-size: 48px;
-  font-weight: var(--bold-font-weight);
+    font-weight: var(--bold-font-weight);
 }
 form p {
     height: auto;
@@ -43,73 +44,50 @@ form p {
 
     display: flex;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
 
     font-size: 24px;
     font-weight: var(--regular-font-weight);
 }
-span {
+form span {
     margin-left: 12px;
     font-weight: var(--medium-font-weight);
+}
+select {
+  height: 32px;
+  width: 200px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-color: var(--secondary-darker);
+  font-size: 20px;
+  font-weight: var(--medium-font-weight);
+
+  border: 2px solid var(--primary);
+  border-radius: var(--small-border-radius);
+}
+select:focus {
+  border: none;
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 #image-wrapper {
     height: 30%;
     width: 100%;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-label {
-    height: auto;
-    width: 100%;
-    
-    padding-top: 12px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-
-    font-size: 24px;
-    font-weight: var(--regular-font-weight);
-}
-#textarea-wrapper {
-    height: auto;
-    width: 100%;
-
-    padding: 8px;
 
     display: flex;
     justify-content: center;
     align-items: center;
-}
-textarea {
-    height: 80px;
-    width: 85%;
-
-    padding: 8px;
-
-    background-color: var(--secondary-darker);
-    font-size: 16px;
-
-    border: 2px solid var(--primary);
-    border-radius: var(--medium-border-radius);
-
-    resize: none;
-}
-textarea:focus {
-    border: none;
-    outline: 2px solid var(--primary);
-    outline-offset: 2px;
 }
 
 #button-wrapper {
     height: auto;
     width: 100%;
-    
+
     margin-top: 12px;
 
     display: flex;
@@ -133,8 +111,6 @@ form button {
 
     border: none;
     border-radius: var(--medium-border-radius);
-
-    cursor: pointer;
 }
 form button:hover, form button:active {
     background-color: transparent;

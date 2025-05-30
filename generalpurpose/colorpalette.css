@@ -1,7 +1,8 @@
 :root {
     --primary: hsl(210, 15%, 25%);
     --primary-dark: hsl(210, 15%, 20%);
-    --primary-darker: hsl(210, 15%, 15%);
+    --primary-darker: hsl(210, 15%, 12.5%);
+    --primary-darkest: hsl(210, 15%, 10%);
 
     --secondary: hsl(35, 5%, 90%);
     --secondary-dark: hsl(35, 5%, 85%);

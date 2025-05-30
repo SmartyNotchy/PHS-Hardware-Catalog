@@ -80,7 +80,7 @@ form h1 {
   font-size: 48px;
   font-weight: var(--bold-font-weight);
 }
-label {
+#student-ID {
   height: 30px;
   width: 100%;
 
@@ -93,7 +93,7 @@ label {
   font-weight: var(--regular-font-weight);
 }
 
-#select-wrapper {
+#input-wrapper {
   height: 64px;
   width: 100%;
 
@@ -104,23 +104,25 @@ label {
   justify-content: flex-start;
   align-items: center;
 }
-select {
+input {
   height: 32px;
   width: 250px;
 
+  padding: 8px;
+
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 
   background-color: var(--secondary-darker);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: var(--regular-font-weight);
 
   border: 2px solid var(--primary);
   border-radius: var(--small-border-radius);
 }
-select:focus {
+input:focus {
   border: none;
   outline: 2px solid var(--primary);
   outline-offset: 2px;

@@ -9,27 +9,26 @@
 
   <title>SMCS Hardware Catalog</title>
   <link rel="icon" type="img/x-icon" href="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/PFP-logo.png" />
-  <link rel="stylesheet" href="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-login/teacher-login.css" />
+
+  <link rel="stylesheet" href="/generalpurpose/global.css" />
+  <link rel="stylesheet" href="/generalpurpose/colorpalette.css" />
+  <link rel="stylesheet" href="/teacher-login/teacher-login.css" />
 </head>
 
 <body>
 <header>
-  <a href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html" class="top-buttons" id="student-login">Student Login</a>
-  <a href="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-signup/teacher-signup.html" class="top-buttons" id="teacher-signup">Teacher Signup</a>
-  <a href="https://smartynotchy.github.io/PHS-Hardware-Catalog/helppage/helppage.html" class="top-buttons" id="help">Help</a>
+  <a href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html" id="student-login">Student Login</a>
+  <a href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-signup/student-signup.html" id="student-signup">Student Signup</a>
+  <a href="https://smartynotchy.github.io/PHS-Hardware-Catalog/helppage/helppage.html" id="help">Help</a>
 </header>
 
 <main>
-  <div id="login-box">
-    <label id="teacher-login">Teacher Login</label>
-    <label id="teacher-id">Password:</label>
-    <div id="input-wrapper">
-      <input type="text" />
-    </div>
-    <div id="button-wrapper">
-      <button id="login-button">Login</button>
-    </div>
-  </div>
+  <form>
+    <h1>Teacher Login</h1>
+    <label id="password">Password:</label>
+    <div id="input-wrapper"><input type="text" /></div>
+    <div id="button-wrapper"><button>Login</button></div>
+  </form>
 </main>
 </body>
 </html>
