@@ -7,13 +7,12 @@ const groups = [
   { id: "g6", name: "Group 6" },
   { id: "g7", name: "Group 7" },
   { id: "g8", name: "Group 8" },
-  { id: "g9", name: "Group 9" }
+  { id: "g9", name: "Group 9" },
 ];
 
-
-window.addEventListener('DOMContentLoaded', () => {
-  const select = document.getElementById('student-id-select');
-  const loginButton = document.getElementById('login-button');
+window.addEventListener("DOMContentLoaded", () => {
+  const select = document.getElementById("student-id-select");
+  const loginButton = document.getElementById("login-button");
   while (select.options.length > 1) {
     select.remove(1);
   }

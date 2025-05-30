@@ -7,18 +7,19 @@ function IDcheck() {
     alert(`The ID "${input}" is not valid.`);
   }
 }
-document.addEventListener('DOMContentLoaded', () => {
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-          IDcheck();
-        }
-      });
-    });
-window.addEventListener('DOMContentLoaded', () => {
-  const loginButton = document.getElementById('button-wrapper');
- 
-  loginButton.addEventListener('click', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      IDcheck();
+    }
+  });
+});
+window.addEventListener("DOMContentLoaded", () => {
+  const loginButton = document.getElementById("button-wrapper");
+
+  loginButton.addEventListener("click", () => {
     // add your magic william
-    window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
- });
+    window.location.href =
+      "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
+  });
 });

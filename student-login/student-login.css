@@ -14,7 +14,7 @@ header {
   padding: 16px 32px 0 32px;
   gap: 16px;
 
- display: flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -64,7 +64,6 @@ header.text {
   border: none;
   border-radius: var(--medium-border-radius);
 }
-
 
 main {
   height: 100%;
