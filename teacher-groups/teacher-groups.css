@@ -1,125 +1,125 @@
 :root {
-    --top-main-height: 48px;
-    --min-group-width: 250px;
+  --top-main-height: 48px;
+  --min-group-width: 250px;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
 }
 
 #top-main {
-    height: 64px;
-    width: 100%;
+  height: 64px;
+  width: 100%;
 
-    padding-left: 16px;
-    gap: 8px;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-end;
+  padding-left: 16px;
+  gap: 8px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 #top-main button {
-    position: relative;
+  position: relative;
 
-    height: 48px;
-    width: 48px;
+  height: 48px;
+  width: 48px;
 
-    padding: 10px;
+  padding: 10px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    background-color: var(--primary);
-    color: var(--text-light);
+  background-color: var(--primary);
+  color: var(--text-light);
 
-    border: none;
-    border-radius: var(--small-border-radius);
+  border: none;
+  border-radius: var(--small-border-radius);
 }
 #add-tooltip {
-    left: 0;
+  left: 0;
 }
 #top-main > button:hover {
-    background-color: var(--primary-dark);
+  background-color: var(--primary-dark);
 }
 #top-main > button:active {
-    background-color: var(--primary-darker);
+  background-color: var(--primary-darker);
 }
 
 #bottom-main {
-    padding: 16px;
-    gap: 16px;
-    overflow-y: auto;
+  padding: 16px;
+  gap: 16px;
+  overflow-y: auto;
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--min-group-width), 1fr));
-    justify-items: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-group-width), 1fr));
+  justify-items: center;
+  align-items: center;
 
-    color: var(--text-dark);
+  color: var(--text-dark);
 }
 .group {
-    height: auto;
-    width: 100%;
+  height: auto;
+  width: 100%;
 
-    padding: 16px;
-    gap: 8px;
-    overflow: hidden;
+  padding: 16px;
+  gap: 8px;
+  overflow: hidden;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
-    background-color: var(--secondary-dark);
+  background-color: var(--secondary-dark);
 
-    border: none;
-    border-radius: var(--medium-border-radius);
+  border: none;
+  border-radius: var(--medium-border-radius);
 }
 .group:hover {
-    background-color: var(--secondary-darker);
+  background-color: var(--secondary-darker);
 }
 .group:active {
-    background-color: var(--secondary-darkest);
+  background-color: var(--secondary-darkest);
 }
 
 .group h3 {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    font-size: 32px;
-    font-weight: var(--medium-font-weight);
+  font-size: 32px;
+  font-weight: var(--medium-font-weight);
 }
 .group ul {
-    min-height: 80px;
-    width: 100%;
+  min-height: 80px;
+  width: 100%;
 
-    padding: 8px;
+  padding: 8px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    
-    font-size: 16px;
-    font-weight: var(--regular-font-weight);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: var(--regular-font-weight);
 }
 .group p {
-    height: auto;
-    width: 100%;
+  height: auto;
+  width: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    font-size: 16px;
-    font-weight: var(--medium-font-weight);
+  font-size: 16px;
+  font-weight: var(--medium-font-weight);
 }

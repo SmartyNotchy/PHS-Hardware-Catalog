@@ -1,45 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Help</title>
-  <link rel="stylesheet" href="helppage.css" />
-  <link rel="stylesheet" href="logins.css" />
-  <script src="helppage.js"></script>
-</head>
-<body>
-  <div class="top-buttons">
-    <button class="btn blue" onclick="window.location.href='https://example.com/about.html'">Teacher Login</button> <!--this link needs to be replaced by the webpage address of the teacher login page-->
-    <button class="btn blue" onclick="window.location.href='https://example.com/about.html'">Student Login</button> <!--this link needs to be replaced by the webpage address of the student login page-->
-    <button class="btn blue" onclick="window.location.href='https://example.com/about.html'">Student Signup</button> <!--this link needs to be replaced by the webpage address of the help page-->
-  </div>
-  <div class="top-banner">
-    <h1>Search our Guide or Contact Us Here!</h1>
-    <div class="search-container">
-      <input type="text" placeholder="Search" />
-      <button class="search-button" aria-label="Search">
-        🔍
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help</title>
+    <link rel="stylesheet" href="helppage.css" />
+    <link rel="stylesheet" href="logins.css" />
+    <script src="helppage.js"></script>
+  </head>
+  <body>
+    <div class="top-buttons">
+      <button
+        class="btn blue"
+        onclick="window.location.href='https://example.com/about.html'"
+      >
+        Teacher Login
       </button>
+      <!--this link needs to be replaced by the webpage address of the teacher login page-->
+      <button
+        class="btn blue"
+        onclick="window.location.href='https://example.com/about.html'"
+      >
+        Student Login
+      </button>
+      <!--this link needs to be replaced by the webpage address of the student login page-->
+      <button
+        class="btn blue"
+        onclick="window.location.href='https://example.com/about.html'"
+      >
+        Student Signup
+      </button>
+      <!--this link needs to be replaced by the webpage address of the help page-->
     </div>
-  </div>
+    <div class="top-banner">
+      <h1>Search our Guide or Contact Us Here!</h1>
+      <div class="search-container">
+        <input type="text" placeholder="Search" />
+        <button class="search-button" aria-label="Search">🔍</button>
+      </div>
+    </div>
 
-  <div class="help-container">
-    <div class="help-box" onclick="toggleContent('helptext1')">
-      <h3>Creators</h3>
+    <div class="help-container">
+      <div class="help-box" onclick="toggleContent('helptext1')">
+        <h3>Creators</h3>
+      </div>
+
+      <div class="help-box" onclick="toggleContent('helptext2')">
+        <h3>Goal</h3>
+      </div>
+
+      <div class="help-box" onclick="toggleContent('helptext3')">
+        <h3>Guide</h3>
+      </div>
+      <p class="helptext1">
+        We are the Poolesville Falcon Programmers, a team of four passionate
+        computer science students from PHS dedicated to innovation,
+        problem-solving, and creating impactful technology...
+      </p>
+      <p class="helptext2">
+        The object of this project is to create an application that tracks the
+        status of these expensive hardware components in a clear, user-friendly
+        interface...
+      </p>
+      <p class="helptext3">
+        To get started, create an account or log in. Use the dashboard to access
+        lessons, track progress, and interact with teachers...
+      </p>
     </div>
-  
-    <div class="help-box" onclick="toggleContent('helptext2')">
-      <h3>Goal</h3>
-    </div>
-  
-    <div class="help-box" onclick="toggleContent('helptext3')">
-      <h3>Guide</h3>
-    </div>
-    <p class="helptext1">We are the Poolesville Falcon Programmers, a team of four passionate computer science students from PHS dedicated to innovation, problem-solving, and creating impactful technology...</p>
-    <p class="helptext2">The object of this project is to create an application that tracks the status of these expensive hardware components in a clear, user-friendly interface...</p>
-    <p class="helptext3">To get started, create an account or log in. Use the dashboard to access lessons, track progress, and interact with teachers...</p>
-  </div>
-  
-</body>
+  </body>
 </html>

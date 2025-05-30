@@ -1,207 +1,211 @@
 :root {
-    --red: hsl(0, 70%, 50%);
-    --orange: hsl(20, 85%, 55%);
-    --green: hsl(110, 65%, 35%);
+  --red: hsl(0, 70%, 50%);
+  --orange: hsl(20, 85%, 55%);
+  --green: hsl(110, 65%, 35%);
 
-    --item-height: 200px;
-    --adjacent-div-width: 200px;
+  --item-height: 200px;
+  --adjacent-div-width: 200px;
 }
 
 main {
-    gap: 32px;
-    overflow-y: auto;
+  gap: 32px;
+  overflow-y: auto;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 section {
-    width: 100%;
+  width: 100%;
 
-    padding: 16px;
-    gap: 8px;
+  padding: 16px;
+  gap: 8px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
-    background-color: var(--secondary-dark);
-    
-    border: none;
+  background-color: var(--secondary-dark);
+
+  border: none;
 }
 #group-members-section {
-    border-bottom-left-radius: var(--big-border-radius);
-    border-bottom-right-radius: var(--big-border-radius);
+  border-bottom-left-radius: var(--big-border-radius);
+  border-bottom-right-radius: var(--big-border-radius);
 }
 #checked-out-items-section {
-    border-radius: var(--big-border-radius);
+  border-radius: var(--big-border-radius);
 }
 #pending-requests-section {
-    border-top-left-radius: var(--big-border-radius);
-    border-top-right-radius: var(--big-border-radius);
+  border-top-left-radius: var(--big-border-radius);
+  border-top-right-radius: var(--big-border-radius);
 }
 
 #group-members-wrapper {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
-    color: var(--text-medium);
-    font-size: 24px;
-    font-weight: var(--regular-font-weight);
+  color: var(--text-medium);
+  font-size: 24px;
+  font-weight: var(--regular-font-weight);
 }
 
 .section h2 {
-    height: auto;
-    width: 100%;
+  height: auto;
+  width: 100%;
 
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    font-size: var(--h2-font-size);
-    font-weight: var(--regular-font-weight);
+  font-size: var(--h2-font-size);
+  font-weight: var(--regular-font-weight);
 
-    color: var(--text-dark);
+  color: var(--text-dark);
 }
 .item {
-    width: 80%;
+  width: 80%;
 
-    padding: 16px;
+  padding: 16px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
-    background-color: var(--secondary-darker);
-    color: var(--text-medium);
+  background-color: var(--secondary-darker);
+  color: var(--text-medium);
 
-    border: none;
-    border-radius: var(--medium-border-radius);
+  border: none;
+  border-radius: var(--medium-border-radius);
 }
 #checked-out-items-section .item {
-    min-height: 200px;
+  min-height: 200px;
 }
 #pending-requests-section .item {
-    height: 200px;
+  height: 200px;
 }
 .item-img-wrapper {
-    height: 100%;
-    width: 200px;
-    flex-shrink: 0;
+  height: 100%;
+  width: 200px;
+  flex-shrink: 0;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .item-name {
-    width: 100%;
+  width: 100%;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
-    font-size: 28px;
-    font-weight: var(--regular-font-weight);
+  font-size: 28px;
+  font-weight: var(--regular-font-weight);
 }
 #checked-out-items-section .item-name {
-    height: 80px;
-    align-items: flex-end;
+  height: 80px;
+  align-items: flex-end;
 }
 #pending-requests-section .item-name {
-    height: 100%;
-    align-items: center;
+  height: 100%;
+  align-items: center;
 }
 #checked-out-items-section .items-owned {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 
-    gap: 8px;
+  gap: 8px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
 }
 #checked-out-items-section .serial-ID {
-    min-height: 80px;
-    width: 100%;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    
-    font-size: 20px;
-    font-weight: var(--regular-font-weight);
+  min-height: 80px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 20px;
+  font-weight: var(--regular-font-weight);
 }
 .item-qty {
-    margin-right: 12px;
-    font-weight: var(--bold-font-weight);
+  margin-right: 12px;
+  font-weight: var(--bold-font-weight);
 }
 
 .buttons-wrapper {
-    height: 100%;
-    width: 200px;
-    flex-shrink: 0;
+  height: 100%;
+  width: 200px;
+  flex-shrink: 0;
 
-    gap: 8px;
+  gap: 8px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
 }
+.section a,
 .section button {
-    height: 48px;
-    width: 200px;
-    
-    padding: 8px;
+  height: 48px;
+  width: 200px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 8px;
 
-    color: var(--text-light);
-    font-size: 16px;
-    font-weight: var(--regular-font-weight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    border: none;
-    border-radius: var(--small-border-radius);
+  color: var(--text-light);
+  font-size: 16px;
+  font-weight: var(--regular-font-weight);
+
+  border: none;
+  border-radius: var(--small-border-radius);
 }
 .return-item-button {
-    background-color: var(--green);
+  background-color: var(--green);
 }
-.return-item-button:hover, .return-item-button:active {
-    background-color: transparent;
-    border: 2px solid var(--green);
-    color: var(--green);
+.return-item-button:hover,
+.return-item-button:active {
+  background-color: transparent;
+  border: 2px solid var(--green);
+  color: var(--green);
 }
 .report-broken-button {
-    background-color: var(--orange);
+  background-color: var(--orange);
 }
-.report-broken-button:hover, .report-broken-button:active {
-    background-color: transparent;
-    border: 2px solid var(--orange);
-    color: var(--orange);
+.report-broken-button:hover,
+.report-broken-button:active {
+  background-color: transparent;
+  border: 2px solid var(--orange);
+  color: var(--orange);
 }
 .cancel-request-button {
-    background-color: var(--red);
+  background-color: var(--red);
 }
-.cancel-request-button:hover, .cancel-request-button:active{
-    background-color: transparent;
-    border: 2px solid var(--red);
-    color: var(--red);
+.cancel-request-button:hover,
+.cancel-request-button:active {
+  background-color: transparent;
+  border: 2px solid var(--red);
+  color: var(--red);
 }

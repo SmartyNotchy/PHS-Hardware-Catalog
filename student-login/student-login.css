@@ -38,7 +38,8 @@ header a {
   border: none;
   border-radius: var(--medium-border-radius);
 }
-header a:hover, header a:active {
+header a:hover,
+header a:active {
   background-color: transparent;
   color: var(--primary);
   border: 2px solid var(--primary);
@@ -158,7 +159,8 @@ form button {
   border: none;
   border-radius: var(--medium-border-radius);
 }
-form button:hover, form button:active {
+form button:hover,
+form button:active {
   background-color: transparent;
   color: var(--primary);
   border: 2px solid var(--primary);

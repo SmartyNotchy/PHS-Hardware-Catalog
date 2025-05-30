@@ -1,143 +1,147 @@
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 form {
-    height: 80%;
-    min-height: 300px;
-    width: 80%;
-    min-width: 200px;
-    
-    gap: 8px;
+  height: 80%;
+  min-height: 300px;
+  width: 80%;
+  min-width: 200px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  gap: 8px;
 
-    background-color: var(--secondary-dark);
-    color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    border-radius: var(--big-border-radius);
+  background-color: var(--secondary-dark);
+  color: var(--text-dark);
 
-    overflow: hidden;
+  border-radius: var(--big-border-radius);
+
+  overflow: hidden;
 }
 
 form h2 {
-    height: auto;
-    width: 100%;
+  height: auto;
+  width: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    font-size: 48px;
+  font-size: 48px;
   font-weight: var(--bold-font-weight);
 }
 form p {
-    height: auto;
-    width: 100%;
+  height: auto;
+  width: 100%;
 
-    padding: 4px;
+  padding: 4px;
 
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 
-    font-size: 24px;
-    font-weight: var(--regular-font-weight);
+  font-size: 24px;
+  font-weight: var(--regular-font-weight);
 }
 span {
-    margin-left: 12px;
-    font-weight: var(--medium-font-weight);
+  margin-left: 12px;
+  font-weight: var(--medium-font-weight);
+}
+#item-name select {
+  width: 350px;
 }
 
 #image-wrapper {
-    height: 30%;
-    width: 100%;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 30%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 label {
-    height: auto;
-    width: 100%;
-    
-    padding-top: 12px;
+  height: auto;
+  width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+  padding-top: 12px;
 
-    font-size: 24px;
-    font-weight: var(--regular-font-weight);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  font-size: 24px;
+  font-weight: var(--regular-font-weight);
 }
 #textarea-wrapper {
-    height: auto;
-    width: 100%;
+  height: auto;
+  width: 100%;
 
-    padding: 8px;
+  padding: 8px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 textarea {
-    height: 80px;
-    width: 85%;
+  height: 80px;
+  width: 85%;
 
-    padding: 8px;
+  padding: 8px;
 
-    background-color: var(--secondary-darker);
-    font-size: 16px;
+  background-color: var(--secondary-darker);
+  font-size: 16px;
 
-    border: 2px solid var(--primary);
-    border-radius: var(--medium-border-radius);
+  border: 2px solid var(--primary);
+  border-radius: var(--medium-border-radius);
 
-    resize: none;
+  resize: none;
 }
 textarea:focus {
-    border: none;
-    outline: 2px solid var(--primary);
-    outline-offset: 2px;
+  border: none;
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 #button-wrapper {
-    height: auto;
-    width: 100%;
-    
-    margin-top: 12px;
+  height: auto;
+  width: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin-top: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 form button {
-    height: 48px;
-    width: auto;
-    
-    padding: 0 48px;
+  height: 48px;
+  width: auto;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 0 48px;
 
-    font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    background-color: var(--primary);
-    color: var(--text-light);
+  font-size: 24px;
 
-    border: none;
-    border-radius: var(--medium-border-radius);
+  background-color: var(--primary);
+  color: var(--text-light);
 
-    cursor: pointer;
+  border: none;
+  border-radius: var(--medium-border-radius);
+
+  cursor: pointer;
 }
-form button:hover, form button:active {
-    background-color: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
+form button:hover,
+form button:active {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
 }

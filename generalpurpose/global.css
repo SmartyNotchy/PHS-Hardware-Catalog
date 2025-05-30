@@ -1,54 +1,55 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-family);
-    font-style: normal;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-style: normal;
+  text-decoration: none;
 }
 :root {
-    --font-family: 'Inter', 'Segoe UI', sans-serif;
-    
-    --small-border-radius: 8px;
-    --medium-border-radius: 16px;
-    --big-border-radius: 32px;
+  --font-family: "Inter", "Segoe UI", sans-serif;
 
-    --h2-font-size: 48px;
+  --small-border-radius: 8px;
+  --medium-border-radius: 16px;
+  --big-border-radius: 32px;
 
-    --thin-font-weight: 100;
-    --regular-font-weight: 400;
-    --medium-font-weight: 500;
-    --bold-font-weight: 700;
-    --extra-bold-font-weight: 800;
+  --h2-font-size: 48px;
+
+  --thin-font-weight: 100;
+  --regular-font-weight: 400;
+  --medium-font-weight: 500;
+  --bold-font-weight: 700;
+  --extra-bold-font-weight: 800;
 }
-html, body{
-    height: 100vh;
-    width: 100vw;
-    padding: 0;
-    margin: 0;
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
 }
 
 .image-wrapper {
-    flex: 1 1 0;
-    width: 100%;
+  flex: 1 1 0;
+  width: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    overflow: hidden;
+  overflow: hidden;
 }
 img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
 
-    display: block;
+  display: block;
 
-    overflow: hidden;
+  overflow: hidden;
 }
 img.invert {
-    filter: invert(1);
+  filter: invert(1);
 }
 
 button {
@@ -56,30 +57,30 @@ button {
 }
 
 .tooltip {
-    position: absolute;
-    top: 110%;
-    z-index: 100;
+  position: absolute;
+  top: 110%;
+  z-index: 100;
 
-    height: auto;
-    width: auto;
-    
-    padding: 4px 16px;
-    white-space: nowrap;
+  height: auto;
+  width: auto;
 
-    display: inline-block;
-    text-align: center;
+  padding: 4px 16px;
+  white-space: nowrap;
 
-    background-color: var(--primary-darker);
-    color: var(--text-light);
-    opacity: 0;
-    font-size: 16px;
+  display: inline-block;
+  text-align: center;
 
-    border: none;
-    border-radius: var(--small-border-radius);
+  background-color: var(--primary-darker);
+  color: var(--text-light);
+  opacity: 0;
+  font-size: 16px;
 
-    pointer-events: none;
+  border: none;
+  border-radius: var(--small-border-radius);
+
+  pointer-events: none;
 }
 button:hover .tooltip {
-    opacity: 0.95;
-    pointer-events: auto;
+  opacity: 0.95;
+  pointer-events: auto;
 }
