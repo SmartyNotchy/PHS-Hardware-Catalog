@@ -1,5 +1,5 @@
 function IDcheck() {
-  const input = document.getElementById("TeacherIDinput").value;
+  const input = document.getElementById("input-wrapper").value;
 
   if (input === "abcd") {
     alert("Login successful");
