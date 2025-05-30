@@ -1,5 +1,5 @@
 function arrangeBoxes() {
-  const container = document.querySelector('.bottom-main');
+  const container = document.getElementById('.bottom-main');
   const boxes = container.children;
   const numBoxes = boxes.length;
 
