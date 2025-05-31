@@ -8,3 +8,7 @@ function toggleContent(x) {
     }
   });
 }
+const button = document.getElementById('go-back');
+button.addEventListener("click", () => {
+window.history.go(-1);
+   });
