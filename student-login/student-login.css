@@ -64,7 +64,25 @@ header.text {
   border: none;
   border-radius: var(--medium-border-radius);
 }
+header button {
+  height: 80px;
+  width: auto;
 
+  padding: 32px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--primary);
+  color: var(--text-light);
+  font-size: 20px;
+  font-weight: var(--regular-font-weight);
+
+  border: none;
+  border-radius: var(--medium-border-radius);
+}
 
 main {
   height: 100%;
