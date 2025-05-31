@@ -1,7 +1,7 @@
 function IDcheck() {
-  const input = document.getElementById("input-wrapper").value;
+  const input = document.getElementById("teacher-password-input").value;
 
-  if (input === "abcd") {
+  if (input === "12345678") {
     alert("Login successful");
   } else {
     alert(`The ID "${input}" is not valid.`);
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 window.addEventListener('DOMContentLoaded', () => {
-  const loginButton = document.getElementById('button-wrapper');
+  const loginButton = document.getElementById('teacher-login-button');
  
   loginButton.addEventListener('click', () => {
     // add your magic william
