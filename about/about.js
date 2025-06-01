@@ -1,4 +1,4 @@
-function toggleContent(x) {
+/*function toggleContent(x) {
   const allParagraphs = document.querySelectorAll(".help-container p");
   allParagraphs.forEach((p) => {
     if (p.classList.contains(x)) {
@@ -7,9 +7,9 @@ function toggleContent(x) {
       p.style.display = "none";
     }
   });
-}
+}*/
 //whyyyyyy
 function backNavigation(){
-window.history.go(-1);
+history.go(-1);
    };
                          }
