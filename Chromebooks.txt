@@ -1,0 +1,5 @@
+Lenovo 500e Chromebook Gen3 (new Chromebooks)
+
+Screen Resolution: 1366px x 768px
+
+Browser Resolution: 1366px x 599px

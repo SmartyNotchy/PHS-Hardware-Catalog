@@ -1,17 +1,9 @@
 :root {
-  --header-height: 100px;
-  --max-header-height: 128px;
-
-  --nav-width: 200px;
-  --max-nav-width: 240px;
-  --top-navbar-height: 100%;
-  --bottom-navbar-height: 100px;
-  --button-height: 48px;
+  --header-height: 120px;
+  --nav-width: 250px;
 }
-body {
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
+:root.nav-collapsed {
+  --nav-width: 0;
 }
 
 header {
@@ -44,7 +36,7 @@ header #left-header {
   justify-content: flex-start;
   align-items: center;
 
-  font-size: 64px;
+  font-size: 80px;
   font-weight: var(--bold-font-weight);
 }
 header #right-header {
@@ -87,7 +79,6 @@ nav {
 
   height: calc(100vh - var(--header-height));
   width: var(--nav-width);
-  max-width: var(--nav-max-width);
 
   display: flex;
   flex-direction: column;
@@ -96,8 +87,44 @@ nav {
   background-color: var(--primary);
   color: var(--text-light);
 }
+:root.nav-collapsed nav {
+  display: none;
+}
+#hide-nav {
+  position: absolute;
+  top: calc(var(--header-height) + 20px);
+  left: calc(var(--nav-width) + 16px);
+
+  height: 32px;
+  width: 32px;
+
+  padding: 8px;
+
+  background-color: var(--primary);
+  opacity: 0.25;
+  color: var(--text-light);
+  font-size: 16px;
+  font-weight: var(--bold-font-weight);
+
+  border: none;
+  border-radius: var(--small-border-radius);
+
+  z-index: 999;
+}
+#hide-nav:hover {
+  opacity: 0.5;
+}
+#hide-nav:active {
+  opacity: 0.75;
+}
+:root.nav-collapsed #hide-nav {
+  left: 16px;
+
+  transform: rotate(180deg);
+}
+
 nav #top-navbar {
-  height: var(--top-navbar-height);
+  height: 100%;
   width: 100%;
 
   display: flex;
@@ -106,7 +133,7 @@ nav #top-navbar {
   align-items: center;
 }
 nav #bottom-navbar {
-  height: var(--bottom-navbar-height);
+  height: 100px;
   width: 100%;
 
   display: flex;
@@ -124,21 +151,22 @@ nav #menu-text {
   justify-content: center;
   align-items: center;
 
-  font-size: 35px;
+  font-size: 40px;
   font-weight: var(--medium-font-weight);
 }
 nav a {
-  height: var(--button-height);
+  height: 44px;
   width: 100%;
+
+  gap: 8px;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 8px;
 
   color: var(--text-light);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: var(--regular-font-weight);
 }
 nav a:hover {
@@ -147,11 +175,23 @@ nav a:hover {
 nav a:active {
   background-color: var(--primary-darker);
 }
+
 nav img {
   max-height: 24px;
+  margin-top: 5px;
+}
+nav #groups-img {
+  margin-top: 3px;
+}
+nav #request-forms-img {
+  margin-top: 3px;
+}
+nav #about-img {
+  max-height: 22px;
 }
 nav #logout-img {
   max-height: 20px;
+  margin-top: 4px;
 }
 
 main {

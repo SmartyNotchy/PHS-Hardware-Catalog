@@ -16,8 +16,8 @@ section {
 
 #teacher-buttons {
   position: absolute;
-  top: 24px;
-  left: 16px;
+  top: 36px;
+  right: 16px;
 
   gap: 8px;
 
@@ -43,8 +43,8 @@ section {
   border: none;
   border-radius: var(--small-border-radius);
 }
-#add-tooltip {
-  left: 0;
+#delete-tooltip {
+  right: 0;
 }
 #teacher-buttons > button:hover {
   background-color: var(--primary-dark);

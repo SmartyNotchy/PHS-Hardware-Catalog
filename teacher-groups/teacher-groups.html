@@ -39,9 +39,22 @@
       src="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-groups/teacher-groups.js"
       defer
     ></script>
+    <script
+      src="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/layouts/baselayout.js"
+      defer
+    ></script>
   </head>
 
   <body>
+    <button id="hide-nav">
+      <img
+        id="right-chevron-img"
+        class="invert rotate180"
+        src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/right-chevron.png"
+        alt="<"
+      />
+    </button>
+
     <header>
       <h1 id="left-header">Teacher</h1>
       <div id="right-header">
@@ -125,7 +138,7 @@
                 src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/add.png"
                 alt="Add"
               />
-              <span class="tooltip" id="add-tooltip">Add a group</span>
+              <span id="add-tooltip" class="tooltip">Add a group</span>
             </button>
             <button>
               <img
@@ -134,7 +147,7 @@
                 src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/edit.png"
                 alt="Edit"
               />
-              <span class="tooltip">Edit a group</span>
+              <span id="edit-tooltip" class="tooltip">Edit a group</span>
             </button>
             <button>
               <img
@@ -143,7 +156,7 @@
                 src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/delete.png"
                 alt="Delete"
               />
-              <span class="tooltip">Delete a group</span>
+              <span id="delete-tooltip" class="tooltip">Delete a group</span>
             </button>
           </div>
 

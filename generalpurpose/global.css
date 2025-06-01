@@ -7,6 +7,9 @@
   text-decoration: none;
 }
 :root {
+  --chromebook-browser-resolution-width: 1366px;
+  --chromebook-browser-resolution-height: 599px;
+
   --font-family: "Inter", "Segoe UI", sans-serif;
 
   --small-border-radius: 8px;
@@ -25,6 +28,8 @@ body {
   width: 100vw;
   padding: 0;
   margin: 0;
+
+  overflow: hidden;
 }
 
 .image-wrapper {
@@ -48,6 +53,9 @@ img {
 }
 img.invert {
   filter: invert(1);
+}
+img.rotate180 {
+  transform: rotate(180deg);
 }
 
 button {

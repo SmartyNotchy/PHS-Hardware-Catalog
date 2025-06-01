@@ -129,7 +129,7 @@ select {
 }
 select:focus {
   border: none;
-  outline-color: (--primary);
+  outline-color: var(--primary);
 }
 
 #input-wrapper {
