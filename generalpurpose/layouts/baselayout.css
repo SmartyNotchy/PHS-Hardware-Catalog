@@ -26,6 +26,7 @@ header {
 
   z-index: 1;
 }
+
 header #left-header {
   height: 100%;
 
@@ -39,6 +40,47 @@ header #left-header {
   font-size: 80px;
   font-weight: var(--bold-font-weight);
 }
+
+header #middle-header {
+  height: 100%;
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+#search-bar {
+  height: 48px;
+  width: 350px;
+
+  padding: 16px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-color: var(--secondary);
+  color: var(--text-dark);
+
+  font-size: 28px;
+  font-weight: var(--regular-font-weight);
+
+  border: none;
+  border-radius: var(--medium-border-radius);
+
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+#search-bar:focus {
+  outline-color: var(--secondary);
+}
+#search-bar::placeholder {
+  border-color: var(--text-medium);
+  opacity: 1;
+}
+
 header #right-header {
   height: 100%;
 
@@ -90,6 +132,7 @@ nav {
 :root.nav-collapsed nav {
   display: none;
 }
+
 #hide-nav {
   position: absolute;
   top: calc(var(--header-height) + 20px);

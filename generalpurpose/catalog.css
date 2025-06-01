@@ -1,6 +1,6 @@
 :root {
-  --min-item-width: 250px;
-  --item-height: 256px;
+  --item-width: 250px;
+  --item-height: 250px;
 }
 
 section {
@@ -11,9 +11,9 @@ section {
   gap: 16px;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--min-item-width), 1fr));
+  grid-template-columns: repeat(auto-fit, var(--item-width));
   grid-auto-rows: var(--item-height);
-  justify-items: start;
+  justify-content: center;
   align-items: start;
 
   color: var(--text-dark);
@@ -76,4 +76,8 @@ section {
   font-weight: var(--medium-font-weight);
 
   border: none;
+}
+
+#item-info {
+  display: none;
 }
