@@ -9,7 +9,7 @@ function toggleContent(x) {
   });
 }
 
-
+//whyyyyyy
 document.addEventListener('DOMContentLoaded', () => {
   const backBtn = document.getElementById('back');
   if (backBtn) {
