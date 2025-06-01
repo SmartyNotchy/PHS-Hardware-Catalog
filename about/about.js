@@ -10,10 +10,6 @@ function toggleContent(x) {
 }
 //whyyyyyy
 function backNavigation(){
-const back = document.getElementById('back');
-  
-  back.addEventListener("click", () => {
-    alert('Login Successful');
-      window.history.go(-1);
+window.history.back();
    };
                          }
