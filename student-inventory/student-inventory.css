@@ -1,7 +1,7 @@
 :root {
-  --red: hsl(0, 70%, 50%);
-  --orange: hsl(20, 85%, 55%);
-  --green: hsl(110, 65%, 35%);
+  --red: hsl(0, 55%, 45%);
+  --orange: hsl(20, 70%, 50%);
+  --green: hsl(110, 55%, 35%);
 
   --item-height: 200px;
   --adjacent-div-width: 200px;
@@ -14,33 +14,6 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-}
-
-section {
-  width: 100%;
-
-  padding: 16px;
-  gap: 8px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-
-  background-color: var(--secondary-dark);
-
-  border: none;
-}
-#group-members-section {
-  border-bottom-left-radius: var(--big-border-radius);
-  border-bottom-right-radius: var(--big-border-radius);
-}
-#checked-out-items-section {
-  border-radius: var(--big-border-radius);
-}
-#pending-requests-section {
-  border-top-left-radius: var(--big-border-radius);
-  border-top-right-radius: var(--big-border-radius);
 }
 
 #group-members-wrapper {
@@ -57,21 +30,6 @@ section {
   font-weight: var(--regular-font-weight);
 }
 
-.section h2 {
-  height: auto;
-  width: 100%;
-
-  margin-bottom: 16px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: var(--h2-font-size);
-  font-weight: var(--regular-font-weight);
-
-  color: var(--text-dark);
-}
 .item {
   width: 80%;
 
@@ -94,6 +52,7 @@ section {
 #pending-requests-section .item {
   height: 200px;
 }
+
 .item-img-wrapper {
   height: 100%;
   width: 200px;
@@ -164,8 +123,8 @@ section {
   justify-content: center;
   align-items: flex-end;
 }
-.section a,
-.section button {
+section a,
+section button {
   height: 48px;
   width: 200px;
 

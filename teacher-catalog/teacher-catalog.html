@@ -24,11 +24,15 @@
     />
     <link
       rel="stylesheet"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/generallayout.css"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/layouts/baselayout.css"
     />
     <link
       rel="stylesheet"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/searchbar.css"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/headersearchbar.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/sectioncomponents.css"
     />
     <link
       rel="stylesheet"
@@ -40,7 +44,7 @@
     <header>
       <h1 id="left-header">Teacher</h1>
       <div id="middle-header">
-        <input id="search-bar" type="text" placeholder="search..." />
+        <input id="search-bar" type="search" placeholder="search..." />
       </div>
       <div id="right-header">
         <button>
@@ -90,9 +94,14 @@
       </div>
       <div id="bottom-navbar">
         <a
-          href="https://smartynotchy.github.io/PHS-Hardware-Catalog/helppage/helppage.html"
+          href="https://smartynotchy.github.io/PHS-Hardware-Catalog/about/about.html"
         >
-          Help<img id="help-img" class="invert" src="" alt="" />
+          About<img
+            id="about-img"
+            class="invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/about.png"
+            alt=""
+          />
         </a>
         <a
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-login/teacher-login.html"
@@ -108,56 +117,61 @@
     </nav>
 
     <main>
-      <button type="button" class="item">
-        <h3 class="item-name">Arduino Motor Shield Rev3</h3>
-        <div class="image-wrapper">
-          <img
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-motor-shield-rev3.png"
-            alt=""
-          />
+      <section>
+        <h2 class="section-title">Entire Catalog</h2>
+        <div class="section-body">
+          <button class="item">
+            <h3 class="item-name">Arduino Motor Shield Rev3</h3>
+            <div class="image-wrapper">
+              <img
+                src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-motor-shield-rev3.png"
+                alt=""
+              />
+            </div>
+            <p class="qty">25/38</p>
+          </button>
+          <button class="item">
+            <h3 class="item-name">Arduino Uno Rev3</h3>
+            <div class="image-wrapper">
+              <img
+                src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-uno-rev3.png"
+                alt=""
+              />
+            </div>
+            <p class="qty">41/45</p>
+          </button>
+          <button class="item">
+            <h3 class="item-name">Raspberry Pi 5</h3>
+            <div class="image-wrapper">
+              <img
+                src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/raspberry-pi-5.png"
+                alt=""
+              />
+            </div>
+            <p class="qty">19/26</p>
+          </button>
+          <button class="item">
+            <h3 class="item-name">Item 4</h3>
+            <div class="image-wrapper"><img src="" alt="" /></div>
+            <p class="qty"></p>
+          </button>
+          <button class="item">
+            <h3 class="item-name">Item 5</h3>
+            <div class="image-wrapper"><img src="" alt="" /></div>
+            <p class="qty"></p>
+          </button>
+          <button class="item">
+            <h3 class="item-name">Item 6</h3>
+            <div class="image-wrapper"><img src="" alt="" /></div>
+            <p class="qty"></p>
+          </button>
+          <button class="item">
+            <h3 class="item-name">Item 7</h3>
+            <div class="image-wrapper"><img src="" alt="" /></div>
+            <p class="qty"></p>
+          </button>
         </div>
-        <p class="qty">25/38</p>
-      </button>
-      <button type="button" class="item">
-        <h3 class="item-name">Arduino Uno Rev3</h3>
-        <div class="image-wrapper">
-          <img
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-uno-rev3.png"
-            alt=""
-          />
-        </div>
-        <p class="qty">41/45</p>
-      </button>
-      <button type="button" class="item">
-        <h3 class="item-name">Raspberry Pi 5</h3>
-        <div class="image-wrapper">
-          <img
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/raspberry-pi-5.png"
-            alt=""
-          />
-        </div>
-        <p class="qty">19/26</p>
-      </button>
-      <button type="button" class="item">
-        <h3 class="item-name">Item 4</h3>
-        <div class="image-wrapper"><img src="" alt="" /></div>
-        <p class="qty"></p>
-      </button>
-      <button type="button" class="item">
-        <h3 class="item-name">Item 5</h3>
-        <div class="image-wrapper"><img src="" alt="" /></div>
-        <p class="qty"></p>
-      </button>
-      <button type="button" class="item">
-        <h3 class="item-name">Item 6</h3>
-        <div class="image-wrapper"><img src="" alt="" /></div>
-        <p class="qty"></p>
-      </button>
-      <button type="button" class="item">
-        <h3 class="item-name">Item 7</h3>
-        <div class="image-wrapper"><img src="" alt="" /></div>
-        <p class="qty"></p>
-      </button>
+      </section>
     </main>
   </body>
 </html>

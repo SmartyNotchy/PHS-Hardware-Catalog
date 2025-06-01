@@ -10,19 +10,22 @@ main {
   overflow-y: auto;
 }
 
-#top-main {
-  height: 64px;
-  width: 100%;
+section {
+  background-color: var(--secondary);
+}
 
-  padding-left: 16px;
+#teacher-buttons {
+  position: absolute;
+  top: 24px;
+  left: 16px;
+
   gap: 8px;
 
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-end;
 }
-#top-main button {
+#teacher-buttons button {
   position: relative;
 
   height: 48px;
@@ -43,15 +46,16 @@ main {
 #add-tooltip {
   left: 0;
 }
-#top-main > button:hover {
+#teacher-buttons > button:hover {
   background-color: var(--primary-dark);
 }
-#top-main > button:active {
+#teacher-buttons > button:active {
   background-color: var(--primary-darker);
 }
 
-#bottom-main {
-  padding: 16px;
+#groups-body {
+  position: relative;
+
   gap: 16px;
   overflow-y: auto;
 
@@ -63,7 +67,8 @@ main {
   color: var(--text-dark);
 }
 .group {
-  height: auto;
+  height: 217px;
+  height: 217px;
   width: 100%;
 
   padding: 16px;
@@ -87,7 +92,7 @@ main {
   background-color: var(--secondary-darkest);
 }
 
-.group h3 {
+.group-name {
   width: 100%;
   height: auto;
 
@@ -98,11 +103,9 @@ main {
   font-size: 32px;
   font-weight: var(--medium-font-weight);
 }
-.group ul {
+.group-members {
   min-height: 80px;
   width: 100%;
-
-  padding: 8px;
 
   display: flex;
   flex-direction: column;
@@ -112,7 +115,7 @@ main {
   font-size: 16px;
   font-weight: var(--regular-font-weight);
 }
-.group p {
+.any-request-forms {
   height: auto;
   width: 100%;
 

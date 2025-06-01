@@ -1,0 +1,167 @@
+:root {
+  --red: hsl(0, 55%, 45%);
+  --green: hsl(110, 55%, 35%);
+
+  --item-height: 200px;
+  --adjacent-div-width: 200px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  gap: 8px;
+
+  overflow-y: auto;
+}
+section {
+  background-color: var(--secondary);
+}
+
+.item {
+  width: 80%;
+
+  padding: 16px;
+  gap: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--secondary-dark);
+
+  border: none;
+  border-radius: var(--medium-border-radius);
+}
+
+.item-header {
+  position: relative;
+
+  height: 48px;
+  width: 100%;
+
+  padding: 16px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--text-dark);
+}
+time {
+  position: absolute;
+  top: 4px;
+  left: 16px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 20px;
+  font-weight: var(--medium-font-weight);
+}
+.item-header h3 {
+  height: auto;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 40px;
+  font-weight: var(--medium-font-weight);
+}
+
+.item-body {
+  height: 150px;
+  width: 100%;
+
+  padding: 16px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--text-medium);
+}
+.item-img-wrapper {
+  height: 100%;
+  width: 200px;
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-name {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 28px;
+  font-weight: var(--regular-font-weight);
+
+  border: none;
+}
+.item-qty {
+  margin-right: 12px;
+  font-weight: var(--bold-font-weight);
+}
+
+main .buttons-wrapper {
+  height: 100%;
+  width: 200px;
+  flex-shrink: 0;
+
+  gap: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+main button {
+  height: 48px;
+  width: 200px;
+
+  padding: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--text-light);
+  font-size: 16px;
+  font-weight: var(--regular-font-weight);
+
+  border: none;
+  border-radius: var(--small-border-radius);
+}
+.approve-button {
+  background-color: var(--green);
+}
+.approve-button:hover,
+.approve-button:active {
+  background-color: transparent;
+  border: 2px solid var(--green);
+  color: var(--green);
+}
+.decline-button {
+  background-color: var(--red);
+}
+.decline-button:hover,
+.decline-button:active {
+  background-color: transparent;
+  border: 2px solid var(--red);
+  color: var(--red);
+}

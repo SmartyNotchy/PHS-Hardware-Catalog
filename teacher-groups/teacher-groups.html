@@ -24,7 +24,11 @@
     />
     <link
       rel="stylesheet"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/generallayout.css"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/layouts/baselayout.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/sectioncomponents.css"
     />
     <link
       rel="stylesheet"
@@ -32,7 +36,7 @@
     />
 
     <script
-      src="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-groupspage/teacher-groupspage.js"
+      src="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-groups/teacher-groups.js"
       defer
     ></script>
   </head>
@@ -88,9 +92,14 @@
       </div>
       <div id="bottom-navbar">
         <a
-          href="https://smartynotchy.github.io/PHS-Hardware-Catalog/helppage/helppage.html"
+          href="https://smartynotchy.github.io/PHS-Hardware-Catalog/about/about.html"
         >
-          Help<img id="help-img" class="invert" src="" alt="" />
+          About<img
+            id="about-img"
+            class="invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/about.png"
+            alt=""
+          />
         </a>
         <a
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-login/teacher-login.html"
@@ -106,133 +115,109 @@
     </nav>
 
     <main>
-      <div id="top-main">
-        <button type="button">
-          <img
-            id="add-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/add.png"
-            id="add-img"
-            alt="Add"
-          />
-          <span class="tooltip" id="add-tooltip">Add a group</span>
-        </button>
-        <button type="button">
-          <img
-            id="edit-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/edit.png"
-            id="edit-img"
-            alt="Edit"
-          />
-          <span class="tooltip">Edit a group</span>
-        </button>
-        <button type="button">
-          <img
-            id="delete-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/delete.png"
-            id="delete-img"
-            alt="Delete"
-          />
-          <span class="tooltip">Delete a group</span>
-        </button>
-      </div>
+      <section id="groups">
+        <h2 class="section-title">
+          <div id="teacher-buttons">
+            <button>
+              <img
+                id="add-img"
+                class="invert"
+                src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/add.png"
+                alt="Add"
+              />
+              <span class="tooltip" id="add-tooltip">Add a group</span>
+            </button>
+            <button>
+              <img
+                id="edit-img"
+                class="invert"
+                src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/edit.png"
+                alt="Edit"
+              />
+              <span class="tooltip">Edit a group</span>
+            </button>
+            <button>
+              <img
+                id="delete-img"
+                class="invert"
+                src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/delete.png"
+                alt="Delete"
+              />
+              <span class="tooltip">Delete a group</span>
+            </button>
+          </div>
 
-      <div id="bottom-main">
-        <button type="button" class="group">
-          <h3>Group 1</h3>
-          <ul>
-            <li>Steve</li>
-            <li>Bombodillo Crocodilo</li>
-            <li>Trelelero Tralalala</li>
-            <li>Dih</li>
-          </ul>
-          <p>
-            Any Request Forms:
-            <br />
-            Any Report Forms:
-          </p>
-        </button>
-        <button type="button" class="group">
-          <h3>Group 2</h3>
-          <ul>
-            <li>Steve</li>
-            <li>Bombodillo Crocodilo</li>
-            <li>Trelelero Tralalala</li>
-          </ul>
-          <p>
-            Any Request Forms:
-            <br />
-            Any Report Forms:
-          </p>
-        </button>
-        <button type="button" class="group">
-          <h3>Group 3</h3>
-          <ul>
-            <li>Steve</li>
-            <li>Bombodillo Crocodilo</li>
-            <li>Trelelero Tralalala</li>
-          </ul>
-          <p>
-            Any Request Forms:
-            <br />
-            Any Report Forms:
-          </p>
-        </button>
-        <button type="button" class="group">
-          <h3>Group 4</h3>
-          <ul>
-            <li>Steve</li>
-            <li>Bombodillo Crocodilo</li>
-            <li>Trelelero Tralalala</li>
-          </ul>
-          <p>
-            Any Request Forms:
-            <br />
-            Any Report Forms:
-          </p>
-        </button>
-        <button type="button" class="group">
-          <h3>Group 5</h3>
-          <ul>
-            <li>Steve</li>
-            <li>Bombodillo Crocodilo</li>
-            <li>Trelelero Tralalala</li>
-          </ul>
-          <p>
-            Any Request Forms:
-            <br />
-            Any Report Forms:
-          </p>
-        </button>
-        <button type="button" class="group">
-          <h3>Group 6</h3>
-          <ul>
-            <li>Steve</li>
-            <li>Bombodillo Crocodilo</li>
-            <li>Trelelero Tralalala</li>
-          </ul>
-          <p>
-            Any Request Forms:
-            <br />
-            Any Report Forms:
-          </p>
-        </button>
-        <button type="button" class="group">
-          <h3>Group 7</h3>
-          <ul>
-            <li>Steve</li>
-            <li>Bombodillo Crocodilo</li>
-            <li>Trelelero Tralalala</li>
-          </ul>
-          <p>
-            Any Request Forms:
-            <br />
-            Any Report Forms:
-          </p>
-        </button>
-      </div>
+          Groups
+        </h2>
+
+        <div id="groups-body" class="section-body">
+          <button class="group">
+            <h3 class="group-name">Group 1</h3>
+            <ul class="group-members">
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+              <li>Dih</li>
+              <li>Veiny</li>
+            </ul>
+            <p class="any-request-forms">Any Request Forms:</p>
+          </button>
+          <button class="group">
+            <h3 class="group-name">Group 2</h3>
+            <ul class="group-members">
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+            <p class="any-request-forms">Any Request Forms:</p>
+          </button>
+          <button class="group">
+            <h3 class="group-name">Group 3</h3>
+            <ul class="group-members">
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+            <p class="any-request-forms" p>Any Request Forms:</p>
+          </button>
+          <button class="group">
+            <h3 class="group-name">Group 4</h3>
+            <ul class="group-members">
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+            <p class="any-request-forms">Any Request Forms:</p>
+          </button>
+          <button class="group">
+            <h3 class="group-name">Group 5</h3>
+            <ul class="group-members">
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+            <p class="any-request-forms">Any Request Forms:</p>
+          </button>
+          <button class="group">
+            <h3 class="group-name">Group 6</h3>
+            <ul class="group-members">
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+            <p class="any-request-forms">Any Request Forms:</p>
+          </button>
+          <button class="group">
+            <h3 class="group-name">Group 7</h3>
+            <ul class="group-members">
+              <li>Steve</li>
+              <li>Bombodillo Crocodilo</li>
+              <li>Trelelero Tralalala</li>
+            </ul>
+            <p class="any-request-forms">Any Request Forms:</p>
+          </button>
+        </div>
+      </section>
     </main>
   </body>
 </html>

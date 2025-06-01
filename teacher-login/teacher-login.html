@@ -24,7 +24,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-login/teacher-login.css"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/layouts/baseloginlayout.css"
     />
   </head>
 
@@ -33,26 +33,23 @@
       <a
         href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html"
         id="student-login"
-        >Student Login</a
+        ><p>Student Login</p></a
       >
       <a
         href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-signup/student-signup.html"
         id="student-signup"
-        >Student Signup</a
-      >
-      <a
-        href="https://smartynotchy.github.io/PHS-Hardware-Catalog/helppage/helppage.html"
-        id="help"
-        >Help</a
+        ><p>Student Signup</p></a
       >
     </header>
 
     <main>
       <form>
-        <h1>Teacher Login</h1>
-        <label id="password">Password:</label>
-        <div id="input-wrapper"><input type="text" /></div>
-        <div id="button-wrapper"><button>Login</button></div>
+        <h1 id="form-title">Teacher Login</h1>
+        <label>Password:</label>
+        <div id="input-wrapper">
+          <input id="password-input" type="password" />
+        </div>
+        <div id="button-wrapper"><button id="login-button">Login</button></div>
       </form>
     </main>
   </body>

@@ -24,15 +24,11 @@
     />
     <link
       rel="stylesheet"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/generallayout.css"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/layouts/baselayout.css"
     />
     <link
       rel="stylesheet"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/formsselect.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-requestform/student-requestform.css"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/layouts/baseformlayout.css"
     />
   </head>
 
@@ -77,9 +73,14 @@
       </div>
       <div id="bottom-navbar">
         <a
-          href="https://smartynotchy.github.io/PHS-Hardware-Catalog/helppage/helppage.html"
+          href="https://smartynotchy.github.io/PHS-Hardware-Catalog/about/about.html"
         >
-          Help<img id="help-img" class="invert" src="" alt="" />
+          About<img
+            id="about-img"
+            class="invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/about.png"
+            alt=""
+          />
         </a>
         <a
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html"
@@ -95,30 +96,30 @@
     </nav>
 
     <main>
-      <form>
-        <h2>Request Item</h2>
-        <p>
-          Item Name:
-          <span>
-            <select>
-              <option>Arduino Uno Rev3</option>
-              <option>Arduino Motor Shield Rev3</option>
-              <option>Raspberry Pi 5</option>
-            </select>
-          </span>
-        </p>
-        <div id="image-wrapper">
-          <img
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-uno-rev3.png"
-            alt=""
-          />
-        </div>
-        <label>Reason for Request</label>
-        <div id="textarea-wrapper"><textarea></textarea></div>
-        <div id="button-wrapper">
-          <button type="submit">Submit Request</button>
-        </div>
-      </form>
+      <section>
+        <form>
+          <h2 id="form-title">Request Item</h2>
+          <div id="item-name" class="label-select">
+            <label>Item Name:</label>
+            <span>
+              <select>
+                <option>Arduino Uno Rev3</option>
+                <option>Arduino Motor Shield Rev3</option>
+                <option>Raspberry Pi 5</option>
+              </select>
+            </span>
+          </div>
+          <div id="image-wrapper">
+            <img
+              src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-uno-rev3.png"
+              alt=""
+            />
+          </div>
+          <label>Reason for Request</label>
+          <div id="textarea-wrapper"><textarea></textarea></div>
+          <div id="button-wrapper"><button>Submit Request</button></div>
+        </form>
+      </section>
     </main>
   </body>
 </html>

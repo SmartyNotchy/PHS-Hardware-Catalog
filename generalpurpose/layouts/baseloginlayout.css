@@ -8,10 +8,10 @@ body {
 }
 
 header {
-  height: auto;
+  height: 100px;
   width: 100%;
 
-  padding: 16px 32px 0 32px;
+  padding: 16px 32px 8px 32px;
   gap: 16px;
 
   display: flex;
@@ -20,20 +20,16 @@ header {
   align-items: center;
 }
 header a {
-  height: 80px;
+  height: 64px;
   width: auto;
 
   padding: 32px;
 
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 
   background-color: var(--primary);
-  color: var(--text-light);
-  font-size: 20px;
-  font-weight: var(--regular-font-weight);
 
   border: none;
   border-radius: var(--medium-border-radius);
@@ -44,25 +40,16 @@ header a:active {
   color: var(--primary);
   border: 2px solid var(--primary);
 }
-
-header.text {
-  height: 80px;
-  width: auto;
-
-  padding: 32px;
+header a p {
+  height: 100%;
 
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 
-  background-color: var(--primary);
   color: var(--text-light);
   font-size: 20px;
   font-weight: var(--regular-font-weight);
-
-  border: none;
-  border-radius: var(--medium-border-radius);
 }
 
 main {
@@ -74,8 +61,11 @@ main {
   align-items: center;
 }
 form {
-  height: 600px;
-  width: 600px;
+  height: 450px;
+  width: 450px;
+
+  padding: 2%;
+  gap: 8px;
 
   display: flex;
   flex-direction: column;
@@ -89,9 +79,10 @@ form {
   border-radius: var(--big-border-radius);
 }
 
-form h1 {
-  height: 164px;
+#form-title {
   width: 100%;
+
+  margin-bottom: 64px;
 
   display: flex;
   flex-direction: column;
@@ -102,12 +93,10 @@ form h1 {
   font-weight: var(--bold-font-weight);
 }
 label {
-  height: 30px;
   width: 100%;
 
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 
   font-size: 24px;
@@ -115,18 +104,14 @@ label {
 }
 
 #select-wrapper {
-  height: 64px;
   width: 100%;
 
-  padding-top: 8px;
-
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 select {
-  height: 32px;
+  height: 36px;
   width: 250px;
 
   display: flex;
@@ -147,22 +132,47 @@ select:focus {
   outline-offset: 2px;
 }
 
-form #button-wrapper {
-  height: 164px;
+#input-wrapper {
   width: 100%;
 
-  padding-top: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  height: 36px;
+  width: 250px;
+
+  padding: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--secondary-darker);
+  font-size: 20px;
+  font-weight: var(--regular-font-weight);
+
+  border: 2px solid var(--primary);
+  border-radius: var(--small-border-radius);
+}
+input:focus {
+  border: none;
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+#button-wrapper {
+  width: 100%;
+
+  margin-top: 64px;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-
-  color: var(--text-dark);
-  font-size: 32px;
-  font-weight: var(--thin-font-weight);
 }
-form button {
+button {
   height: 64px;
   width: 300px;
 

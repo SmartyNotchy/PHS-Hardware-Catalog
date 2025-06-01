@@ -14,18 +14,12 @@
       href="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/PFP-logo.png"
     />
 
-    <link
-      rel="stylesheet"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/global.css"
-    />
+    <link rel="stylesheet" href="/generalpurpose/global.css" />
     <link
       rel="stylesheet"
       href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/colorpalette.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.css"
-    />
+    <link rel="stylesheet" href="/generalpurpose/layouts/baseloginlayout.css" />
 
     <script
       src="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.js"
@@ -38,30 +32,25 @@
       <a
         href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-signup/student-signup.html"
         id="student-signup"
-        >Student Signup</a
+        ><p>Student Signup</p></a
       >
       <a
         href="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-login/teacher-login.html"
         id="teacher-login"
-        >Teacher Login</a
-      >
-      <a
-        href="https://smartynotchy.github.io/PHS-Hardware-Catalog/helppage/helppage.html"
-        id="help"
-        >Help</a
+        ><p>Teacher Login</p></a
       >
     </header>
 
     <main>
       <form>
-        <h1>Student Login</h1>
+        <h1 id="form-title">Student Login</h1>
         <label>Select your group:</label>
         <div id="select-wrapper">
-          <select>
+          <select id="groups-select">
             <option></option>
           </select>
         </div>
-        <div id="button-wrapper"><button>Login</button></div>
+        <div id="button-wrapper"><button id="login-button">Login</button></div>
       </form>
     </main>
   </body>

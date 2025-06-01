@@ -1,10 +1,10 @@
 :root {
-  --header-height: 128px;
+  --header-height: 100px;
+  --max-header-height: 128px;
 
-  --nav-width: 240px;
-  --top-navbar-height: calc(
-    100vh - var(--header-height) - var(--bottom-navbar-height)
-  );
+  --nav-width: 200px;
+  --max-nav-width: 240px;
+  --top-navbar-height: 100%;
   --bottom-navbar-height: 100px;
   --button-height: 48px;
 }
@@ -34,7 +34,7 @@ header {
 
   z-index: 1;
 }
-#left-header {
+header #left-header {
   height: 100%;
 
   padding-left: 24px;
@@ -44,10 +44,10 @@ header {
   justify-content: flex-start;
   align-items: center;
 
-  font-size: 75px;
+  font-size: 64px;
   font-weight: var(--bold-font-weight);
 }
-#right-header {
+header #right-header {
   height: 100%;
 
   padding-right: 16px;
@@ -57,7 +57,7 @@ header {
   justify-content: flex-end;
   align-items: center;
 }
-#right-header button {
+header button {
   height: 48px;
   width: 48px;
 
@@ -72,10 +72,10 @@ header {
   border: none;
   border-radius: var(--small-border-radius);
 }
-#right-header button:hover {
+header button:hover {
   background-color: var(--primary-darkest);
 }
-#light-mode-tooltip {
+header #light-mode-tooltip {
   top: 93px;
   right: 16px;
 }
@@ -87,6 +87,7 @@ nav {
 
   height: calc(100vh - var(--header-height));
   width: var(--nav-width);
+  max-width: var(--nav-max-width);
 
   display: flex;
   flex-direction: column;
@@ -95,7 +96,7 @@ nav {
   background-color: var(--primary);
   color: var(--text-light);
 }
-#top-navbar {
+nav #top-navbar {
   height: var(--top-navbar-height);
   width: 100%;
 
@@ -104,7 +105,7 @@ nav {
   justify-content: flex-start;
   align-items: center;
 }
-#bottom-navbar {
+nav #bottom-navbar {
   height: var(--bottom-navbar-height);
   width: 100%;
 
@@ -114,7 +115,7 @@ nav {
   align-items: center;
 }
 
-#menu-text {
+nav #menu-text {
   height: 72px;
   width: 100%;
 
@@ -146,17 +147,7 @@ nav a:hover {
 nav a:active {
   background-color: var(--primary-darker);
 }
-
-nav #catalog-img {
-  max-height: 24px;
-}
-nav #inventory-img {
-  max-height: 24px;
-}
-nav #groups-img {
-  max-height: 24px;
-}
-nav #request-forms-img {
+nav img {
   max-height: 24px;
 }
 nav #logout-img {
@@ -170,22 +161,7 @@ main {
   bottom: 0;
   right: 0;
 
+  overflow-y: auto;
+
   background-color: var(--secondary);
-}
-
-::-webkit-scrollbar {
-  height: 16px;
-  width: 12px;
-}
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background-color: var(--primary);
-
-  border: 2px solid var(--secondary);
-  border-radius: var(--small-border-radius);
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--primary-dark);
 }

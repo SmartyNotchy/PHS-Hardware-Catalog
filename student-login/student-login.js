@@ -11,7 +11,7 @@ const groups = [
 ];
 
 window.addEventListener("DOMContentLoaded", () => {
-  const select = document.getElementById("student-id-select");
+  const select = document.getElementById("groups-select");
   const loginButton = document.getElementById("login-button");
   while (select.options.length > 1) {
     select.remove(1);
