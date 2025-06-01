@@ -11,16 +11,15 @@ function toggleContent(x) {
 
 
 function backNavigation(){
-const button = document.getElementById('go-back');
-button.addEventListener("click", () => {
-
+const back = document.getElementById('back');
+  if(back){
+  back.addEventListener("click", () => {
+    alert('Login Successful');
+      window.history.go(-1);
+  }
    };
 
 document.addEventListener('DOMContentLoaded', () => {
-      document.addEventListener('click', function(event) {
-        if (event.target.id === 'back') {
-          alert('Login Succesful');
-          window.history.go(-1);
-        }
-      });
+         backNavigation():
+     
     });
