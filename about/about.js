@@ -10,6 +10,6 @@ function toggleContent(x) {
 }
 //whyyyyyy
 function backNavigation(){
-window.history.back();
+window.history.go(-1);
    };
                          }
