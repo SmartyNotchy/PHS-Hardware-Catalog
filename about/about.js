@@ -10,16 +10,12 @@ function toggleContent(x) {
 }
 
 
-function backNavigation(){
-const back = document.getElementById('back');
-  if(back){
-  back.addEventListener("click", () => {
-    alert('Login Successful');
-      window.history.go(-1);
-  }
-   };
-
 document.addEventListener('DOMContentLoaded', () => {
-         backNavigation():
-     
+  const backBtn = document.getElementById('back');
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      alert('Login Successful');
+      window.history.go(-1);
     });
+  }
+});
