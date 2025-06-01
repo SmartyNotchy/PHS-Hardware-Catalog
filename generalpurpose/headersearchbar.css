@@ -26,10 +26,12 @@
 
   border: none;
   border-radius: var(--medium-border-radius);
+
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 #search-bar:focus {
-  outline: 2px solid var(--secondary);
-  outline-offset: 2px;
+  outline-color: var(--secondary);
 }
 #search-bar::placeholder {
   border-color: var(--text-medium);

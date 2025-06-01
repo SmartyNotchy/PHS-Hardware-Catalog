@@ -8,10 +8,9 @@ body {
 }
 
 header {
-  height: 100px;
   width: 100%;
 
-  padding: 16px 32px 8px 32px;
+  padding: 16px 32px 0 32px;
   gap: 16px;
 
   display: flex;
@@ -30,15 +29,15 @@ header a {
   align-items: center;
 
   background-color: var(--primary);
+  color: var(--text-light);
 
-  border: none;
+  border: 2px solid var(--primary);
   border-radius: var(--medium-border-radius);
 }
 header a:hover,
 header a:active {
   background-color: transparent;
   color: var(--primary);
-  border: 2px solid var(--primary);
 }
 header a p {
   height: 100%;
@@ -47,7 +46,6 @@ header a p {
   justify-content: center;
   align-items: center;
 
-  color: var(--text-light);
   font-size: 20px;
   font-weight: var(--regular-font-weight);
 }
@@ -125,11 +123,13 @@ select {
 
   border: 2px solid var(--primary);
   border-radius: var(--small-border-radius);
+
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 select:focus {
   border: none;
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+  outline-color: (--primary);
 }
 
 #input-wrapper {
@@ -155,11 +155,13 @@ input {
 
   border: 2px solid var(--primary);
   border-radius: var(--small-border-radius);
+
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 input:focus {
   border: none;
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+  outline-color: var(--primary);
 }
 
 #button-wrapper {
@@ -186,12 +188,11 @@ button {
   font-size: 32px;
   font-weight: var(--regular-font-weight);
 
-  border: none;
+  border: 2px solid var(--primary);
   border-radius: var(--medium-border-radius);
 }
 form button:hover,
 form button:active {
   background-color: transparent;
   color: var(--primary);
-  border: 2px solid var(--primary);
 }

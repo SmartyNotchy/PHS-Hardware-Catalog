@@ -1,7 +1,7 @@
 function IDcheck() {
   const input = document.getElementById("password-input").value;
 
-  if (input === "abcd") {
+  if (input === "12345678") {
     alert("Login successful");
   } else {
     alert(`The ID "${input}" is not valid.`);
