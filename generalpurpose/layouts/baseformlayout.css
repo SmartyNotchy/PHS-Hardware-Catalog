@@ -176,7 +176,7 @@ form button {
   background-color: var(--primary);
   color: var(--text-light);
 
-  border: 2px solid transparent;
+  border: 2px solid var(--primary);
   border-radius: var(--medium-border-radius);
 }
 form button:hover,

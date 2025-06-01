@@ -68,7 +68,7 @@ header button:hover {
   background-color: var(--primary-darkest);
 }
 header #light-mode-tooltip {
-  top: 93px;
+  top: 90px;
   right: 16px;
 }
 

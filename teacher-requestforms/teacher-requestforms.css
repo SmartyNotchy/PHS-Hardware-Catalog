@@ -149,6 +149,7 @@ main button {
 }
 .approve-button {
   background-color: var(--green);
+  border-color: var(--green);
 }
 .approve-button:hover,
 .approve-button:active {
@@ -157,6 +158,7 @@ main button {
 }
 .decline-button {
   background-color: var(--red);
+  border-color: var(--red);
 }
 .decline-button:hover,
 .decline-button:active {
