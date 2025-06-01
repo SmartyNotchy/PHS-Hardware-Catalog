@@ -1,15 +1,9 @@
-/*function toggleContent(x) {
-  const allParagraphs = document.querySelectorAll(".help-container p");
-  allParagraphs.forEach((p) => {
-    if (p.classList.contains(x)) {
-      p.style.display = "block";
-    } else {
-      p.style.display = "none";
-    }
-  });
-}*/
-//whyyyyyy
-function backNavigation(){
-window.history.go(-1);
-   };
-                         }
+document.addEventListener("DOMContentLoaded", function () {
+  const backButton = document.getElementById("back");
+
+  if (backButton) {
+    backButton.addEventListener("click", function () {
+      window.history.back();
+    });
+  }
+});
