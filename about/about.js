@@ -8,7 +8,18 @@ function toggleContent(x) {
     }
   });
 }
-const button = document.getElementById("go-back");
+
+
+function backNavigation(){
+const button = document.getElementById('go-back');
 button.addEventListener("click", () => {
-  window.history.go(-1);
-});
+window.history.go(-1);
+   };
+
+document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener('click', function(event) {
+        if (event.target.id === 'go-back') {
+          backNavigation();
+        }
+      });
+    });
