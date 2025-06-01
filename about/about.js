@@ -18,7 +18,7 @@ button.addEventListener("click", () => {
 
 document.addEventListener('DOMContentLoaded', () => {
       document.addEventListener('click', function(event) {
-        if (event.target.id === 'go-back') {
+        if (event.target.id === 'back') {
           alert('Login Succesful');
           window.history.go(-1);
         }
