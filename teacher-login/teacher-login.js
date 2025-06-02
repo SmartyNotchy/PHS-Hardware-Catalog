@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
  if (loginButton) {
     loginButton.onclick= () =>{
       if(IDcheck()){
-        window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html";
+        alert("why doesnt this work");
 
       }
       
