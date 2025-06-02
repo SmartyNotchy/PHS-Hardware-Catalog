@@ -6,7 +6,7 @@ function IDcheck() {
     return true;
   } else {
     alert(`The ID "${input}" is not valid.`);
-    document.getElementById("password-input").focus();
+    //document.getElementById("password-input").focus();
     return false;
   }
   
