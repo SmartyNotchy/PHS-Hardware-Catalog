@@ -4,6 +4,7 @@ function IDcheck() {
 
   if (input === "abcd") {
     alert("Login successful");
+    window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html";
     return true;
   } else {
     
