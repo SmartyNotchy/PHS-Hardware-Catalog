@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginButton = document.getElementById("teacher-login-button");
 
  if (loginButton) {
-    loginButton.addEventListener("click", () => {
+    loginButton.onclick= () =>{
       IDcheck();
       window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
-    });
+    };
   } else {
     alert("Login button not found in the DOM.");
   }
