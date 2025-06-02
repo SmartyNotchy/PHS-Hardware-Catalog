@@ -22,7 +22,11 @@
       rel="stylesheet"
       href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/colorpalette.css"
     />
-    <link rel="stylesheet" href="/about/about.css" />
+     <link
+      rel="stylesheet"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/generalpurpose/layouts/baselayout.css"
+    />
+    <link rel="stylesheet" href="about.css" />
 
     <script
       src="https://smartynotchy.github.io/PHS-Hardware-Catalog/about/about.js"
@@ -31,23 +35,21 @@
   </head>
   <body>
     <header>
-      <a
-        href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html"
-        id="student-login"
-        >Student Login</a
-      >
-      <a
-        href="https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-login/teacher-login.html"
-        id="teacher-login"
-        >Teacher Login</a
-      >
-      <a
-        href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-signup/student-signup.html"
-        id="student-signup"
-        >Student Signup</a
-      >
+
+      <div id="right-header">
+        <button>
+          <img
+            id="light-mode-img"
+            class="invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/light-mode.png"
+            alt="Light Mode"
+          />
+          <span class="tooltip" id="light-mode-tooltip">Light Mode</span>
+        </button>
+      </div>
+      
       <button id="back" onclick="backNavigation()">Back</button>
-      <div class="header.txt">Search our Guide or Contact Us Here!</div>
+      
     </header>
     <div class="top-banner">
       <h1></h1>
