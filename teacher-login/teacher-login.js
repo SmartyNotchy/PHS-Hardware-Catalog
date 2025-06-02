@@ -2,12 +2,11 @@
 function IDcheck() {
   const input = document.getElementById("password-input").value;
 
-  if (input === "abcd") {
-    return true;
+  if (input === "1234") {
+    alert(`The ID "${input}" is  valid.`);
   } else {
     alert(`The ID "${input}" is not valid.`);
     //document.getElementById("password-input").focus();
-    return false;
   }
   
 }
@@ -23,12 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
  if (loginButton) {
     loginButton.onclick= () =>{
-      if(IDcheck()){
-        alert("why doesnt this work");
-
-      }
-      
-      
+    IDcheck();
     };
   } else {
     alert("Login button not found in the DOM.");
