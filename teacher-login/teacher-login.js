@@ -3,11 +3,8 @@ function IDcheck() {
   const input = document.getElementById("password-input").value;
 
   if (input === "abcd") {
-    alert("Login successful");
-    window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html";
     return true;
   } else {
-    
     alert(`The ID "${input}" is not valid.`);
     document.getElementById("password-input").focus();
     return false;
