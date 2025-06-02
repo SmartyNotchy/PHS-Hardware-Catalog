@@ -26,11 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
  if (loginButton) {
     loginButton.onclick= () =>{
       if(IDcheck()){
-        window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
+        window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html";
 
-      }else{
-
-        alert("wrong password!");
       }
       
       
