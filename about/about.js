@@ -1,9 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const backButton = document.getElementById("back");
+function backnavigation(){
+  window.history.back();
+}
 
-  if (backButton) {
-    backButton.addEventListener("click", function () {
-      window.history.back();
-    });
-  }
-});
