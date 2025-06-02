@@ -1,12 +1,12 @@
 
 function IDcheck() {
-  const input = document.getElementById("input-wrapper").value;
+  const input = document.getElementById("password-input").value;
 
   if (input === "abcd") {
     alert("Login successful");
   } else {
     alert(`The ID "${input}" is not valid.`);
-    document.getElementById("input-wrapper").focus();
+    document.getElementById("password-input").focus();
   }
 }
 document.addEventListener("DOMContentLoaded", () => {
@@ -19,7 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const loginButton = document.getElementById("teacher-login-button");
 
-  loginButton.addEventListener("click", () => {
-    location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
-  });
+ if (loginButton) {
+    loginButton.addEventListener("click", () => {
+      location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
+    });
+  } else {
+    alert("Login button not found in the DOM.");
+  }
 });
