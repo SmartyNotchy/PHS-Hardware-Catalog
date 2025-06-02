@@ -8,7 +8,7 @@
 }
 
 .help-box {
-  background-color: #fff;
+  background-color: #333;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   padding: 30px;
@@ -25,17 +25,26 @@
   width: 80px;
   height: auto;
   margin-bottom: 20px;
+  background-color: hsl(35, 5%, 70%);
 }
+.item-img-wrapper {
+  height: 100%;
+  width: 200px;
+  flex-shrink: 0;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .help-box h3 {
   font-size: 24px;
-  color: #007bff;
+  color: black;
   margin-bottom: 15px;
 }
 
 .help-box p {
   font-size: 16px;
-  color: #333;
+  color: hsl(35, 5%, 70%);
   line-height: 1.4;
 }
 .search-button {
@@ -56,7 +65,7 @@
   color: #007bff;
 }
 .help-box {
-  background-color: #fff;
+  background-color: hsl(35, 5%, 70%);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   padding: 30px;
@@ -78,7 +87,7 @@
 
 .help-box h3 {
   font-size: 24px;
-  color: #007bff;
+  color: black;
   margin-bottom: 10px;
 }
 
@@ -87,7 +96,7 @@
   margin-top: 10px;
   text-align: left;
   font-size: 16px;
-  color: #333;
+  color: hsl(35, 5%, 70%);
 }
 
 .help-box.active .help-content {
@@ -97,7 +106,7 @@
 .top-banner {
   padding: 40px 20px;
   text-align: center;
-  color: #333;
+  color: hsl(35, 5%, 70%);
 }
 
 .top-banner h1 {
