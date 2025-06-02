@@ -1,4 +1,4 @@
-function backnavigation(){
+function backNavigation(){
   window.history.back();
 }
 
