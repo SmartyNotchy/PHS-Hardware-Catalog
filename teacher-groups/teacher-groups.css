@@ -1,6 +1,5 @@
 :root {
-  --top-main-height: 48px;
-  --min-group-width: 250px;
+  --green: hsl(110, 55%, 35%);
 }
 
 main {
@@ -10,14 +9,13 @@ main {
   overflow-y: auto;
 }
 
-section {
-  background-color: var(--secondary);
+.section-title {
+  position: relative;
 }
-
 #teacher-buttons {
   position: absolute;
-  top: 36px;
-  right: 16px;
+  top: 13px;
+  right: 0px;
 
   gap: 8px;
 
@@ -53,26 +51,25 @@ section {
   background-color: var(--primary-darker);
 }
 
-#groups-body {
-  position: relative;
-
+#groups-container {
   gap: 16px;
   overflow-y: auto;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--min-group-width), 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, 250px);
+  grid-auto-rows: auto;
+
+  justify-content: center;
   align-items: center;
 
   color: var(--text-dark);
 }
 .group {
-  height: 217px;
-  height: 217px;
+  height: 100%;
   width: 100%;
 
   padding: 16px;
-  gap: 8px;
+  gap: 12px;
   overflow: hidden;
 
   display: flex;
@@ -104,7 +101,7 @@ section {
   font-weight: var(--medium-font-weight);
 }
 .group-members {
-  min-height: 80px;
+  height: 100%;
   width: 100%;
 
   display: flex;
@@ -116,7 +113,7 @@ section {
   font-weight: var(--regular-font-weight);
 }
 .any-request-forms {
-  height: auto;
+  height: 20px;
   width: 100%;
 
   display: flex;
@@ -125,4 +122,18 @@ section {
 
   font-size: 16px;
   font-weight: var(--medium-font-weight);
+}
+#request-forms-indicator {
+  height: 100%;
+  width: 20px;
+
+  margin-left: 4px;
+  margin-bottom: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--green);
+  font-size: 40px;
 }

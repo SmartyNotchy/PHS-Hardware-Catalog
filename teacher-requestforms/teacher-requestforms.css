@@ -1,9 +1,6 @@
 :root {
   --red: hsl(0, 55%, 45%);
   --green: hsl(110, 55%, 35%);
-
-  --item-height: 200px;
-  --adjacent-div-width: 200px;
 }
 main {
   display: flex;
@@ -15,15 +12,12 @@ main {
 
   overflow-y: auto;
 }
-section {
-  background-color: var(--secondary);
-}
 
 .request {
   height: 100px;
   width: 80%;
 
-  padding: 16px;
+  padding: 8px;
   gap: 8px;
 
   display: flex;
@@ -39,29 +33,33 @@ section {
 
 .request-left-side {
   height: 100%;
-  width: 200px;
+  width: 150px;
+  flex-shrink: 0;
+
+  gap: 4px;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 time {
-  position: static;
+  height: 24px;
   width: 100%;
+
+  padding: 0 8px;
 
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 
-  font-size: 20px;
+  font-size: 16px;
   font-weight: var(--medium-font-weight);
 }
 .item-img-wrapper {
-  height: 100%;
+  height: calc(100% - 24px);
   width: 100%;
-  flex-shrink: 0;
 
   display: flex;
   flex-direction: row;
@@ -73,7 +71,7 @@ time {
   height: 100%;
   width: 100%;
 
-  gap: 16px;
+  gap: 8px;
 
   display: flex;
   flex-direction: column;

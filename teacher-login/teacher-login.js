@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function IDcheck() {
     const input = document.getElementById("password-input").value;
     if (input === "abcd") {
-      window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
+      window.location.href =
+        "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
       return true;
     } else {
       alert(`The ID "${input}" is not valid.`);
@@ -18,10 +19,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Optional: still allow Enter key in input to work
-  document.getElementById("password-input").addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      IDcheck();
-    }
-  });
+  document
+    .getElementById("password-input")
+    .addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        IDcheck();
+      }
+    });
 });

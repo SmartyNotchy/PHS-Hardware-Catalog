@@ -2,9 +2,6 @@
   --red: hsl(0, 55%, 45%);
   --orange: hsl(20, 70%, 50%);
   --green: hsl(110, 55%, 35%);
-
-  --item-height: 200px;
-  --adjacent-div-width: 200px;
 }
 
 #group-members-section,
