@@ -4,10 +4,14 @@ function IDcheck() {
 
   if (input === "abcd") {
     alert("Login successful");
+    return true;
   } else {
+    
     alert(`The ID "${input}" is not valid.`);
     document.getElementById("password-input").focus();
+    return false;
   }
+  
 }
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", function (event) {
@@ -21,8 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
  if (loginButton) {
     loginButton.onclick= () =>{
-      IDcheck();
-      window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
+      if(IDcheck()){
+        window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
+
+      }else{
+
+        alert("wrong password!");
+      }
+      
+      
     };
   } else {
     alert("Login button not found in the DOM.");
