@@ -1,5 +1,5 @@
 function IDcheck() {
-  const input = document.getElementById("password-input").value;
+  const input = document.getElementById("input-wrapper").value;
 
   if (input === "12345678") {
     alert("Login successful");
@@ -18,7 +18,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const loginButton = document.getElementById("login-button");
 
   loginButton.addEventListener("click", () => {
-    // add your magic william
     window.location.href =
       "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
   });
