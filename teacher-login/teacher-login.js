@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
  if (loginButton) {
     loginButton.addEventListener("click", () => {
-      location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
+      IDcheck();
+      window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
     });
   } else {
     alert("Login button not found in the DOM.");
