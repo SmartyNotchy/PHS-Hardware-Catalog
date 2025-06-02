@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function IDcheck() {
     const input = document.getElementById("password-input").value;
     if (input === "abcd") {
-      window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-dashboard/teacher-dashboard.html";
+      window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
       return true;
     } else {
       alert(`The ID "${input}" is not valid.`);
