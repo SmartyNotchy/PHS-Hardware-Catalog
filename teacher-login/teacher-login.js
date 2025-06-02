@@ -1,10 +1,12 @@
+
 function IDcheck() {
   const input = document.getElementById("input-wrapper").value;
 
-  if (input === "12345678") {
+  if (input === "abcd") {
     alert("Login successful");
   } else {
     alert(`The ID "${input}" is not valid.`);
+    document.getElementById("input-wrapper").focus();
   }
 }
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,11 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-window.addEventListener("DOMContentLoaded", () => {
-  const loginButton = document.getElementById("login-button");
+document.addEventListener("DOMContentLoaded", () => {
+  const loginButton = document.getElementById("teacher-login-button");
 
   loginButton.addEventListener("click", () => {
-    window.location.href =
-      "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
+    location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/teacher-catalog/teacher-catalog.html";
   });
 });
