@@ -3,10 +3,6 @@
   --item-height: 250px;
 }
 
-section {
-  background-color: var(--secondary);
-}
-
 .section-body {
   gap: 16px;
 

@@ -19,14 +19,15 @@ section {
   background-color: var(--secondary);
 }
 
-.item {
+.request {
+  height: 100px;
   width: 80%;
 
   padding: 16px;
   gap: 8px;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 
@@ -36,25 +37,18 @@ section {
   border-radius: var(--medium-border-radius);
 }
 
-.item-header {
-  position: relative;
-
-  height: 48px;
-  width: 100%;
-
-  padding: 16px;
+.request-left-side {
+  height: 100%;
+  width: 200px;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  color: var(--text-dark);
 }
 time {
-  position: absolute;
-  top: 4px;
-  left: 16px;
+  position: static;
+  width: 100%;
 
   display: flex;
   flex-direction: row;
@@ -64,51 +58,52 @@ time {
   font-size: 20px;
   font-weight: var(--medium-font-weight);
 }
-.item-header h3 {
-  height: auto;
+.item-img-wrapper {
+  height: 100%;
   width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 40px;
-  font-weight: var(--medium-font-weight);
-}
-
-.item-body {
-  height: 150px;
-  width: 100%;
-
-  padding: 16px;
+  flex-shrink: 0;
 
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.request-info {
+  height: 100%;
+  width: 100%;
+
+  gap: 16px;
+
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   color: var(--text-medium);
 }
-.item-img-wrapper {
-  height: 100%;
-  width: 200px;
-  flex-shrink: 0;
+.group-name {
+  height: 50%;
+  width: 100%;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-}
 
+  font-size: 24px;
+  font-weight: var(--medium-font-weight);
+}
 .item-name {
-  height: 100%;
+  height: 50%;
   width: 100%;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
-  font-size: 28px;
+  font-size: 20px;
   font-weight: var(--regular-font-weight);
 
   border: none;
@@ -118,10 +113,9 @@ time {
   font-weight: var(--bold-font-weight);
 }
 
-main .buttons-wrapper {
+.request .buttons-wrapper {
   height: 100%;
   width: 200px;
-  flex-shrink: 0;
 
   gap: 8px;
 
@@ -130,9 +124,9 @@ main .buttons-wrapper {
   justify-content: center;
   align-items: flex-end;
 }
-main button {
-  height: 48px;
-  width: 200px;
+.request button {
+  height: 32px;
+  width: 150px;
 
   padding: 8px;
 
@@ -141,7 +135,7 @@ main button {
   align-items: center;
 
   color: var(--text-light);
-  font-size: 16px;
+  font-size: 12px;
   font-weight: var(--regular-font-weight);
 
   border: 2px solid transparent;
@@ -155,6 +149,7 @@ main button {
 .approve-button:active {
   background-color: transparent;
   color: var(--green);
+  border-color: var(--green);
 }
 .decline-button {
   background-color: var(--red);
@@ -164,4 +159,5 @@ main button {
 .decline-button:active {
   background-color: transparent;
   color: var(--red);
+  border-color: var(--red);
 }
