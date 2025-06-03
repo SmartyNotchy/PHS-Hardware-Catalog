@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Poolesville, Hardware, Catalog" />
+    <meta name="author" content="Poolesville Falcon Programmers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SMCS Hardware Catalog</title>
+    <link
+      rel="icon"
+      type="img/x-icon"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/PFP-logo.png"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/global/global.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/global/colorpalette.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/baselayout/baselayout.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="bug-report.css"
+    />
+
+    <script
+      src="bug-report.js"
+      defer
+    ></script>
+  </head>
+
+  <body>
+
+
+    <header>
+      <button id="back" onclick="backNavigation()">Back</button>
+      <div id="right-header">
+        <button>
+          <img
+            id="light-mode-img"
+            class="invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/light-mode.png"
+            alt="Light Mode"
+          />
+          <span class="tooltip" id="light-mode-tooltip">Light Mode</span>
+        </button>
+      </div>
+    </header>
+
+
+    <main>
+      <section>
+        <form>
+          <h2 id="form-title">Website Bug Report</h2>
+          <div id="bug-reason" class="label-select">
+            <label>Reason:</label>
+            <span>
+              <select>
+                <option>Website</option>
+                <option>Inventory</option>
+                <option>Other</option>
+              </select>
+            </span>
+          </div>
+
+
+          </div>
+          <label>Issue Description</label>
+          <div id="textarea-wrapper"><textarea></textarea></div>
+          <div id="button-wrapper"><button>Submit Report</button></div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
