@@ -1,6 +1,6 @@
 section {
   height: 100%;
-
+  width: 100%;
   justify-content: center;
 }
 header {
@@ -9,9 +9,9 @@ header {
   left: 0;
 
   height: var(--header-height);
-  width: 100vw;
+  width: 100%;
 
-  gap: 16px;
+  gap: 0px;
 
   display: flex;
   flex-direction: row;
@@ -21,6 +21,10 @@ header {
   background-color: var(--primary-dark);
 
   z-index: 1;
+}
+main{
+  width: 100%;
+  margin-left: 0;
 }
 form {
   height: 80%;
@@ -167,7 +171,28 @@ textarea:focus {
   border: none;
   outline-color: var(--primary);
 }
+.backb{
+  color: white;
+  margin-left: 20px;
+  width: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  font-size: 20px;
+
+  background-color: var(--primary);
+  color: var(--text-light);
+
+  border: 2px solid var(--primary);
+  border-radius: var(--medium-border-radius);
+}
+
+.babkb:hover,
+.backb:active {
+  background-color: transparent;
+  color: var(--primary);
+}
 #button-wrapper {
   width: 100%;
 
