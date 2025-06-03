@@ -135,6 +135,7 @@ searchBar.addEventListener("input", () => {
   updateScrollBarPadding();
 });
 function switchcolorpallet(){
+  //get the image id
   const change = document.getElementById('light-mode-img');
   change.addEventListener('click', function() {
   // Check the current href of the link tag to see which theme is active
