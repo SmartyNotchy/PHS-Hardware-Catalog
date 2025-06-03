@@ -1,3 +1,5 @@
+const searchBar = document.getElementById("search-bar");
+
 // This table will be fetched from the database.
 const catalogItems = [
   {
@@ -114,10 +116,7 @@ function renderCatalog(items) {
   });
 }
 
-renderCatalog(catalogItems);
-
-const searchBar = document.getElementById("search-bar");
-searchBar.addEventListener("input", () => {
+function filterResults() {
   const query = searchBar.value.toLowerCase();
 
   const filteredItems = catalogItems.filter((item) =>
@@ -125,4 +124,13 @@ searchBar.addEventListener("input", () => {
   );
 
   renderCatalog(filteredItems);
+}
+
+window.addEventListener("load", () => {
+  renderCatalog(catalogItems);
+  updateScrollBarPadding();
+});
+searchBar.addEventListener("input", () => {
+  filterResults();
+  updateScrollBarPadding();
 });

@@ -253,6 +253,9 @@ main {
   background-color: var(--secondary);
   color: var(--text-dark);
 }
+body.no-scroll-bar main {
+  width: calc(100vw - var(--nav-width) - 12px);
+}
 
 section {
   width: 100%;
