@@ -134,3 +134,17 @@ searchBar.addEventListener("input", () => {
   filterResults();
   updateScrollBarPadding();
 });
+function switchcolorpallet(){
+  const change = document.getElementById('light-mode-img');
+  change.addEventListener('click', function() {
+  // Check the current href of the link tag to see which theme is active
+  if (change.getAttribute('href') === 'https://github.com/SmartyNotchy/PHS-Hardware-Catalog/blob/main/global/inverse.css') {
+    // If dark mode is active, switch to light mode
+    change.setAttribute('href', 'https://github.com/SmartyNotchy/PHS-Hardware-Catalog/blob/main/global/colorpalette.css');
+  } else {
+    // If light mode is active, switch to dark mode
+    change.setAttribute('href', 'https://github.com/SmartyNotchy/PHS-Hardware-Catalog/blob/main/global/inverse.css');
+  }
+});
+  
+}
