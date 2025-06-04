@@ -116,6 +116,14 @@ def initialize_database():
                 )
             ''')
 
+            cursor.execute('''
+                CREATE TABLE teachers (
+                    name TEXT PRIMARY KEY,
+                    password TEXT,
+                    loginToken TEXT
+                )
+            ''')
+
             conn.commit()
     return "Database initialized."
 
@@ -158,10 +166,17 @@ def get_obj_list(obj_type, uuid_list):
                 item['type'] = obj_type
     return jsonify({"success": True, "data": results})
 
+def verify_admin_token(token):
+    if not token:
+        return False
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT * FROM teachers WHERE loginToken=%s", (token,))
+            return cursor.fetchone() is not None
 
-###########################
-###### POST COMMANDS ######
-###########################
+#####################################
+###### POST COMMANDS - STUDENT ######
+#####################################
 
 def send_request_form(component_uuid, group_uuid, reason):
     form_uuid = gen_uuid()
@@ -185,10 +200,101 @@ def send_return_form(instance_uuid, group_uuid, details, condition):
             conn.commit()
     return jsonify({"success": True, "message": "Return submitted."})
 
+#####################################
+###### POST COMMANDS - TEACHER ######
+#####################################
 
+def teacher_login(password):
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT name FROM teachers WHERE password=%s", (password,))
+            row = cursor.fetchone()
+            if row:
+                token = str(gen_uuid_raw())
+                cursor.execute("UPDATE teachers SET loginToken=%s WHERE name=%s", (token, row["name"]))
+                conn.commit()
+                return jsonify({"success": True, "token": token, "name": row["name"]})
+            else:
+                return jsonify({"success": False, "message": "Invalid password."})
 
+def add_component(token, name, image, details):
+    if not verify_admin_token(token):
+        return jsonify({"success": False, "message": "Admin access required."})
 
+    uuid = gen_uuid()
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                "INSERT INTO components (uuid, name, image, details, instances) VALUES (%s, %s, %s, %s, %s)",
+                (uuid, name, image, details, json.dumps([]))
+            )
+            conn.commit()
+    return jsonify({"success": True, "uuid": uuid})
 
+def add_instance(token, component_uuid, details, condition):
+    if not verify_admin_token(token):
+        return jsonify({"success": False, "message": "Admin access required."})
+
+    uuid = gen_uuid()
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                '''
+                INSERT INTO component_instances (uuid, component, details, available, pendingReq, condition, group_uuid)
+                VALUES (%s, %s, %s, %s, %s, %s, %s)
+                ''',
+                (uuid, component_uuid, details, True, False, condition, "")
+            )
+            # Update parent component's instance list
+            cursor.execute("SELECT instances FROM components WHERE uuid=%s", (component_uuid,))
+            row = cursor.fetchone()
+            if row:
+                instances = json.loads(row['instances'])
+                instances.append(uuid)
+                cursor.execute("UPDATE components SET instances=%s WHERE uuid=%s", (json.dumps(instances), component_uuid))
+            conn.commit()
+    return jsonify({"success": True, "uuid": uuid})
+
+def create_project(token, name):
+    if not verify_admin_token(token):
+        return jsonify({"success": False, "message": "Admin access required."})
+
+    uuid = gen_uuid()
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                "INSERT INTO projects (uuid, name, groups, active) VALUES (%s, %s, %s, %s)",
+                (uuid, name, json.dumps([]), True)
+            )
+            conn.commit()
+    return jsonify({"success": True, "uuid": uuid})
+
+def add_groups(token, project_uuid, group_uuids):
+    if not verify_admin_token(token):
+        return jsonify({"success": False, "message": "Admin access required."})
+
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT groups FROM projects WHERE uuid=%s", (project_uuid,))
+            row = cursor.fetchone()
+            if not row:
+                return jsonify({"success": False, "message": "Project not found."})
+
+            existing_groups = json.loads(row['groups'])
+            updated_groups = list(set(existing_groups + group_uuids))
+            cursor.execute("UPDATE projects SET groups=%s WHERE uuid=%s", (json.dumps(updated_groups), project_uuid))
+            conn.commit()
+    return jsonify({"success": True, "updatedGroups": updated_groups})
+
+def update_group_students(token, group_uuid, student_text):
+    if not verify_admin_token(token):
+        return jsonify({"success": False, "message": "Admin access required."})
+
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute("UPDATE groups SET students=%s WHERE uuid=%s", (student_text, group_uuid))
+            conn.commit()
+    return jsonify({"success": True})
 
 ################################
 ###### COMMAND PROCESSING ######
@@ -196,7 +302,22 @@ def send_return_form(instance_uuid, group_uuid, details, condition):
 
 def processPostCommand(cmdName, uuid, args):
     print(f"POST Command: {cmdName}, UUID: {uuid}, Args: {args}")
-    if cmdName == "send-request-form":
+
+    if cmdName == "teacher-login":
+        return teacher_login(*args)
+    elif cmdName == "admin-add-component":
+        return add_component(*args)
+    elif cmdName == "admin-add-instance":
+        return add_instance(*args)
+    elif cmdName == "admin-create-project":
+        return create_project(*args)
+    elif cmdName == "admin-add-groups":
+        return add_groups(*args)
+    elif cmdName == "admin-update-group-students":
+        return update_group_students(*args)
+    elif cmdName == "admin-reset-db":
+        return initialize_database() if verify_admin_token(args[0]) else jsonify({"success": False, "message": "Admin access required."})
+    elif cmdName == "send-request-form":
         return send_request_form(*args)
     elif cmdName == "send-return-form":
         return send_return_form(*args)
@@ -215,10 +336,10 @@ def processGetCommand(cmdName, uuid, args):
         return get_obj(*args)
     elif cmdName == "get-obj-list":
         return get_obj_list(*args)
+    elif cmdName == "verify-token":
+        return verify_admin_token(*args)
     else:
         return jsonify({"success": False, "message": f"Unknown Command Name '{cmdName}'"})
-
-
 
 
 

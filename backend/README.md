@@ -162,6 +162,19 @@ When being returned by the webserver, objects will have a `type` string indicati
 }
 ```
 
+### Teachers
+
+```JS
+{
+    type: "teacher",
+
+    name: "Mr. Kingman",
+    password: "passwordOfTeacher",
+
+    loginToken: "...",
+}
+```
+
 # Login Process
 
 For students, something like this should work:
@@ -180,18 +193,26 @@ Teacher logins will be done later.
 
 # GET Command List
 
-| Command | Arguments | Description | Response |
-| - | - | - | - |
-| `get-obj` | `type`, `uuid` | Returns the object associated with the given UUID and type. | `{ success: bool, data: obj }` |
-| `get-obj-list` | `type`, [`uuid`, `uuid`, ...] | Same as above, but works on a list of UUIDs of the same type. | `{ success: bool, data: [obj, obj, ...] }` |
-| `get-projects` | *None* | Returns a list of projects. | `[ uuid1, uuid2, ... ]` |
-| `get-catalog` | *None* | Returns a list of components. Note that this is global across projects and groups. | `[ uuid1, uuid2, ... ]` |
+| Command        | Arguments              | Description                                                                    | Response                              |
+| -------------- | ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------- |
+| `get-obj`      | `type`, `uuid`         | Returns the object associated with the given UUID and type.                    | `{ success: bool, data: obj }`        |
+| `get-obj-list` | `type`, \[`uuid`, ...] | Returns a list of objects of the same type for the given UUIDs.                | `{ success: bool, data: [obj, ...] }` |
+| `get-projects` | *None*                 | Returns a list of active project UUIDs.                                        | `[ uuid1, uuid2, ... ]`               |
+| `get-catalog`  | *None*                 | Returns a list of all component UUIDs in the catalog.                          | `[ uuid1, uuid2, ... ]`               |
+| `verify-token` | `token`                | Verifies if the provided token belongs to an admin (teacher). Returns boolean. | `true` or `false`                     |
 
 # POST Command List
 
-| Command | Arguments | Description | Response |
-| - | - | - | - |
-| `send-request-form` | `component uuid`, `group uuid`, `group reason` | Sends a request form to the teacher on behalf of the group. | `{ success: bool, message: str }` |
-| `send-return-form` | `component instance uuid`, `group uuid`, `group message`, `status` | Sends a return form to the teacher on behalf of the group. | `{ success: bool, message: str }` |
+| Command                       | Arguments                                                       | Description                                                     | Response                                                    |
+| ----------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------- |
+| `send-request-form`           | `component uuid`, `group uuid`, `reason`                        | Sends a request form to the teacher on behalf of the group.     | `{ success: bool, message: str }`                           |
+| `send-return-form`            | `component instance uuid`, `group uuid`, `details`, `condition` | Sends a return form to the teacher on behalf of the group.      | `{ success: bool, message: str }`                           |
+| `teacher-login`               | `password`                                                      | Logs in a teacher with a password, returning a login token.     | `{ success: bool, token: str, name: str }` or error message |
+| `add-component`         | `token`, `name`, `image`, `details`                             | Adds a new component to the catalog (admin only).               | `{ success: bool, uuid: str }`                              |
+| `add-instance`          | `token`, `component uuid`, `details`, `condition`               | Adds a specific component instance to the catalog (admin only). | `{ success: bool, uuid: str }`                              |
+| `create-project`        | `token`, `name`                                                 | Creates a new project (admin only).                             | `{ success: bool, uuid: str }`                              |
+| `add-groups`            | `token`, `project uuid`, `[group uuids]`                        | Adds groups to a project (admin only).                          | `{ success: bool, updatedGroups: [uuid, ...] }`             |
+| `update-group-students` | `token`, `group uuid`, `student plaintext`                      | Updates the students list of a group as plaintext (admin only). | `{ success: bool }`                                         |
+| `reset-db`              | `token`                                                         | Resets and initializes the database (admin only).               | String message from initialization or failure JSON          |
 
 More will be added later (i.e. for teacher approval).
