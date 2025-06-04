@@ -185,18 +185,6 @@ nav .bottom-nav {
   align-items: center;
 }
 
-nav .navbar-text {
-  height: 72px;
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 40px;
-  font-weight: var(--medium-font-weight);
-}
 nav a {
   height: 44px;
   width: 100%;
