@@ -42,27 +42,28 @@ def initialize_database():
     inp = input()
     if inp != "CLEAR":
         return
-    
+
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute("DROP TABLE IF EXISTS projects")
-            cursor.execute("DROP TABLE IF EXISTS groups")
+            cursor.execute("DROP TABLE IF EXISTS group_data")
             cursor.execute("DROP TABLE IF EXISTS components")
             cursor.execute("DROP TABLE IF EXISTS component_instances")
             cursor.execute("DROP TABLE IF EXISTS request_forms")
             cursor.execute("DROP TABLE IF EXISTS return_forms")
+            cursor.execute("DROP TABLE IF EXISTS teachers")
 
             cursor.execute('''
                 CREATE TABLE projects (
                     uuid VARCHAR(36) PRIMARY KEY,
                     name TEXT,
-                    groups TEXT,
+                    group_list TEXT,
                     active BOOLEAN
                 )
             ''')
 
             cursor.execute('''
-                CREATE TABLE groups (
+                CREATE TABLE group_data (
                     uuid VARCHAR(36) PRIMARY KEY,
                     name TEXT,
                     students TEXT,
@@ -89,7 +90,7 @@ def initialize_database():
                     details TEXT,
                     available BOOLEAN,
                     pendingReq BOOLEAN,
-                    condition TEXT,
+                    itemCondition TEXT,
                     group_uuid VARCHAR(36)
                 )
             ''')
@@ -111,7 +112,7 @@ def initialize_database():
                     component_instance VARCHAR(36),
                     group_uuid VARCHAR(36),
                     details TEXT,
-                    condition TEXT,
+                    itemCondition TEXT,
                     status TEXT
                 )
             ''')
@@ -126,7 +127,6 @@ def initialize_database():
 
             conn.commit()
     return "Database initialized."
-
 
 ##########################
 ###### GET COMMANDS ######
@@ -189,13 +189,13 @@ def send_request_form(component_uuid, group_uuid, reason):
             conn.commit()
     return jsonify({"success": True, "message": "Request submitted."})
 
-def send_return_form(instance_uuid, group_uuid, details, condition):
+def send_return_form(instance_uuid, group_uuid, details, itemCondition):
     form_uuid = gen_uuid()
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
-                "INSERT INTO return_forms (uuid, component_instance, group_uuid, details, condition, status) VALUES (%s, %s, %s, %s, %s, 'pending')",
-                (form_uuid, instance_uuid, group_uuid, details, condition)
+                "INSERT INTO return_forms (uuid, component_instance, group_uuid, details, itemCondition, status) VALUES (%s, %s, %s, %s, %s, 'pending')",
+                (form_uuid, instance_uuid, group_uuid, details, itemCondition)
             )
             conn.commit()
     return jsonify({"success": True, "message": "Return submitted."})
@@ -231,7 +231,7 @@ def add_component(token, name, image, details):
             conn.commit()
     return jsonify({"success": True, "uuid": uuid})
 
-def add_instance(token, component_uuid, details, condition):
+def add_instance(token, component_uuid, details, itemCondition):
     if not verify_admin_token(token):
         return jsonify({"success": False, "message": "Admin access required."})
 
@@ -240,12 +240,11 @@ def add_instance(token, component_uuid, details, condition):
         with conn.cursor() as cursor:
             cursor.execute(
                 '''
-                INSERT INTO component_instances (uuid, component, details, available, pendingReq, condition, group_uuid)
+                INSERT INTO component_instances (uuid, component, details, available, pendingReq, itemCondition, group_uuid)
                 VALUES (%s, %s, %s, %s, %s, %s, %s)
                 ''',
-                (uuid, component_uuid, details, True, False, condition, "")
+                (uuid, component_uuid, details, True, False, itemCondition, "")
             )
-            # Update parent component's instance list
             cursor.execute("SELECT instances FROM components WHERE uuid=%s", (component_uuid,))
             row = cursor.fetchone()
             if row:
@@ -263,7 +262,7 @@ def create_project(token, name):
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
-                "INSERT INTO projects (uuid, name, groups, active) VALUES (%s, %s, %s, %s)",
+                "INSERT INTO projects (uuid, name, group_list, active) VALUES (%s, %s, %s, %s)",
                 (uuid, name, json.dumps([]), True)
             )
             conn.commit()
@@ -275,14 +274,14 @@ def add_groups(token, project_uuid, group_uuids):
 
     with get_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT groups FROM projects WHERE uuid=%s", (project_uuid,))
+            cursor.execute("SELECT group_list FROM projects WHERE uuid=%s", (project_uuid,))
             row = cursor.fetchone()
             if not row:
                 return jsonify({"success": False, "message": "Project not found."})
 
-            existing_groups = json.loads(row['groups'])
+            existing_groups = json.loads(row['group_list'])
             updated_groups = list(set(existing_groups + group_uuids))
-            cursor.execute("UPDATE projects SET groups=%s WHERE uuid=%s", (json.dumps(updated_groups), project_uuid))
+            cursor.execute("UPDATE projects SET group_list=%s WHERE uuid=%s", (json.dumps(updated_groups), project_uuid))
             conn.commit()
     return jsonify({"success": True, "updatedGroups": updated_groups})
 
@@ -292,7 +291,7 @@ def update_group_students(token, group_uuid, student_text):
 
     with get_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute("UPDATE groups SET students=%s WHERE uuid=%s", (student_text, group_uuid))
+            cursor.execute("UPDATE group_data SET students=%s WHERE uuid=%s", (student_text, group_uuid))
             conn.commit()
     return jsonify({"success": True})
 
@@ -340,8 +339,6 @@ def processGetCommand(cmdName, uuid, args):
         return verify_admin_token(*args)
     else:
         return jsonify({"success": False, "message": f"Unknown Command Name '{cmdName}'"})
-
-
 
 ################################
 ###### FLASK APP REQUESTS ######
