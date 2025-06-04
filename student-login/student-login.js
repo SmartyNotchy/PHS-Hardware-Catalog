@@ -1,32 +1,56 @@
-const groups = [
-  { id: "g1", name: "Group 1" },
-  { id: "g2", name: "Group 2" },
-  { id: "g3", name: "Group 3" },
-  { id: "g4", name: "Group 4" },
-  { id: "g5", name: "Group 5" },
-  { id: "g6", name: "Group 6" },
-  { id: "g7", name: "Group 7" },
-  { id: "g8", name: "Group 8" },
-  { id: "g9", name: "Group 9" },
-];
-
-window.addEventListener("DOMContentLoaded", () => {
-  const select = document.getElementById("groups-select");
+window.addEventListener("DOMContentLoaded", async () => {
+  const projectSelect = document.getElementById("projects-select");
+  const groupSelect = document.getElementById("groups-select");
   const loginButton = document.getElementById("login-button");
-  while (select.options.length > 1) {
-    select.remove(1);
+
+  // 1. Fetch projects
+  let projectUuids = [];
+  try {
+    projectUuids = await get_cmd(new DataCommand("get-projects", []));
+    for (const uuid of projectUuids) {
+      const project = await get_cmd(new DataCommand("get-obj", ["project", uuid]));
+      const option = document.createElement("option");
+      option.value = uuid;
+      option.textContent = project.name;
+      projectSelect.appendChild(option);
+    }
+  } catch (err) {
+    alert("Failed to load projects.");
+    console.error(err);
+    return;
   }
 
-  groups.forEach((group) => {
-    const option = document.createElement("option");
-    option.value = group.id;
-    option.textContent = group.name;
-    select.appendChild(option);
+  // 2. When a project is selected, fetch its groups
+  projectSelect.addEventListener("change", async () => {
+    groupSelect.innerHTML = ""; // Clear previous options
+    const selectedProjectUuid = projectSelect.value;
+    if (!selectedProjectUuid) return;
+
+    try {
+      const project = await get_cmd(new DataCommand("get-obj", ["project", selectedProjectUuid]));
+      const groupUuids = project.groups;
+      const groups = await get_cmd(new DataCommand("get-obj-list", ["group", ...groupUuids]));
+      for (const group of groups) {
+        const option = document.createElement("option");
+        option.value = group.id;
+        option.textContent = group.name;
+        groupSelect.appendChild(option);
+      }
+    } catch (err) {
+      alert("Failed to load groups.");
+      console.error(err);
+    }
   });
 
+  // 3. Login button
   loginButton.addEventListener("click", () => {
-    // add your magic william
-    window.location.href =
-      "https://smartynotchy.github.io/PHS-Hardware-Catalog/student-catalog/student-catalog.html";
+    const selectedGroupId = groupSelect.value;
+    if (!selectedGroupId) {
+      alert("Please select a group.");
+      return;
+    }
+    localStorage.setItem("selectedGroupId", selectedGroupId);
+    localStorage.setItem("studentLoggedIn", "true");
+    window.location.href = "../student-catalog/student-catalog.html";
   });
 });
