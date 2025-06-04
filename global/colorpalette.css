@@ -1,15 +1,18 @@
 :root {
+  --primary-l4: hsl(210, 15%, 80%);
+  --primary-l3: hsl(210, 15%, 60%);
+  --primary-l2: hsl(210, 15%, 40%);
+  --primary-l1: hsl(210, 15%, 30%);
   --primary: hsl(210, 15%, 25%);
-  --primary-dark: hsl(210, 15%, 20%);
-  --primary-darker: hsl(210, 15%, 12.5%);
-  --primary-darkest: hsl(210, 15%, 10%);
+  --primary-d1: hsl(210, 15%, 20%);
+  --primary-d2: hsl(210, 15%, 15%);
+  --primary-d3: hsl(210, 15%, 10%);
 
   --secondary: hsl(35, 5%, 90%);
-  --secondary-dark: hsl(35, 5%, 85%);
-  --secondary-darker: hsl(35, 5%, 80%);
-  --secondary-darkest: hsl(35, 5%, 70%);
-
-  --accent: hsl(40, 40%, 55%);
+  --secondary-d1: hsl(35, 5%, 85%);
+  --secondary-d2: hsl(35, 5%, 80%);
+  --secondary-d3: hsl(35, 5%, 70%);
+  --secondary-d4: hsl(35, 5%, 60%);
 
   --text-dark: rgb(0, 0, 0);
   --text-medium: #3a3a3a;

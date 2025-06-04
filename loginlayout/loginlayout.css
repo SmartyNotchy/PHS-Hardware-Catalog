@@ -70,7 +70,7 @@ form {
   justify-content: center;
   align-items: center;
 
-  background-color: var(--secondary-dark);
+  background-color: var(--secondary-d1);
   color: var(--text-dark);
 
   border: 2px solid var(--primary);
@@ -117,7 +117,7 @@ select {
   justify-content: flex-start;
   align-items: center;
 
-  background-color: var(--secondary-darker);
+  background-color: var(--secondary-d2);
   font-size: 20px;
   font-weight: var(--regular-font-weight);
 
@@ -149,7 +149,7 @@ input {
   justify-content: center;
   align-items: center;
 
-  background-color: var(--secondary-darker);
+  background-color: var(--secondary-d2);
   font-size: 20px;
   font-weight: var(--regular-font-weight);
 
@@ -164,7 +164,7 @@ input:focus {
   outline-color: var(--primary);
 }
 
-#button-wrapper {
+#btn-wrapper {
   width: 100%;
 
   margin-top: 64px;

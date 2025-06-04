@@ -11,7 +11,7 @@
     <link
       rel="icon"
       type="img/x-icon"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/PFP-logo.png"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/PFP-logo.png"
     />
 
     <link
@@ -38,39 +38,40 @@
   </head>
 
   <body>
-    <button id="hide-nav">
+    <button class="toggle-nav-btn">
       <img
-        id="right-chevron-img"
-        class="invert rotate180"
-        src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/right-chevron.png"
+        class="invert"
+        src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/close-nav.png"
         alt="<"
       />
+      <span class="toggle-nav-tooltip tooltip">Close Navbar</span>
     </button>
 
     <header>
-      <h1 id="left-header">Group 1</h1>
-      <div id="right-header">
-        <button>
+      <h1 class="user-name">Group 1</h1>
+      <div class="search-bar-wrapper">
+        <input class="search-bar" type="search" placeholder="search..." />
+      </div>
+      <div class="btn-wrapper">
+        <button class="dark-mode-btn">
           <img
-            id="light-mode-img"
             class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/light-mode.png"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/light-mode.png"
             alt="Light Mode"
           />
-          <span class="tooltip" id="light-mode-tooltip">Light Mode</span>
+          <span class="light-mode-tooltip tooltip">Light Mode</span>
         </button>
       </div>
     </header>
     <nav>
-      <div id="top-navbar">
-        <p id="menu-text">Menu</p>
+      <div class="top-nav">
+        <p class="navbar-text">Navbar</p>
         <a
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-catalog/student-catalog.html"
         >
           Catalog<img
-            id="catalog-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/catalog.png"
+            class="catalog-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/catalog.png"
             alt=""
           />
         </a>
@@ -78,21 +79,19 @@
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-inventory/student-inventory.html"
         >
           Inventory<img
-            id="inventory-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/inventory.png"
+            class="inventory-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/inventory.png"
             alt=""
           />
         </a>
       </div>
-      <div id="bottom-navbar">
+      <div class="bottom-nav">
         <a
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/about/about.html"
         >
           About<img
-            id="about-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/about.png"
+            class="about-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/about.png"
             alt=""
           />
         </a>
@@ -100,9 +99,8 @@
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html"
         >
           Logout<img
-            id="logout-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/logout.png"
+            class="logout-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/logout.png"
             alt=""
           />
         </a>
@@ -110,10 +108,10 @@
     </nav>
 
     <main>
-      <section class="start-section" id="group-members-section">
+      <section id="group-members-section" class="start-section">
         <h2 class="section-title">Group Members</h2>
-        <div id="group-members-wrapper">
-          <ul>
+        <div id="group-members-container">
+          <ul id="group-members-list">
             <li>Steve</li>
             <li>Tralelero Tralala</li>
             <li>Bombardilo Crocodilo</li>
@@ -121,13 +119,12 @@
         </div>
       </section>
 
-      <section class="middle-section" id="checked-out-items-section">
+      <section id="checked-out-items-section" class="middle-section">
         <h2 class="section-title">Checked Out items</h2>
         <div class="item">
-          <div class="item-img-wrapper">
+          <div class="img-wrapper">
             <img
               src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-uno-rev3.png"
-              class="item-img"
               alt=""
             />
           </div>
@@ -135,10 +132,10 @@
             <p class="item-name">
               <span class="item-qty">2</span>Arduino Uno Rev3
             </p>
-            <p class="serial-ID">
-              Serial ID: bubbleguppies123<br />
-              Serial ID:
-            </p>
+            <ul class="serial-id-list">
+              <li>Serial ID: bubbleguppies123</li>
+              <li>Serial ID:</li>
+            </ul>
           </div>
           <div class="buttons-wrapper">
             <a
@@ -155,10 +152,9 @@
         </div>
 
         <div class="item">
-          <div class="item-img-wrapper">
+          <div class="img-wrapper">
             <img
               src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-motor-shield-rev3.png"
-              class="item-img"
               alt=""
             />
           </div>
@@ -166,7 +162,9 @@
             <p class="item-name">
               <span class="item-qty">1</span>Arduino Motor Shield Rev3
             </p>
-            <p class="serial-ID">Serial ID:</p>
+            <ul class="serial-id-list">
+              <li>Serial ID:</li>
+            </ul>
           </div>
           <div class="buttons-wrapper">
             <a
@@ -183,10 +181,9 @@
         </div>
 
         <div class="item">
-          <div class="item-img-wrapper">
+          <div class="img-wrapper">
             <img
               src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/raspberry-pi-5.png"
-              class="item-img"
               alt=""
             />
           </div>
@@ -194,13 +191,13 @@
             <p class="item-name">
               <span class="item-qty">5</span>Raspberry Pi 5
             </p>
-            <p class="serial-ID">
-              Serial ID:<br />
-              Serial ID:<br />
-              Serial ID:<br />
-              Serial ID:<br />
-              Serial ID:
-            </p>
+            <ul class="serial-id-list">
+              <li>Serial ID:</li>
+              <li>Serial ID:</li>
+              <li>Serial ID:</li>
+              <li>Serial ID:</li>
+              <li>Serial ID:</li>
+            </ul>
           </div>
           <div class="buttons-wrapper">
             <a
@@ -217,13 +214,12 @@
         </div>
       </section>
 
-      <section class="end-section" id="pending-requests-section">
+      <section id="pending-requests-section" class="end-section">
         <h2 class="section-title">Pending Requests</h2>
         <div class="item">
-          <div class="item-img-wrapper">
+          <div class="img-wrapper">
             <img
               src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-uno-rev3.png"
-              class="item-img"
               alt=""
             />
           </div>
@@ -236,10 +232,9 @@
         </div>
 
         <div class="item">
-          <div class="item-img-wrapper">
+          <div class="img-wrapper">
             <img
               src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-motor-shield-rev3.png"
-              class="item-img"
               alt=""
             />
           </div>
@@ -252,10 +247,9 @@
         </div>
 
         <div class="item">
-          <div class="item-img-wrapper">
+          <div class="img-wrapper">
             <img
               src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/raspberry-pi-5.png"
-              class="item-img"
               alt=""
             />
           </div>

@@ -29,8 +29,9 @@ body {
   padding: 0;
   margin: 0;
 
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
+
+  background-color: var(--secondary);
 }
 body.no-scroll-bar {
   width: calc(100vw - 12px);
@@ -38,6 +39,7 @@ body.no-scroll-bar {
 
 .image-wrapper {
   flex: 1 1 0;
+  height: 100%;
   width: 100%;
 
   display: flex;
@@ -58,9 +60,6 @@ img {
 img.invert {
   filter: invert(1);
 }
-img.rotate180 {
-  transform: rotate(180deg);
-}
 
 button {
   cursor: pointer;
@@ -69,7 +68,7 @@ button {
 .tooltip {
   position: absolute;
   top: 110%;
-  z-index: 100;
+  z-index: 1;
 
   height: auto;
   width: auto;
@@ -77,21 +76,20 @@ button {
   padding: 4px 16px;
   white-space: nowrap;
 
-  display: inline-block;
+  display: none;
   text-align: center;
 
-  background-color: var(--primary-darker);
+  background-color: var(--primary-d2);
   color: var(--text-light);
-  opacity: 0;
+  opacity: 0.9;
   font-size: 16px;
+  font-weight: var(--regular-font-weight);
 
   border: none;
   border-radius: var(--small-border-radius);
-
-  pointer-events: none;
 }
 button:hover .tooltip {
-  opacity: 0.95;
+  display: inline-block;
   pointer-events: auto;
 }
 
@@ -109,5 +107,5 @@ button:hover .tooltip {
   border-radius: var(--small-border-radius);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--primary-dark);
+  background-color: var(--primary-d1);
 }

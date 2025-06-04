@@ -11,7 +11,7 @@
     <link
       rel="icon"
       type="img/x-icon"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/PFP-logo.png"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/PFP-logo.png"
     />
 
     <link
@@ -38,39 +38,40 @@
   </head>
 
   <body>
-    <button id="hide-nav">
+    <button class="toggle-nav-btn">
       <img
-        id="right-chevron-img"
-        class="invert rotate180"
-        src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/right-chevron.png"
+        class="invert"
+        src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/close-nav.png"
         alt="<"
       />
+      <span class="toggle-nav-tooltip tooltip">Close Navbar</span>
     </button>
 
     <header>
-      <h1 id="left-header">Group 1</h1>
-      <div id="right-header">
-        <button>
+      <h1 class="user-name">Group 1</h1>
+      <div class="search-bar-wrapper">
+        <input class="search-bar" type="search" placeholder="search..." />
+      </div>
+      <div class="btn-wrapper">
+        <button class="dark-mode-btn">
           <img
-            id="light-mode-img"
             class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/light-mode.png"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/light-mode.png"
             alt="Light Mode"
           />
-          <span class="tooltip" id="light-mode-tooltip">Light Mode</span>
+          <span class="light-mode-tooltip tooltip">Light Mode</span>
         </button>
       </div>
     </header>
     <nav>
-      <div id="top-navbar">
-        <p id="menu-text">Menu</p>
+      <div class="top-nav">
+        <p class="navbar-text">Navbar</p>
         <a
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-catalog/student-catalog.html"
         >
           Catalog<img
-            id="catalog-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/catalog.png"
+            class="catalog-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/catalog.png"
             alt=""
           />
         </a>
@@ -78,21 +79,19 @@
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-inventory/student-inventory.html"
         >
           Inventory<img
-            id="inventory-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/inventory.png"
+            class="inventory-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/inventory.png"
             alt=""
           />
         </a>
       </div>
-      <div id="bottom-navbar">
+      <div class="bottom-nav">
         <a
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/about/about.html"
         >
           About<img
-            id="about-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/about.png"
+            class="about-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/about.png"
             alt=""
           />
         </a>
@@ -100,9 +99,8 @@
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html"
         >
           Logout<img
-            id="logout-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/logout.png"
+            class="logout-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/logout.png"
             alt=""
           />
         </a>
@@ -112,26 +110,28 @@
     <main>
       <section>
         <form>
-          <h2 id="form-title">Request Item</h2>
-          <div id="item-name" class="label-select">
+          <h2 class="form-title">Request Item</h2>
+          <div class="item-name-container container">
             <label>Item Name:</label>
             <span>
-              <select>
+              <select class="item-name-select">
                 <option>Arduino Uno Rev3</option>
                 <option>Arduino Motor Shield Rev3</option>
                 <option>Raspberry Pi 5</option>
               </select>
             </span>
           </div>
-          <div id="image-wrapper">
+          <div class="img-wrapper">
             <img
               src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-uno-rev3.png"
               alt=""
             />
           </div>
           <label>Reason for Request</label>
-          <div id="textarea-wrapper"><textarea></textarea></div>
-          <div id="button-wrapper"><button>Submit Request</button></div>
+          <div class="textarea-wrapper"><textarea></textarea></div>
+          <div class="btn-wrapper">
+            <button id="submit-request-btn">Submit Request</button>
+          </div>
         </form>
       </section>
     </main>

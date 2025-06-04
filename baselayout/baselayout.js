@@ -1,11 +1,16 @@
 const root = document.documentElement;
 const body = document.querySelector("body");
 const main = document.querySelector("main");
-const hideNavButton = document.getElementById("hide-nav");
+const toggleNavButton = document.querySelector(".toggle-nav-btn");
+const toggleNavButtonTooltip = toggleNavButton.querySelector(".tooltip");
+const toggleNavButtonImg = toggleNavButton.querySelector("img");
 
-function hideNav() {
-  root.classList.toggle("nav-collapsed");
-  hideNavButton.querySelector("img").alt = ">";
+function toggleNav() {
+  root.classList.toggle("nav-closed");
+  toggleNavButtonImg.src =
+    "https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/open-nav.png";
+  toggleNavButtonImg.alt = ">";
+  toggleNavButtonTooltip.textContent = "Open Navbar";
 }
 
 function isScrollBarVisible() {
@@ -20,7 +25,7 @@ function updateScrollBarPadding() {
 }
 
 window.addEventListener("load", updateScrollBarPadding);
-hideNavButton.addEventListener("click", () => {
-  hideNav();
+toggleNavButton.addEventListener("click", () => {
+  toggleNav();
   updateScrollBarPadding();
 });

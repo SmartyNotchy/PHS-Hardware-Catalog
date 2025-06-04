@@ -12,7 +12,7 @@ main {
 .section-title {
   position: relative;
 }
-#teacher-buttons {
+#btn-wrapper {
   position: absolute;
   top: 13px;
   right: 0px;
@@ -23,7 +23,7 @@ main {
   flex-direction: row;
   justify-content: flex-start;
 }
-#teacher-buttons button {
+#btn-wrapper button {
   position: relative;
 
   height: 48px;
@@ -44,11 +44,11 @@ main {
 #delete-tooltip {
   right: 0;
 }
-#teacher-buttons > button:hover {
-  background-color: var(--primary-dark);
+#btn-wrapper button:hover {
+  background-color: var(--primary-d1);
 }
-#teacher-buttons > button:active {
-  background-color: var(--primary-darker);
+#btn-wrapper button:active {
+  background-color: var(--primary-d2);
 }
 
 #groups-container {
@@ -77,16 +77,16 @@ main {
   justify-content: flex-start;
   align-items: center;
 
-  background-color: var(--secondary-dark);
+  background-color: var(--secondary-d1);
 
   border: none;
   border-radius: var(--medium-border-radius);
 }
 .group:hover {
-  background-color: var(--secondary-darker);
+  background-color: var(--secondary-d2);
 }
 .group:active {
-  background-color: var(--secondary-darkest);
+  background-color: var(--secondary-d3);
 }
 
 .group-name {

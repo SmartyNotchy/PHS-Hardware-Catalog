@@ -7,10 +7,10 @@
 #group-members-section,
 #checked-out-items-section,
 #pending-requests-section {
-  background-color: var(--secondary-dark);
+  background-color: var(--secondary-d1);
 }
 
-#group-members-wrapper {
+#group-members-container {
   height: 100%;
   width: 100%;
 
@@ -34,7 +34,7 @@
   justify-content: center;
   align-items: center;
 
-  background-color: var(--secondary-darker);
+  background-color: var(--secondary-d2);
   color: var(--text-medium);
 
   border: none;
@@ -47,7 +47,8 @@
   height: 200px;
 }
 
-.item-img-wrapper {
+#checked-out-items-section .img-wrapper,
+#pending-requests-section .img-wrapper {
   height: 100%;
   width: 200px;
   flex-shrink: 0;
@@ -75,6 +76,7 @@
   height: 100%;
   align-items: center;
 }
+
 #checked-out-items-section .items-owned {
   height: 100%;
   width: 100%;
@@ -88,7 +90,11 @@
 
   border: none;
 }
-#checked-out-items-section .serial-ID {
+.item-qty {
+  margin-right: 12px;
+  font-weight: var(--bold-font-weight);
+}
+#checked-out-items-section .serial-id-list {
   min-height: 80px;
   width: 100%;
 
@@ -99,10 +105,8 @@
 
   font-size: 20px;
   font-weight: var(--regular-font-weight);
-}
-.item-qty {
-  margin-right: 12px;
-  font-weight: var(--bold-font-weight);
+
+  list-style-type: none;
 }
 
 .buttons-wrapper {

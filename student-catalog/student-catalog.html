@@ -11,7 +11,7 @@
     <link
       rel="icon"
       type="img/x-icon"
-      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/PFP-logo.png"
+      href="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/PFP-logo.png"
     />
 
     <link
@@ -42,42 +42,41 @@
   </head>
 
   <body>
-    <button id="hide-nav">
+    <!-- Toggle nav btn is supposed to close nav by default -->
+    <button class="toggle-nav-btn">
       <img
-        id="right-chevron-img"
-        class="invert rotate180"
-        src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/right-chevron.png"
+        class="invert"
+        src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/close-nav.png"
         alt="<"
       />
+      <span class="toggle-nav-tooltip tooltip">Close Navbar</span>
     </button>
 
     <header>
-      <h1 id="left-header">Group 1</h1>
-      <div id="middle-header">
-        <input id="search-bar" type="search" placeholder="search..." />
+      <h1 class="user-name">Group 1</h1>
+      <div class="search-bar-wrapper">
+        <input class="search-bar" type="search" placeholder="search..." />
       </div>
-      <div id="right-header">
-        <button>
+      <div class="btn-wrapper">
+        <button class="dark-mode-btn">
           <img
-            id="light-mode-img"
             class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/light-mode.png"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/light-mode.png"
             alt="Light Mode"
           />
-          <span class="tooltip" id="light-mode-tooltip">Light Mode</span>
+          <span class="light-mode-tooltip tooltip">Light Mode</span>
         </button>
       </div>
     </header>
     <nav>
-      <div id="top-navbar">
-        <p id="menu-text">Menu</p>
+      <div class="top-nav">
+        <p class="navbar-text">Navbar</p>
         <a
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-catalog/student-catalog.html"
         >
           Catalog<img
-            id="catalog-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/catalog.png"
+            class="catalog-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/catalog.png"
             alt=""
           />
         </a>
@@ -85,21 +84,19 @@
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-inventory/student-inventory.html"
         >
           Inventory<img
-            id="inventory-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/inventory.png"
+            class="inventory-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/inventory.png"
             alt=""
           />
         </a>
       </div>
-      <div id="bottom-navbar">
+      <div class="bottom-nav">
         <a
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/about/about.html"
         >
           About<img
-            id="about-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/about.png"
+            class="about-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/about.png"
             alt=""
           />
         </a>
@@ -107,57 +104,66 @@
           href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-login/student-login.html"
         >
           Logout<img
-            id="logout-img"
-            class="invert"
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/logout.png"
+            class="logout-img invert"
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/logout.png"
             alt=""
           />
         </a>
       </div>
     </nav>
 
-    <main id="test">
-      <div id="item-info">
-        <button id="close"><img src="" alt="X" /></button>
+    <main>
+      <section class="item-info">
+        <button class="close-item-info">
+          <img
+            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/close.png"
+            class="invert"
+            alt="X"
+          />
+        </button>
 
-        <div>
-          <div id="item-info-name">Arduino Motor Shield Rev3</div>
-          <div class="button-wrapper">
-            <a id="request-item">Request Item</a>
+        <h2 class="item-name">Arduino Motor Shield Rev3</h2>
+        <p class="item-description"></p>
+
+        <div class="specifications-container container">
+          <h3 class="title">Specifications</h3>
+          <div class="body">
+            <ul class="specifications-list"></ul>
+            <div class="img-wrapper">
+              <img class="item-img" />
+            </div>
           </div>
         </div>
 
-        <p id="item-description">Short item description</p>
-
-        <section id="specifications">
-          <h3>Specifications</h3>
-          <div class="image-wrapper">
-            <img
-              src="https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-motor-shield-rev3.png"
-              alt=""
-            />
+        <div class="pins-and-ports-container container">
+          <h3 class="title">Pins & Ports</h3>
+          <div class="body">
+            <ul class="pins-and-ports-list"></ul>
+            <div class="img-wrapper">
+              <img class="item-pins-and-ports-img" />
+            </div>
           </div>
-          <p>stuff</p>
-        </section>
-
-        <section id="i/o-connections">
-          <h3>i/o Connections</h3>
-          <div class="image-wrapper">
-            <img src="" alt="" />
-          </div>
-          <p>stuff</p>
-        </section>
-
-        <div id="common-mistakes">
-          <h3>Esteemed Colleagues Mistakes</h3>
-          <p>stuff</p>
         </div>
-      </div>
 
-      <section class="full-section">
+        <div class="btn-wrapper">
+          <a class="request-item-btn">Request Item</a>
+        </div>
+      </section>
+
+      <section class="catalog-section">
         <h2 class="section-title">Entire Catalog</h2>
-        <div id="catalog-container" class="section-body"></div>
+        <div class="catalog-container section-body"></div>
       </section>
     </main>
+
+    <template class="catalog-item-template">
+      <button class="item">
+        <h3 class="item-name"></h3>
+        <div class="img-wrapper">
+          <img alt="" />
+        </div>
+        <p class="qty"></p>
+      </button>
+    </template>
   </body>
 </html>
