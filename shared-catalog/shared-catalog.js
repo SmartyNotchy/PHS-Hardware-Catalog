@@ -5,6 +5,90 @@ const itemTemplate = document.querySelector(".catalog-item-template");
 const closeItemInfoButton = document.querySelector(".close-item-info");
 const itemInfo = document.querySelector(".item-info");
 
+const catalogItemsContent = [
+  {
+    itemName: "Arduino Motor Shield Rev3",
+    itemQty: "25/38",
+    itemImgLink:
+      "https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-motor-shield-rev3.png",
+    itemDescription: "",
+  },
+  {
+    itemName: "Arduino Uno Rev3",
+    itemQty: "41/45",
+    itemImgLink:
+      "https://smartynotchy.github.io/PHS-Hardware-Catalog/images/arduino-uno-rev3.png",
+    itemDescription: "",
+  },
+  {
+    itemName: "Raspberry Pi 5",
+    itemQty: "19/26",
+    itemImgLink:
+      "https://smartynotchy.github.io/PHS-Hardware-Catalog/images/raspberry-pi-5.png",
+    itemDescription: "",
+  },
+  {
+    itemName: "Item 4",
+    itemQty: "",
+    itemImgLink: "",
+    itemDescription: "",
+  },
+  {
+    itemName: "Item 5",
+    itemQty: "",
+    itemImgLink: "",
+    itemDescription: "",
+  },
+  {
+    itemName: "Item 6",
+    itemQty: "",
+    itemImgLink: "",
+    itemDescription: "",
+  },
+  {
+    itemName: "Item 7",
+    itemQty: "",
+    itemImgLink: "",
+    itemDescription: "",
+  },
+  {
+    itemName: "Item 8",
+    itemQty: "",
+    itemImgLink: "",
+    itemDescription: "",
+  },
+  {
+    itemName: "Item 9",
+    itemQty: "",
+    itemImgLink: "",
+    itemDescription: "",
+  },
+  {
+    itemName: "Item 10",
+    itemQty: "",
+    itemImgLink: "",
+    itemDescription: "",
+  },
+  {
+    itemName: "Item 11",
+    itemQty: "",
+    itemImgLink: "",
+    itemDescription: "",
+  },
+  {
+    itemName: "Item 12",
+    itemQty: "",
+    itemImgLink: "",
+    itemDescription: "",
+  },
+  {
+    itemName: "Item 13",
+    itemQty: "",
+    itemImgLink: "",
+    itemDescription: "",
+  },
+];
+
 function renderCatalog(itemsContents) {
   catalogContainer.innerHTML = "";
 
