@@ -113,7 +113,7 @@ select:focus {
   width: 200px;
 }
 
-.img-wrapper {
+form .img-wrapper {
   height: 40%;
   width: 100%;
 
@@ -152,7 +152,7 @@ textarea:focus {
   outline-color: var(--primary);
 }
 
-.btn-wrapper {
+form .btn-wrapper {
   width: 100%;
 
   margin-top: 12px;

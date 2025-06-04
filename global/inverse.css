@@ -1,10 +1,18 @@
 :root {
-  --primary: hsl(210, 15%, 90%); /* Lighter version of the original dark primary */
+  --primary: hsl(
+    210,
+    15%,
+    90%
+  ); /* Lighter version of the original dark primary */
   --primary-dark: hsl(210, 15%, 80%); /* Lightened */
   --primary-darker: hsl(210, 15%, 70%); /* Lightened */
   --primary-darkest: hsl(210, 15%, 60%); /* Lightened */
 
-  --secondary: hsl(35, 5%, 20%); /* Darker version of the original light secondary */
+  --secondary: hsl(
+    35,
+    5%,
+    20%
+  ); /* Darker version of the original light secondary */
   --secondary-dark: hsl(35, 5%, 30%); /* Darker */
   --secondary-darker: hsl(35, 5%, 40%); /* Darker */
   --secondary-darkest: hsl(35, 5%, 50%); /* Darker */

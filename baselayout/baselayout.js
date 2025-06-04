@@ -6,11 +6,19 @@ const toggleNavButtonTooltip = toggleNavButton.querySelector(".tooltip");
 const toggleNavButtonImg = toggleNavButton.querySelector("img");
 
 function toggleNav() {
-  root.classList.toggle("nav-closed");
-  toggleNavButtonImg.src =
-    "https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/open-nav.png";
-  toggleNavButtonImg.alt = ">";
-  toggleNavButtonTooltip.textContent = "Open Navbar";
+  const navIsClosed = root.classList.toggle("nav-closed");
+
+  if (navIsClosed) {
+    toggleNavButtonImg.src =
+      "https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/open-nav.png";
+    toggleNavButtonImg.alt = ">";
+    toggleNavButtonTooltip.textContent = "Open Navbar";
+  } else {
+    toggleNavButtonImg.src =
+      "https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/close-nav.png";
+    toggleNavButtonImg.alt = "<";
+    toggleNavButtonTooltip.textContent = "Close Navbar";
+  }
 }
 
 function isScrollBarVisible() {

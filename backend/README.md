@@ -12,6 +12,7 @@ post_cmd(new DataCommand("command-name", [arg1, arg2, ...]))
 ```
 
 To send a GET request (fetch any resources that do not result in a database update):
+
 ```JS
 get_cmd(new DataCommand('command-name', [arg1, arg2, ...]))
 .then((data) => {
@@ -20,6 +21,7 @@ get_cmd(new DataCommand('command-name', [arg1, arg2, ...]))
 ```
 
 Note that these commands are run **concurrently**, meaning that something like this
+
 ```JS
 post_cmd(new DataCommand("action-1", [arg1, arg2, ...]))
 .then((response) => {
@@ -31,9 +33,11 @@ get_cmd(new DataCommand("action-2", [arg1, arg2, ...]))
     ...
 });
 ```
+
 does not guarantee that `action-1` will be run after `action-2`; they may run at the same time, `action-2` might finish before `action-1`, etc.
 
 If you need to force the order of these commands, chain `.then()`s:
+
 ```JS
 post_cmd(new DataCommand("action-1", [arg1, arg2, ...]))
 .then((response) => {
@@ -43,14 +47,16 @@ post_cmd(new DataCommand("action-1", [arg1, arg2, ...]))
     });
 });
 ```
+
 or use an `async` function:
+
 ```JS
 async function myFunc() {
     const response = await post_cmd(new DataCommand("action-1", [arg1, arg2, ...]))
     // manipulate response obj
 
     // once we get here, action-1 is guaranteed to have received a response
-    
+
     const data = await get_cmd(new DataCommand("action-2", [arg1, arg2, ...]))
     // manipulate data obj
 }
@@ -71,7 +77,7 @@ When being returned by the webserver, objects will have a `type` string indicati
 ```JS
 {
     type: "project",
-    
+
     name: "Project Name",
     groups: ["uuid1", "uuid2", ...],
     active: boolean // Teachers can't "delete" projects since I'm too lazy to add a "recycle bin"
@@ -197,17 +203,17 @@ Teacher logins will be done later.
 | -------------- | ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------- |
 | `get-obj`      | `type`, `uuid`         | Returns the object associated with the given UUID and type.                    | `{ success: bool, data: obj }`        |
 | `get-obj-list` | `type`, \[`uuid`, ...] | Returns a list of objects of the same type for the given UUIDs.                | `{ success: bool, data: [obj, ...] }` |
-| `get-projects` | *None*                 | Returns a list of active project UUIDs.                                        | `[ uuid1, uuid2, ... ]`               |
-| `get-catalog`  | *None*                 | Returns a list of all component UUIDs in the catalog.                          | `[ uuid1, uuid2, ... ]`               |
+| `get-projects` | _None_                 | Returns a list of active project UUIDs.                                        | `[ uuid1, uuid2, ... ]`               |
+| `get-catalog`  | _None_                 | Returns a list of all component UUIDs in the catalog.                          | `[ uuid1, uuid2, ... ]`               |
 | `verify-token` | `token`                | Verifies if the provided token belongs to an admin (teacher). Returns boolean. | `true` or `false`                     |
 
 # POST Command List
 
-| Command                       | Arguments                                                       | Description                                                     | Response                                                    |
-| ----------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------- |
-| `send-request-form`           | `component uuid`, `group uuid`, `reason`                        | Sends a request form to the teacher on behalf of the group.     | `{ success: bool, message: str }`                           |
-| `send-return-form`            | `component instance uuid`, `group uuid`, `details`, `condition` | Sends a return form to the teacher on behalf of the group.      | `{ success: bool, message: str }`                           |
-| `teacher-login`               | `password`                                                      | Logs in a teacher with a password, returning a login token.     | `{ success: bool, token: str, name: str }` or error message |
+| Command                 | Arguments                                                       | Description                                                     | Response                                                    |
+| ----------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------- |
+| `send-request-form`     | `component uuid`, `group uuid`, `reason`                        | Sends a request form to the teacher on behalf of the group.     | `{ success: bool, message: str }`                           |
+| `send-return-form`      | `component instance uuid`, `group uuid`, `details`, `condition` | Sends a return form to the teacher on behalf of the group.      | `{ success: bool, message: str }`                           |
+| `teacher-login`         | `password`                                                      | Logs in a teacher with a password, returning a login token.     | `{ success: bool, token: str, name: str }` or error message |
 | `add-component`         | `token`, `name`, `image`, `details`                             | Adds a new component to the catalog (admin only).               | `{ success: bool, uuid: str }`                              |
 | `add-instance`          | `token`, `component uuid`, `details`, `condition`               | Adds a specific component instance to the catalog (admin only). | `{ success: bool, uuid: str }`                              |
 | `create-project`        | `token`, `name`                                                 | Creates a new project (admin only).                             | `{ success: bool, uuid: str }`                              |

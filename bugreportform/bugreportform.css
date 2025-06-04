@@ -1,0 +1,169 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .btn-wrapper {
+  height: 100%;
+
+  padding: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header button {
+  height: 48px;
+  width: 48px;
+
+  padding: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--primary);
+
+  border: none;
+  border-radius: var(--small-border-radius);
+}
+header button:hover {
+  background-color: var(--primary-d1);
+}
+header button:active {
+  background-color: var(--primary-d2);
+}
+.back-btn:hover .back-tooltip {
+  top: 68px;
+  left: 0;
+}
+.light-mode-btn:hover .light-mode-tooltip {
+  top: 68px;
+  right: 16px;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  height: 70%;
+  width: 70%;
+
+  padding: 16px;
+  gap: 12px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--secondary-d1);
+  color: var(--text-dark);
+
+  border: none;
+  border-radius: var(--big-border-radius);
+}
+
+.form-title {
+  width: 100%;
+
+  margin-bottom: 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 48px;
+  font-weight: var(--bold-font-weight);
+}
+
+label {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+  font-weight: var(--regular-font-weight);
+}
+
+.textarea-wrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+textarea {
+  height: 100px;
+  width: 75%;
+
+  padding: 8px;
+
+  background-color: var(--secondary-darker);
+  font-size: 16px;
+  font-weight: var(--regular-font-weight);
+
+  border: 2px solid var(--primary);
+  border-radius: var(--medium-border-radius);
+
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+
+  resize: none;
+}
+textarea:focus {
+  border: none;
+  outline-color: var(--primary);
+}
+
+form .btn-wrapper {
+  width: 100%;
+
+  margin-top: 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+form button {
+  height: 48px;
+
+  padding: 0 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+
+  background-color: var(--primary);
+  color: var(--text-light);
+
+  border: 2px solid var(--primary);
+  border-radius: var(--medium-border-radius);
+}
+form button:hover,
+form button:active {
+  background-color: transparent;
+  color: var(--primary);
+}

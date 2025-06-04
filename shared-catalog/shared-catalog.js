@@ -247,15 +247,24 @@ searchBar.addEventListener("input", () => {
   updateScrollBarPadding();
 });
 function switchcolorpalette() {
-  const themeLink = document.getElementById('theme-style');
+  const themeLink = document.getElementById("theme-style");
 
   // Check the current theme and switch to the opposite one
-  if (themeLink.getAttribute('href') === 'https://smartynotchy.github.io/PHS-Hardware-Catalog/blob/main/global/inverse.css') {
+  if (
+    themeLink.getAttribute("href") ===
+    "https://smartynotchy.github.io/PHS-Hardware-Catalog/blob/main/global/inverse.css"
+  ) {
     // Switch to light mode
-    themeLink.setAttribute('href', 'https://smartynotchy.github.io/PHS-Hardware-Catalog/blob/main/global/colorpalette.css');
+    themeLink.setAttribute(
+      "href",
+      "https://smartynotchy.github.io/PHS-Hardware-Catalog/blob/main/global/colorpalette.css",
+    );
   } else {
     // Switch to dark mode
-    themeLink.setAttribute('href', 'https://smartynotchy.github.io/PHS-Hardware-Catalog/blob/main/global/inverse.css');
+    themeLink.setAttribute(
+      "href",
+      "https://smartynotchy.github.io/PHS-Hardware-Catalog/blob/main/global/inverse.css",
+    );
   }
 }
 catalogContainer.addEventListener("click", (e) => {
