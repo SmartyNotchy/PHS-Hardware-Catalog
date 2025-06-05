@@ -61,6 +61,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
     localStorage.setItem("selectedGroupId", selectedGroupId);
     localStorage.setItem("studentLoggedIn", "true");
-    window.location.href = "../student-catalog/student-catalog.html";
+    window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/student-catalog/student-catalog.html";
   });
 });

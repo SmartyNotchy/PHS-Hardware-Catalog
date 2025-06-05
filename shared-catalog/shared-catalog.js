@@ -4,7 +4,7 @@ const catalogContainer = document.querySelector(".catalog-container");
 const itemTemplate = document.querySelector(".catalog-item-template");
 const closeItemInfoButton = document.querySelector(".close-item-info");
 const itemInfo = document.querySelector(".item-info");
-
+const usergroup= document.getElementById("user-group");
 const catalogItemsContent = [
   {
     itemName: "Arduino Motor Shield Rev3",
@@ -207,3 +207,6 @@ catalogContainer.addEventListener("click", (e) => {
 closeItemInfoButton.addEventListener("click", () => {
   closeItemInfo();
 });
+
+
+usergroup.text= localStorage.getItem("selectedGroupId", selectedGroupId);
