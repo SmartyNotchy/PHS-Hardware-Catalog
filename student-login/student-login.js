@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   let option = document.createElement("option");
   option.value= (groupoptions[i]);
   option.text=''+i;
-  groups.appendChild(option);
+  groups-select.appendChild(option);
   }
 
 
