@@ -1,9 +1,19 @@
 window.addEventListener("DOMContentLoaded", async () => {
-  const projectSelect = document.getElementById("projects-select");
+  // doesnt exsist to my knowledge --> const projectSelect = document.getElementById("projects-select");
   const groupSelect = document.getElementById("groups-select");
   const loginButton = document.getElementById("login-button");
+  let groupoptions =['1','2','3','4','5','6','7','8'];
+  for(i=0;i<groupoptions.length;i++){
+  let option = document.createElement("option");
+  option.value= (groupoptions[i]);
+  option.text=''+i;
+  groups.appendChild(option);
+  }
 
-  // 1. Fetch projects
+
+  //group append/pop
+  
+  /* 1. Fetch projects
   let projectUuids = [];
   try {
     projectUuids = await get_cmd(new DataCommand("get-projects", []));
@@ -18,9 +28,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     alert("Failed to load projects.");
     console.error(err);
     return;
-  }
+  }*/
 
-  // 2. When a project is selected, fetch its groups
+  /* 2. When a project is selected, fetch its groups
   projectSelect.addEventListener("change", async () => {
     groupSelect.innerHTML = ""; // Clear previous options
     const selectedProjectUuid = projectSelect.value;
@@ -40,7 +50,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       alert("Failed to load groups.");
       console.error(err);
     }
-  });
+  });*/
 
   // 3. Login button
   loginButton.addEventListener("click", () => {
