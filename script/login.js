@@ -47,7 +47,7 @@ async function renderInitial() {
 
         const catalogBtn = document.createElement('button');
         catalogBtn.textContent = 'Proceed to Catalog';
-        catalogBtn.onclick = () => { window.location.href = "/" };
+        catalogBtn.onclick = () => { window.location.href = "./" };
 
         const logoutBtn = document.createElement('button');
         logoutBtn.textContent = 'Log Out';
@@ -137,7 +137,7 @@ async function renderStudentLogin() {
 
     loginBtn.onclick = async function() {
         await submitStudentLogin(projectSelect.value, groupSelect.value);
-        window.location.href = "/";
+        window.location.href = "./";
     }
 
     container.append(projectSelect, groupSelect, loginBtn, backBtn);
@@ -166,7 +166,7 @@ function renderTeacherLogin() {
     submitBtn.onclick = async function() {
         const res = await submitTeacherPassword(passwordInput.value);
         if (!res) alert("Incorrect password!");
-        else window.location.href = "/";
+        else window.location.href = "./";
     }
 
     container.append(passwordInput, submitBtn, backBtn);
