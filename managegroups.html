@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="SMCS Hardware Catalog">
+    
+    <title>SMCS Hardware Catalog</title>
+    <link rel="icon" type="img/x-icon" href="icons/PFP-logo.png" />
+
+    <link rel="stylesheet" href="style/global.css"/>
+    <link rel="stylesheet" href="style/navbar.css" />
+    <link rel="stylesheet" href="style/catalog.css" />
+
+    <script src="server/requests.js" defer></script>
+    <script src="script/global.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <p id="header_usertxt">PHS Hardware Catalog | <span id="header_user">Loading...</span></p>
+      <button id="header_logout">
+        Log Out
+        <img class="navbar-img invert" src="icons/navbar/logout.png" alt=""/>
+      </button>
+    </header>
+
+    <button class="toggle-nav-btn">
+      <img class="invert" src="icons/navbar/close-nav.png" alt="<"/>
+      <span class="toggle-nav-tooltip tooltip">Close Navbar</span>
+    </button>
+
+    <!-- Navbar -->
+    <nav>
+      <div class="top-nav">
+        <a href="index.html" class="navbar_current">
+          Catalog
+          <img class="navbar-img invert" src="icons/navbar/catalog.png"/>
+        </a>
+        <a href="inventory.html" class="student-link">
+          Inventory
+          <img class="navbar-img invert" src="icons/navbar/inventory.png"/>
+        </a>
+        <a href="requests.html" class="student-link">
+          Requests
+          <img class="navbar-img invert" src="icons/navbar/requests.png"/>
+        </a>
+        <a href="history.html" class="student-link">
+          Request History
+          <img class="navbar-img invert" src="icons/navbar/history.png"/>
+        </a>
+        <a href="managegroups.html" class="teacher-link navbar-current">
+          Manage Groups
+          <img class="navbar-img invert" src="icons/navbar/groups.png"/>
+        </a>
+        <a href="managerequests.html" class="teacher-link">
+          Review Requests
+          <img class="navbar-img invert" src="icons/navbar/managerequests.png"/>
+        </a>
+        <a href="managehistory.html" class="teacher-link">
+          Review History
+          <img class="navbar-img invert" src="icons/navbar/history.png"/>
+        </a>
+      </div>
+
+      <div class="bottom-nav">
+        <a href="about.html">
+          About
+          <img class="navbar-img invert" src="icons/navbar/about.png" alt=""/>
+        </a>
+      </div>
+
+    </nav>
+
+    
+    <main>
+
+    </main>
+  </body>
+</html>

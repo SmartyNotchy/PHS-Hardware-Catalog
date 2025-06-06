@@ -35,11 +35,12 @@ function getCookie(name) {
 const SERVER_URL = "http://127.0.0.1:5000";
 
 //var CLIENT_UUID = prompt("Enter a UUID (DEBUG):")
+/*
 SESSION_TOKEN = getCookie("SESSION_TOKEN");
 if (SESSION_TOKEN == undefined) {
   SESSION_TOKEN = generateUUID();
   setCookie("SESSION_TOKEN", CLIENT_UUID, 365);
-}
+}*/
 
 /* Credits: https://stackoverflow.com/questions/105034/how-do-i-create-a-guid-uuid */
 function generateUUID() {
@@ -74,7 +75,6 @@ class DataCommand {
   to_json() {
     return JSON.stringify({
       cmdName: this.cmdName,
-      uuid: CLIENT_UUID,
       args: this.args,
     });
   }
@@ -98,7 +98,7 @@ async function post_cmd(cmd) {
 async function get_cmd(cmd) {
   return fetch(
     SERVER_URL +
-      `?${new URLSearchParams({ cmdName: cmd.cmdName, uuid: CLIENT_UUID, args: cmd.args })}`,
+      `?${new URLSearchParams({ cmdName: cmd.cmdName, args: cmd.args })}`,
   )
     .then((response) => response.json())
     .then((json) => json.body)
