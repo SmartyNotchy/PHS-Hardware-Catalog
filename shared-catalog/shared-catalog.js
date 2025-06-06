@@ -209,4 +209,4 @@ closeItemInfoButton.addEventListener("click", () => {
 });
 
 
-usergroup.text= localStorage.getItem("selectedGroupId", selectedGroupId);
+usergroup.text= localStorage.getItem("selectedGroupId");
