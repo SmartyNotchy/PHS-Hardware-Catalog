@@ -1,49 +1,88 @@
-function submitStudentLogin(project, group) {
+async function submitStudentLogin(project, group) {
     console.log(`Logging in as student: ${project}, ${group}`);
+    loginState.isLoggedIn = true;
+    loginState.isAdmin = false;
+    loginState.uuid = group;
+    loginState.token = "No Tokens :(";
+    saveLoginState();
 }
 
-function submitTeacherPassword(password) {
+async function submitTeacherPassword(password) {
     console.log(`Logging in as teacher with password: ${password}`);
+    const loginReq = await post_cmd(new DataCommand("teacher-login", [password]));
+    console.log(loginReq);
+    if (loginReq.success) {
+        loginState.isLoggedIn = true;
+        loginState.isAdmin = true;
+        loginState.uuid = loginReq.uuid;
+        loginState.token = loginReq.token;
+        saveLoginState();
+        return true;
+    } else {
+        return false;
+    }
 }
 
-function renderInitial() {
+async function renderInitial() {
     const navIsClosed = root.classList.toggle("nav-closed");
     if (!navIsClosed) {
         root.classList.toggle("nav-closed");
     }
-    
+
     const container = document.getElementById('login-container');
     container.innerHTML = '';
 
-    if (userState.isLoggedIn) {
-    const message = document.createElement('div');
-    message.textContent = `Logged in as ${userState.username}`;
+    if (loginState.isLoggedIn) {
+        const message = document.createElement('div');
 
-    const catalogBtn = document.createElement('button');
-    catalogBtn.textContent = 'Proceed to Catalog';
+        let loginStateName = "";
+        if (loginState.isAdmin) {
+            loginStateName = await get_cmd(new DataCommand("get-obj", ["teacher", loginState.uuid]));
+            loginStateName = loginStateName.data.name;
+        } else {
+            const group = await get_cmd(new DataCommand("get-obj", ["group", loginState.uuid])).name;
+            loginStateName = await get_cmd(new DataCommand("get-obj", ["teacher", loginState.uuid])).name;
+        }
+        message.textContent = `Logged in as ${loginStateName}`;
 
-    const logoutBtn = document.createElement('button');
-    logoutBtn.textContent = 'Log Out';
-    logoutBtn.onclick = () => {
-        userState.isLoggedIn = false;
-        renderInitial();
-    };
+        const catalogBtn = document.createElement('button');
+        catalogBtn.textContent = 'Proceed to Catalog';
+        catalogBtn.onclick = () => { window.location.href = "/" };
 
-    container.append(message, catalogBtn, logoutBtn);
+        const logoutBtn = document.createElement('button');
+        logoutBtn.textContent = 'Log Out';
+        logoutBtn.onclick = () => {
+            resetLoginState();
+            renderInitial();
+        };
+
+        container.append(message, catalogBtn, logoutBtn);
     } else {
-    const prompt = document.createElement('div');
-    prompt.textContent = 'Log in as:';
+        const prompt = document.createElement('div');
+        prompt.textContent = 'Log in as:';
 
-    const studentBtn = document.createElement('button');
-    studentBtn.textContent = 'Student';
-    studentBtn.onclick = renderStudentLogin;
+        const studentBtn = document.createElement('button');
+        studentBtn.textContent = 'Student';
+        studentBtn.onclick = renderStudentLogin;
 
-    const teacherBtn = document.createElement('button');
-    teacherBtn.textContent = 'Teacher';
-    teacherBtn.onclick = renderTeacherLogin;
+        const teacherBtn = document.createElement('button');
+        teacherBtn.textContent = 'Teacher';
+        teacherBtn.onclick = renderTeacherLogin;
 
-    container.append(prompt, studentBtn, teacherBtn);
+        container.append(prompt, studentBtn, teacherBtn);
     }
+}
+
+async function getProjects() {
+    const project_uuids = await get_cmd(new DataCommand("get-projects", []));
+    const projects = await get_cmd(new DataCommand("get-obj-list", ["projects", project_uuids]));
+    return projects;
+}
+
+async function getGroups(projUUID) {
+    const project = await get_cmd(new DataCommand("get-obj", ["projects", projUUID]));
+    const groups = await get_cmd(new DataCommand("get-obj-list", ["groups", project.groups]));
+    return groups;
 }
 
 function renderStudentLogin() {
@@ -58,10 +97,10 @@ function renderStudentLogin() {
     projectSelect.appendChild(defaultProjectOption);
 
     for (const project of getProjects()) {
-    const option = document.createElement('option');
-    option.value = project;
-    option.text = project;
-    projectSelect.appendChild(option);
+        const option = document.createElement('option');
+        option.value = project.uuid;
+        option.text = project.name;
+        projectSelect.appendChild(option);
     }
 
     const groupSelect = document.createElement('select');
@@ -81,31 +120,34 @@ function renderStudentLogin() {
     backBtn.onclick = renderInitial;
 
     projectSelect.onchange = () => {
-    const groups = getGroups(projectSelect.value);
-    groupSelect.innerHTML = '';
-    const defaultGroupOption = document.createElement('option');
-    defaultGroupOption.text = 'Select a group';
-    defaultGroupOption.disabled = true;
-    defaultGroupOption.selected = true;
-    groupSelect.appendChild(defaultGroupOption);
+        const groups = getGroups(projectSelect.value);
+        groupSelect.innerHTML = '';
+        const defaultGroupOption = document.createElement('option');
+        defaultGroupOption.text = 'Select a group';
+        defaultGroupOption.disabled = true;
+        defaultGroupOption.selected = true;
+        groupSelect.appendChild(defaultGroupOption);
 
-    for (const group of groups) {
-        const option = document.createElement('option');
-        option.value = group;
-        option.text = group;
-        groupSelect.appendChild(option);
-    }
-    groupSelect.disabled = false;
-    loginBtn.disabled = true;
+        for (const group of groups) {
+            const option = document.createElement('option');
+            option.value = group.uuid;
+            option.text = group.name;
+            groupSelect.appendChild(option);
+        }
+        groupSelect.disabled = false;
+        loginBtn.disabled = true;
     };
 
     groupSelect.onchange = () => {
-    if (projectSelect.value && groupSelect.value && groupSelect.selectedIndex > 0) {
-        loginBtn.disabled = false;
-    }
+        if (projectSelect.value && groupSelect.value && groupSelect.selectedIndex > 0) {
+            loginBtn.disabled = false;
+        }
     };
 
-    loginBtn.onclick = () => submitStudentLogin(projectSelect.value, groupSelect.value);
+    loginBtn.onclick = async function() {
+        await submitStudentLogin(projectSelect.value, groupSelect.value);
+        window.location.href = "/";
+    }
 
     container.append(projectSelect, groupSelect, loginBtn, backBtn);
 }
@@ -127,10 +169,14 @@ function renderTeacherLogin() {
     backBtn.onclick = renderInitial;
 
     passwordInput.oninput = () => {
-    submitBtn.disabled = !passwordInput.value.trim();
+        submitBtn.disabled = !passwordInput.value.trim();
     };
 
-    submitBtn.onclick = () => submitTeacherPassword(passwordInput.value);
+    submitBtn.onclick = async function() {
+        const res = await submitTeacherPassword(passwordInput.value);
+        if (!res) alert("Incorrect password!");
+        else window.location.href = "/";
+    }
 
     container.append(passwordInput, submitBtn, backBtn);
 }

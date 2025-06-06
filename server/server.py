@@ -119,7 +119,8 @@ def initialize_database():
 
             cursor.execute('''
                 CREATE TABLE teachers (
-                    name TEXT PRIMARY KEY,
+                    uuid VARCHAR(36) PRIMARY KEY,
+                    name TEXT,
                     password TEXT,
                     loginToken TEXT
                 )
@@ -204,16 +205,25 @@ def send_return_form(instance_uuid, group_uuid, details, itemCondition):
 ###### POST COMMANDS - TEACHER ######
 #####################################
 
+def add_teacher(name, password):
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                "INSERT INTO teachers (uuid, name, password, loginToken) VALUES (%s, %s, %s, %s)",
+                (gen_uuid(), name, password, gen_uuid())
+            )
+            conn.commit()
+
 def teacher_login(password):
     with get_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT name FROM teachers WHERE password=%s", (password,))
+            cursor.execute("SELECT uuid FROM teachers WHERE password=%s", (password,))
             row = cursor.fetchone()
             if row:
                 token = str(gen_uuid_raw())
-                cursor.execute("UPDATE teachers SET loginToken=%s WHERE name=%s", (token, row["name"]))
+                cursor.execute("UPDATE teachers SET loginToken=%s WHERE uuid=%s", (token, row["uuid"]))
                 conn.commit()
-                return jsonify({"success": True, "token": token, "name": row["name"]})
+                return jsonify({"success": True, "token": token, "uuid": row["uuid"]})
             else:
                 return jsonify({"success": False, "message": "Invalid password."})
 
@@ -354,7 +364,7 @@ def handle_post():
         password = request.headers.get('password')
         if username == "SMCS_PFP" and password == "ThreeComponentsAhead":
             data = request.get_json()
-            res = processPostCommand(data.get("cmdName"), data.get("uuid"), [data.get("args", None)])
+            res = processPostCommand(data.get("cmdName"), data.get("uuid"), data.get("args", "").split(","))
             print("Response JSON:", res.get_json())
             return res
         else:
@@ -367,6 +377,6 @@ def handle_get():
         "uuid": request.args.get("uuid"),
         "args": request.args.getlist("args")
     }
-    res = processGetCommand(data["cmdName"], data["uuid"], data["args"])
+    res = processGetCommand(data["cmdName"], data["uuid"], data["args"][0].split(","))
     print("Response JSON:", res.get_json())
     return res

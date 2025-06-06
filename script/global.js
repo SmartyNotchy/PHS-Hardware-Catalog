@@ -1,3 +1,77 @@
+/* COOKIES */
+
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        while (cookie.charAt(0) == ' ') {
+            cookie = cookie.substring(1, cookie.length);
+        }
+        if (cookie.indexOf(nameEQ) == 0) {
+            return cookie.substring(nameEQ.length, cookie.length);
+        }
+    }
+    return undefined;
+}
+
+/* LOG IN STATUS */
+
+const loginState = {
+    isLoggedIn: false,
+    isAdmin: false,
+    uuid: "",
+    token: ""
+}
+
+async function getLoginState() {
+    if (getCookie("isLoggedIn") == undefined) {
+        resetLoginState();
+        saveLoginState();
+    }
+
+    loginState.isLoggedIn = getCookie("isLoggedIn");
+    loginState.isAdmin = getCookie("isAdmin");
+    loginState.uuid = getCookie("uuid");
+    loginState.token = getCookie("token");
+
+    if (loginState.isLoggedIn) {
+        if (loginState.isAdmin) {
+            const res = await get_cmd(new DataCommand("verify-token", [loginState.token]));
+            if (!res.is_admin) {
+                resetLoginState();
+                saveLoginState();
+            }
+        }
+    }
+}
+
+function resetLoginState() {
+    loginState.isLoggedIn = false;
+    loginState.isAdmin = false;
+    loginState.uuid = false;
+    loginState.token = false;
+}
+
+function saveLoginState() {
+    setCookie("isLoggedIn", loginState.isLoggedIn, 365);
+    setCookie("isAdmin", loginState.isAdmin, 365);
+    setCookie("uuid", loginState.uuid, 365);
+    setCookie("token", loginState.token, 365);
+}
+
+getLoginState();
+
 /* NAVBAR */
 
 const root = document.documentElement;
@@ -42,23 +116,4 @@ if (toggleNavButton != null) {
         toggleNav();
         updateScrollBarPadding();
     });
-}
-
-
-/* LOG IN STATUS */
-
-// Placeholder login state
-const userState = {
-    isLoggedIn: false,
-    userType: null, // 'student' or 'teacher'
-    username: 'SampleUser'
-};
-
-// Placeholder functions
-function getProjects() {
-    return ['Project Alpha', 'Project Beta'];
-}
-
-function getGroups(project) {
-    return project === 'Project Alpha' ? ['Group 1', 'Group 2'] : ['Group A', 'Group B'];
 }
