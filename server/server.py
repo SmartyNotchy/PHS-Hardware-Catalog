@@ -336,7 +336,7 @@ def processGetCommand(cmdName, uuid, args):
     elif cmdName == "get-obj-list":
         return get_obj_list(*args)
     elif cmdName == "verify-token":
-        return verify_admin_token(*args)
+        return jsonify({"is_admin": verify_admin_token(*args)})
     else:
         return jsonify({"success": False, "message": f"Unknown Command Name '{cmdName}'"})
 
@@ -354,7 +354,9 @@ def handle_post():
         password = request.headers.get('password')
         if username == "SMCS_PFP" and password == "ThreeComponentsAhead":
             data = request.get_json()
-            return processPostCommand(data.get("cmdName"), data.get("uuid"), data.get("args", []))
+            res = processPostCommand(data.get("cmdName"), data.get("uuid"), [data.get("args", None)])
+            print("Response JSON:", res.get_json())
+            return res
         else:
             return jsonify({"success": False, "message": "Verification failed."})
 
@@ -365,4 +367,6 @@ def handle_get():
         "uuid": request.args.get("uuid"),
         "args": request.args.getlist("args")
     }
-    return processGetCommand(data["cmdName"], data["uuid"], data["args"])
+    res = processGetCommand(data["cmdName"], data["uuid"], data["args"])
+    print("Response JSON:", res.get_json())
+    return res

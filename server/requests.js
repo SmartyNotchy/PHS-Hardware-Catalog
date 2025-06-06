@@ -31,8 +31,8 @@ function getCookie(name) {
   return undefined;
 }
 
-//const SERVER_URL = "http://smcs2027pfp.pythonanywhere.com/";
-const SERVER_URL = "http://127.0.0.1:5000";
+const SERVER_URL = "http://smcs2027pfp.pythonanywhere.com/";
+//const SERVER_URL = "http://127.0.0.1:5000";
 
 //var CLIENT_UUID = prompt("Enter a UUID (DEBUG):")
 /*
@@ -91,7 +91,7 @@ async function post_cmd(cmd) {
     body: cmd.to_json(),
   })
     .then((response) => response.json())
-    .then((json) => json.body)
+    .then((json) => json)
     .catch((error) => console.error("Error:", error));
 }
 
@@ -101,7 +101,7 @@ async function get_cmd(cmd) {
       `?${new URLSearchParams({ cmdName: cmd.cmdName, args: cmd.args })}`,
   )
     .then((response) => response.json())
-    .then((json) => json.body)
+    .then((json) => json)
     .catch((error) => console.error("Error:", error));
 }
 

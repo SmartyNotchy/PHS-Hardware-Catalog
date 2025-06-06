@@ -7,6 +7,11 @@ function submitTeacherPassword(password) {
 }
 
 function renderInitial() {
+    const navIsClosed = root.classList.toggle("nav-closed");
+    if (!navIsClosed) {
+        root.classList.toggle("nav-closed");
+    }
+    
     const container = document.getElementById('login-container');
     container.innerHTML = '';
 
