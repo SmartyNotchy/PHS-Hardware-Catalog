@@ -79,7 +79,7 @@ function saveLoginState() {
 function logout() {
     resetLoginState();
     saveLoginState();
-    window.location.href = "/login.html";
+    window.location.href = "./login.html";
 }
 
 getLoginState();
