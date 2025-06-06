@@ -40,8 +40,8 @@ async function renderInitial() {
             loginStateName = await get_cmd(new DataCommand("get-obj", ["teacher", loginState.uuid]));
             loginStateName = loginStateName.data.name;
         } else {
-            const group = await get_cmd(new DataCommand("get-obj", ["group", loginState.uuid])).name;
-            loginStateName = await get_cmd(new DataCommand("get-obj", ["teacher", loginState.uuid])).name;
+            const group = await get_cmd(new DataCommand("get-obj", ["group", loginState.uuid]));
+            loginStateName = group.data.name;
         }
         message.textContent = `Logged in as ${loginStateName}`;
 
@@ -71,20 +71,6 @@ async function renderInitial() {
 
         container.append(prompt, studentBtn, teacherBtn);
     }
-}
-
-async function getProjects() {
-    const project_uuids = await get_cmd(new DataCommand("get-projects", []));
-    const projects = await get_cmd(new DataCommand("get-obj-list", ["project", project_uuids]));
-    const project_data = projects.data;
-    console.log(project_data);
-    return project_data;
-}
-
-async function getGroups(projUUID) {
-    const project = await get_cmd(new DataCommand("get-obj", ["project", projUUID]));
-    const groups = await get_cmd(new DataCommand("get-obj-list", ["group", project.groups]));
-    return groups;
 }
 
 async function renderStudentLogin() {

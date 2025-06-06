@@ -90,6 +90,11 @@ if (window.location.href.indexOf("login.html") == -1) {
     }
     window.addEventListener("load", function() { document.getElementById("header_logout").onclick = logout; });
     
+    const element = document.querySelector('.navbar-current');
+    if (element && (element.classList.contains('student-link') && loginState.isAdmin || element.classList.contains('teacher-link') && !loginState.isAdmin)) {
+        window.location.href = "/";
+    }
+
     document.addEventListener("DOMContentLoaded", async function () {
         if (loginState.isAdmin) {
         // Hide all student-only links
@@ -108,6 +113,26 @@ if (window.location.href.indexOf("login.html") == -1) {
         }
         document.getElementById("header_user").innerText = name;
     });
+}
+
+/* SERVER HELPERS */
+
+async function getProjects() {
+    const project_uuids = await get_cmd(new DataCommand("get-projects", []));
+    const projects = await get_cmd(new DataCommand("get-obj-list", ["project", project_uuids]));
+    const project_data = projects.data;
+    //console.log(project_data);
+    return project_data;
+}
+
+async function getGroups(projUUID) {
+    const project = await get_cmd(new DataCommand("get-obj", ["project", projUUID]));
+    const groups = await get_cmd(new DataCommand("get-obj-list", ["group", project.data.group_list]));
+    //console.log("Project Groups");
+    //console.log(project);
+    const group_data = groups.data;
+    //console.log(group_data);
+    return group_data;
 }
 
 /* NAVBAR */

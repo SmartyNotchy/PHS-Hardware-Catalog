@@ -66,7 +66,6 @@ def initialize_database():
                 CREATE TABLE group_data (
                     uuid VARCHAR(36) PRIMARY KEY,
                     name TEXT,
-                    students TEXT,
                     requests TEXT,
                     reports TEXT,
                     inventory TEXT
@@ -138,6 +137,7 @@ def get_projects():
         with conn.cursor() as cursor:
             cursor.execute("SELECT uuid FROM projects WHERE active=1")
             results = [row['uuid'] for row in cursor.fetchall()]
+            results = sorted(results)
     return jsonify(results)
 
 def get_catalog():
@@ -169,6 +169,7 @@ def get_obj_list(args):
         with conn.cursor() as cursor:
             cursor.execute(f"SELECT * FROM {obj_type} WHERE uuid IN ({placeholders})", args[1:])
             results = cursor.fetchall()
+            results = sorted(results, key=lambda x : x['uuid'])
             for item in results:
                 item['type'] = args[0]
     return jsonify({"success": True, "data": results})
@@ -284,22 +285,45 @@ def create_project(token, name):
             conn.commit()
     return jsonify({"success": True, "uuid": uuid})
 
-def add_groups(token, project_uuid, group_uuids):
+def add_group(token, project_uuid, group_name, group_students):
     if not verify_admin_token(token):
         return jsonify({"success": False, "message": "Admin access required."})
 
+    group_uuid = gen_uuid()
     with get_connection() as conn:
         with conn.cursor() as cursor:
+            cursor.execute(
+                '''
+                INSERT INTO group_data (uuid, name, students, requests, reports, inventory)
+                VALUES (%s, %s, %s, %s, %s, %s)
+                ''',
+                (group_uuid, group_name, group_students, json.dumps([]), json.dumps([]), json.dumps([]))
+            )
+
             cursor.execute("SELECT group_list FROM projects WHERE uuid=%s", (project_uuid,))
             row = cursor.fetchone()
             if not row:
                 return jsonify({"success": False, "message": "Project not found."})
 
             existing_groups = json.loads(row['group_list'])
-            updated_groups = list(set(existing_groups + group_uuids))
+            updated_groups = list(set(existing_groups + [group_uuid]))
             cursor.execute("UPDATE projects SET group_list=%s WHERE uuid=%s", (json.dumps(updated_groups), project_uuid))
             conn.commit()
-    return jsonify({"success": True, "updatedGroups": updated_groups})
+
+    return jsonify({"success": True, "group_uuid": group_uuid, "updatedGroups": updated_groups})
+
+def edit_group(token, group_uuid, new_name):
+    if not verify_admin_token(token):
+        return jsonify({"success": False, "message": "Admin access required."})
+
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                "UPDATE group_data SET name=%s WHERE uuid=%s",
+                (new_name, group_uuid)
+            )
+            conn.commit()
+    return jsonify({"success": True, "message": "Group updated."})
 
 def update_group_students(token, group_uuid, student_text):
     if not verify_admin_token(token):
@@ -326,8 +350,10 @@ def processPostCommand(cmdName, uuid, args):
         return add_instance(*args)
     elif cmdName == "admin-create-project":
         return create_project(*args)
-    elif cmdName == "admin-add-groups":
-        return add_groups(*args)
+    elif cmdName == "admin-add-group":
+        return add_group(*args)
+    elif cmdName == "admin-edit-group":
+        return edit_group(*args)
     elif cmdName == "admin-update-group-students":
         return update_group_students(*args)
     elif cmdName == "admin-reset-db":
@@ -370,8 +396,7 @@ def handle_post():
         password = request.headers.get('password')
         if username == "SMCS_PFP" and password == "ThreeComponentsAhead":
             data = request.get_json()
-            print(data.get("args", []))
-            res = processPostCommand(data.get("cmdName"), data.get("uuid"), data.get("args", [""])[0].split(","))
+            res = processPostCommand(data.get("cmdName"), data.get("uuid"), data.get("args", []))
             print("Response JSON:", res.get_json())
             return res
         else:

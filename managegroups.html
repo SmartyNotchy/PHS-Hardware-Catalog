@@ -16,6 +16,7 @@
 
     <script src="server/requests.js" defer></script>
     <script src="script/global.js" defer></script>
+    <script src="script/managegroups.js" defer></script>
   </head>
 
   <body>
@@ -76,8 +77,24 @@
     </nav>
 
     
-    <main>
+    <template id="project-template">
+      <div class="project">
+        <h2 class="project-name"></h2>
+        <button class="add-group-btn">Add Group</button>
+        <div class="groups-container"></div>
+      </div>
+    </template>
 
+    <template id="group-template">
+      <div class="group">
+        <p class="group-info"></p>
+        <button class="edit-group-btn">Edit Group</button>
+      </div>
+    </template>
+
+    <main>
+      <button id="create-project-btn">Create New Project</button>
+      <div id="projects-container"></div>
     </main>
   </body>
 </html>

@@ -79,30 +79,55 @@ class DataCommand {
     });
   }
 }
+function deepJsonify(obj) {
+  if (typeof obj === "string") {
+    try {
+      const parsed = JSON.parse(obj);
+      return deepJsonify(parsed);
+    } catch (e) {
+      return obj; // Not JSON, return as-is
+    }
+  } else if (Array.isArray(obj)) {
+    return obj.map(deepJsonify);
+  } else if (obj && typeof obj === "object") {
+    const newObj = {};
+    for (const [key, value] of Object.entries(obj)) {
+      newObj[key] = deepJsonify(value);
+    }
+    return newObj;
+  }
+  return obj;
+}
 
 async function post_cmd(cmd) {
-  return fetch(SERVER_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      username: "SMCS_PFP",
-      password: "ThreeComponentsAhead",
-    },
-    body: cmd.to_json(),
-  })
-    .then((response) => response.json())
-    .then((json) => json)
-    .catch((error) => console.error("Error:", error));
+  try {
+    const response = await fetch(SERVER_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        username: "SMCS_PFP",
+        password: "ThreeComponentsAhead",
+      },
+      body: cmd.to_json(),
+    });
+    const json = await response.json();
+    return deepJsonify(json);
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
 
 async function get_cmd(cmd) {
-  return fetch(
-    SERVER_URL +
-      `?${new URLSearchParams({ cmdName: cmd.cmdName, args: cmd.args })}`,
-  )
-    .then((response) => response.json())
-    .then((json) => json)
-    .catch((error) => console.error("Error:", error));
+  try {
+    const response = await fetch(
+      SERVER_URL +
+        `?${new URLSearchParams({ cmdName: cmd.cmdName, args: cmd.args })}`,
+    );
+    const json = await response.json();
+    return deepJsonify(json);
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
 
 async function calculate_ping() {
