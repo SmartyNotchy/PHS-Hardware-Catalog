@@ -157,14 +157,14 @@ def get_obj(obj_type, uuid):
                 return jsonify({"success": True, "data": result})
             return jsonify({"success": False, "data": None})
 
-def get_obj_list(obj_type, uuid_list):
-    placeholders = ','.join(['%s'] * len(uuid_list))
+def get_obj_list(args):
+    placeholders = ','.join(['%s'] * len(args[1:]))
     with get_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute(f"SELECT * FROM {obj_type}s WHERE uuid IN ({placeholders})", uuid_list)
+            cursor.execute(f"SELECT * FROM {args[0]}s WHERE uuid IN ({placeholders})", args[1:])
             results = cursor.fetchall()
             for item in results:
-                item['type'] = obj_type
+                item['type'] = args[0]
     return jsonify({"success": True, "data": results})
 
 def verify_admin_token(token):
@@ -364,7 +364,8 @@ def handle_post():
         password = request.headers.get('password')
         if username == "SMCS_PFP" and password == "ThreeComponentsAhead":
             data = request.get_json()
-            res = processPostCommand(data.get("cmdName"), data.get("uuid"), data.get("args", "").split(","))
+            print(data.get("args", []))
+            res = processPostCommand(data.get("cmdName"), data.get("uuid"), data.get("args", [""])[0].split(","))
             print("Response JSON:", res.get_json())
             return res
         else:
@@ -377,6 +378,12 @@ def handle_get():
         "uuid": request.args.get("uuid"),
         "args": request.args.getlist("args")
     }
-    res = processGetCommand(data["cmdName"], data["uuid"], data["args"][0].split(","))
+    print(data["args"])
+    args = data["args"]
+    if len(args) == 1:
+        args = args[0].split(",")
+    print(args)
+
+    res = processGetCommand(data["cmdName"], data["uuid"], args)
     print("Response JSON:", res.get_json())
     return res

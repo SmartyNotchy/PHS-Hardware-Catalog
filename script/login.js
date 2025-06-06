@@ -75,17 +75,19 @@ async function renderInitial() {
 
 async function getProjects() {
     const project_uuids = await get_cmd(new DataCommand("get-projects", []));
-    const projects = await get_cmd(new DataCommand("get-obj-list", ["projects", project_uuids]));
-    return projects;
+    const projects = await get_cmd(new DataCommand("get-obj-list", ["project", project_uuids]));
+    const project_data = projects.data;
+    console.log(project_data);
+    return project_data;
 }
 
 async function getGroups(projUUID) {
-    const project = await get_cmd(new DataCommand("get-obj", ["projects", projUUID]));
-    const groups = await get_cmd(new DataCommand("get-obj-list", ["groups", project.groups]));
+    const project = await get_cmd(new DataCommand("get-obj", ["project", projUUID]));
+    const groups = await get_cmd(new DataCommand("get-obj-list", ["group", project.groups]));
     return groups;
 }
 
-function renderStudentLogin() {
+async function renderStudentLogin() {
     const container = document.getElementById('login-container');
     container.innerHTML = '';
 
@@ -96,7 +98,10 @@ function renderStudentLogin() {
     defaultProjectOption.selected = true;
     projectSelect.appendChild(defaultProjectOption);
 
-    for (const project of getProjects()) {
+    const projects = await getProjects();
+    console.log(projects);
+
+    for (const project of projects) {
         const option = document.createElement('option');
         option.value = project.uuid;
         option.text = project.name;
@@ -119,8 +124,8 @@ function renderStudentLogin() {
     backBtn.textContent = 'Back';
     backBtn.onclick = renderInitial;
 
-    projectSelect.onchange = () => {
-        const groups = getGroups(projectSelect.value);
+    projectSelect.onchange = async function() {
+        const groups = await getGroups(projectSelect.value);
         groupSelect.innerHTML = '';
         const defaultGroupOption = document.createElement('option');
         defaultGroupOption.text = 'Select a group';

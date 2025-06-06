@@ -70,7 +70,20 @@ function saveLoginState() {
     setCookie("token", loginState.token, 365);
 }
 
+function logout() {
+    resetLoginState();
+    saveLoginState();
+    window.location.href = "/login.html";
+}
+
 getLoginState();
+
+if (window.location.href.indexOf("login.html") == -1) {
+    if (!loginState.isLoggedIn) {
+        logout();
+    }
+    window.addEventListener("load", function() { document.getElementById("header_logout").onclick = logout; });
+}
 
 /* NAVBAR */
 
