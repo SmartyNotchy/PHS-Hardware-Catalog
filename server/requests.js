@@ -31,7 +31,7 @@ function getCookie(name) {
   return undefined;
 }
 
-const SERVER_URL = "http://smcs2027pfp.pythonanywhere.com/";
+const SERVER_URL = "https://smcs2027pfp.pythonanywhere.com/";
 //const SERVER_URL = "http://127.0.0.1:5000";
 
 //var CLIENT_UUID = prompt("Enter a UUID (DEBUG):")
