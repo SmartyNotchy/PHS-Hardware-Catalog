@@ -58,11 +58,26 @@ window.addEventListener("DOMContentLoaded", async () => {
     if (!selectedGroupId) {
       alert("Please select a group.");
       return;
-    }else{
-    localStorage.setItem("selectedGroupId", selectedGroupId);
-    localStorage.setItem("studentLoggedIn", "true");
-    //should work
-    window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/student-catalog/student-catalog.html";
     }
+    //localStorage.setItem("selectedGroupId", selectedGroupId);
+    //localStorage.setItem("studentLoggedIn", "true");
+    //should work
+    // Prevent form submission
+  document.querySelector("form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/student-catalog/student-catalog.html";
+  });
+
+  // Optional: still allow Enter key in input to work
+  document
+    .getElementById("login-button")
+    .addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+       window.location.href = "https://smartynotchy.github.io/PHS-Hardware-Catalog/student-catalog/student-catalog.html";
+      }
+    });
+    
+    
   });
 });
