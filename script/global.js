@@ -52,6 +52,12 @@ async function getLoginState() {
                 resetLoginState();
                 saveLoginState();
             }
+        } else {
+            const res = await get_cmd(new DataCommand("get-obj", ["group", loginState.uuid]));
+            if (!res.success || res.data == null) {
+                resetLoginState();
+                saveLoginState();
+            }
         }
     }
 }
@@ -83,6 +89,25 @@ if (window.location.href.indexOf("login.html") == -1) {
         logout();
     }
     window.addEventListener("load", function() { document.getElementById("header_logout").onclick = logout; });
+    
+    document.addEventListener("DOMContentLoaded", async function () {
+        if (loginState.isAdmin) {
+        // Hide all student-only links
+        document.querySelectorAll('.student-link').forEach(el => el.style.display = 'none');
+        } else {
+        // Hide all teacher-only links
+        document.querySelectorAll('.teacher-link').forEach(el => el.style.display = 'none');
+        }
+        let name = "";
+        if (loginState.isAdmin) {
+            const teacher = await get_cmd(new DataCommand("get-obj", ["teacher", loginState.uuid]));
+            name = teacher.data.name;
+        } else {
+            const group = await get_cmd(new DataCommand("get-obj", ["group", loginState.uuid]));
+            name = group.data.name;
+        }
+        document.getElementById("header_user").innerText = name;
+    });
 }
 
 /* NAVBAR */

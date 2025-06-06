@@ -148,9 +148,12 @@ def get_catalog():
     return jsonify(results)
 
 def get_obj(obj_type, uuid):
+    obj_type += "s"
+    if (obj_type == "groups"):
+        obj_type = "group_data"
     with get_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute(f"SELECT * FROM {obj_type}s WHERE uuid=%s", (uuid,))
+            cursor.execute(f"SELECT * FROM {obj_type} WHERE uuid=%s", (uuid,))
             result = cursor.fetchone()
             if result:
                 result['type'] = obj_type
@@ -158,10 +161,13 @@ def get_obj(obj_type, uuid):
             return jsonify({"success": False, "data": None})
 
 def get_obj_list(args):
+    obj_type = args[0] + "s"
+    if (obj_type == "groups"):
+        obj_type = "group_data"
     placeholders = ','.join(['%s'] * len(args[1:]))
     with get_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute(f"SELECT * FROM {args[0]}s WHERE uuid IN ({placeholders})", args[1:])
+            cursor.execute(f"SELECT * FROM {obj_type} WHERE uuid IN ({placeholders})", args[1:])
             results = cursor.fetchall()
             for item in results:
                 item['type'] = args[0]
@@ -344,7 +350,7 @@ def processGetCommand(cmdName, uuid, args):
     elif cmdName == "get-obj":
         return get_obj(*args)
     elif cmdName == "get-obj-list":
-        return get_obj_list(*args)
+        return get_obj_list(args)
     elif cmdName == "verify-token":
         return jsonify({"is_admin": verify_admin_token(*args)})
     else:
