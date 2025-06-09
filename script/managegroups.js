@@ -19,13 +19,13 @@ async function renderProjects() {
             const groupName = prompt('Enter new group name:');
             if (groupName) {
                 const groupStudents = "";//prompt('Enter students in group (can be changed later):');
-                await post_cmd(new DataCommand("admin-add-group", [loginState.token, project.uuid, groupName, groupStudents]));
+                await post_cmd(new DataCommand("admin-add-group", [loginState.token, project.uuid, groupName]));
                 renderProjects();
             }
         });
 
         const projGroups = await getGroups(project.uuid);
-        
+        projGroups.sort((a, b) => String(a.name).localeCompare(String(b.name)));
 
         projGroups.forEach(group => {
             console.log("waow");

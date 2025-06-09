@@ -1,0 +1,104 @@
+.requests-container {
+  max-height: 70vh;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+
+.request-card {
+width: calc(100vw - 400px);
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.request-card .field {
+  margin-bottom: 0.5rem;
+}
+
+.request-card .field strong {
+  display: inline-block;
+  width: 120px;
+  color: #555;
+}
+
+.request-card .request-reason {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.request-card .teacher-message {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #000066;
+  background: #eeeeff;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.request-card button {
+  transform: translateY(-30px);
+}
+
+
+.request-card button.cancel-btn {
+  background: #d9534f;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.request-card button.cancel-btn:hover {
+  background: #c9302c;
+}
+
+.request-card button.cancel-btn {
+  background: #d9534f;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.request-card button.cancel-btn:hover {
+  background: #c9302c;
+}
+
+button.approve-btn {
+  
+  margin-right: 20px;
+    background-color: #4CAF50;
+    border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+
+}
+
+button.reject-btn {
+    background-color: #f44336;
+    border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+button:disabled {
+  cursor: not-allowed !important;
+  background-color: #999 !important;
+}

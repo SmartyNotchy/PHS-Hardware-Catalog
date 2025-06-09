@@ -16,6 +16,38 @@
     max-width: 100%;
     height: auto;
 }
+
+.component-card button {
+  background-color: #0066ff;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+
+  margin-top: 20px;
+  bottom: 0px;
+
+  float: center;
+}
+
+#add-component-btn {
+  background-color: #0066ff;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 200px;
+
+  position: absolute;
+  top: 100px;
+  right: 20px;
+
+  float: center;
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;

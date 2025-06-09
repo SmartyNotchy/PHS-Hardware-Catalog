@@ -131,6 +131,7 @@ async function getGroups(projUUID) {
     //console.log("Project Groups");
     //console.log(project);
     const group_data = groups.data;
+    group_data.sort((a, b) => String(a.name).localeCompare(String(b.name)));
     //console.log(group_data);
     return group_data;
 }

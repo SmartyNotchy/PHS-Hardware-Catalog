@@ -59,7 +59,6 @@ async function renderCatalog() {
     img.src = comp.image;
 
     const status = document.createElement('p');
-    status.textContent = 'Status: ' + (comp.instances.length > 0 ? 'In stock' : 'Out of stock');
 
     const btn = document.createElement('button');
     btn.textContent = 'View More';
@@ -203,8 +202,13 @@ async function openModal(comp) {
     if (inst.available && !inst.pendingReq && !loginState.isAdmin) {
       const reqBtn = document.createElement('button');
       reqBtn.textContent = 'Request';
-      reqBtn.onclick = () => {
-        window.location.href = '/request-placeholder.html';
+      reqBtn.onclick = async () => {
+        const newCond = prompt("Reason for requesting:", "My group would like a " + comp.name + " because...");
+        if (newCond) {
+          const res = await post_cmd(new DataCommand("send-request-form", [inst.uuid, loginState.uuid, newCond]));
+          if (res.success) window.location.href = "./requests.html";
+          else alert("Error: " + res);
+        }
       };
       item.appendChild(reqBtn);
     }
@@ -251,7 +255,7 @@ document.getElementById('component-submit-btn').addEventListener('click', async 
 
 // Placeholder function definition
 async function add_component(component) {
-  await post_cmd(new DataCommand('admin-add-component', [loginState.token, component.name, "./images/arduino-uno-rev3.png", component.details]));
+  await post_cmd(new DataCommand('admin-add-component', [loginState.token, component.name, "./images/raspberry-pi-5.png", component.details]));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
