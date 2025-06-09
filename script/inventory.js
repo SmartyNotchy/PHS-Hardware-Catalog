@@ -17,8 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function renderInventory() {
-    const res = await getGroupInventoryInstances(groupUUID);
-    const items = res.data;
+    const items = await getGroupInventoryInstances(groupUUID);
 
     if (!items || items.length === 0) {
       inventoryList.innerHTML = "<p>No items in inventory.</p>";
@@ -35,16 +34,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       card.innerHTML = `
         <div class="field"><strong>Component:</strong> ${component.name || 'Unnamed Component'}</div>
-        <div class="field"><strong>Description:</strong> ${component.description || 'N/A'}</div>
+        <div class="field"><strong>Description:</strong> ${component.details || 'N/A'}</div>
         <div class="field"><strong>Instance Condition:</strong> ${instance.itemCondition || 'Unknown'}</div>
         <div class="field"><strong>Details:</strong> ${instance.details || 'None'}</div>
         <button class="return-btn">Return</button>
       `;
 
       card.querySelector('.return-btn').addEventListener('click', async () => {
-        if (confirm("Are you sure you want to return this item?")) {
-          await returnComponent(token, groupUUID, instance.uuid); // you may adapt the signature
-          card.remove();
+        if (confirm("Are you returning this item?")) {
+            const msg = prompt("Enter the new condition of the component. Indicate if any parts are broken.", instance.itemCondition);
+            if (msg) {
+                await post_cmd(new DataCommand("send-return-form", [groupUUID, instance.uuid, msg]));
+                card.remove();
+            }
         }
       });
 

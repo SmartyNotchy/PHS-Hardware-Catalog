@@ -99,9 +99,7 @@ def initialize_database():
                     uuid VARCHAR(36) PRIMARY KEY,
                     component_instance VARCHAR(36),
                     group_uuid VARCHAR(36),
-                    reason TEXT,
-                    status TEXT,
-                    teacherMessage TEXT
+                    itemCondition TEXT
                 )
             ''')
 
@@ -238,16 +236,47 @@ def send_request_form(component_uuid, group_uuid, reason):
             conn.commit()
     return jsonify({"success": True, "message": "Request submitted."})
 
-def send_return_form(instance_uuid, group_uuid, details, itemCondition):
+def send_return_form(instance_uuid, group_uuid, itemCondition):
     form_uuid = gen_uuid()
     with get_connection() as conn:
         with conn.cursor() as cursor:
+            # Insert the return form with 'pending' status
             cursor.execute(
-                "INSERT INTO return_forms (uuid, component_instance, group_uuid, details, itemCondition, status) VALUES (%s, %s, %s, %s, %s, 'pending')",
-                (form_uuid, instance_uuid, group_uuid, details, itemCondition)
+                "INSERT INTO return_forms (uuid, component_instance, group_uuid, itemCondition) VALUES (%s, %s, %s, %s, %s)",
+                (form_uuid, instance_uuid, group_uuid, itemCondition)
             )
+
+            # Clear the group_uuid from the instance
+            cursor.execute(
+                "UPDATE component_instances SET group_uuid = NULL WHERE uuid = %s",
+                (instance_uuid,)
+            )
+
+            # Mark the item as available and not pending a request, and update its condition
+            cursor.execute(
+                "UPDATE component_instances SET available = TRUE, pendingReq = FALSE, itemCondition = %s WHERE uuid = %s",
+                (itemCondition, instance_uuid)
+            )
+
+            # Fetch current group inventory JSON and parse it
+            cursor.execute("SELECT inventory FROM group_data WHERE uuid=%s", (group_uuid,))
+            res = cursor.fetchone()
+            inventory_json = res["inventory"] if res and res["inventory"] else "[]"
+            inventory = json.loads(inventory_json)
+
+            # Remove instance_uuid from inventory if present
+            if instance_uuid in inventory:
+                inventory.remove(instance_uuid)
+
+            # Update inventory back to the database
+            cursor.execute(
+                "UPDATE group_data SET inventory = %s WHERE uuid = %s",
+                (json.dumps(inventory), group_uuid)
+            )
+
             conn.commit()
     return jsonify({"success": True, "message": "Return submitted."})
+
 
 #####################################
 ###### POST COMMANDS - TEACHER ######
@@ -399,23 +428,12 @@ def update_group_students(token, group_uuid, student_text):
 
     with get_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute("UPDATE group_data SET students=%s WHERE uuid=%s", (student_text, group_uuid))
-            conn.commit()
-    return jsonify({"success": True})
-
-def update_group_students(token, group_uuid, student_text):
-    if not verify_admin_token(token):
-        return jsonify({"success": False, "message": "Admin access required."})
-
-    with get_connection() as conn:
-        with conn.cursor() as cursor:
             cursor.execute(
                 "UPDATE group_data SET students=%s WHERE uuid=%s",
                 (student_text, group_uuid)
             )
             conn.commit()
     return jsonify({"success": True})
-
 
 def accept_request(token, request_uuid, message):
     if not verify_admin_token(token):
@@ -431,39 +449,40 @@ def accept_request(token, request_uuid, message):
             row = cursor.fetchone()
             if not row:
                 return jsonify({"success": False, "message": "Request not found."})
-            instance_uuid, group_uuid = row
+
+            instance_uuid = row["component_instance"]
+            group_uuid = row["group_uuid"]
 
             # Set instance to unavailable
             cursor.execute(
-                "UPDATE component_instances SET available=false WHERE uuid=%s",
-                (instance_uuid,)
+                "UPDATE component_instances SET available=FALSE,group_uuid=%s WHERE uuid=%s",
+                (group_uuid,instance_uuid,)
             )
 
-            # Fetch and update group inventory
+            # Fetch current group inventory JSON and parse it
             cursor.execute("SELECT inventory FROM group_data WHERE uuid=%s", (group_uuid,))
             res = cursor.fetchone()
-            inventory = res[0] if res and res[0] else []
+            inventory_json = res["inventory"] if res and res["inventory"] else "[]"
+            inventory = json.loads(inventory_json)
+
             if instance_uuid not in inventory:
                 inventory.append(instance_uuid)
 
+            # Update group inventory JSON
             cursor.execute(
                 "UPDATE group_data SET inventory=%s WHERE uuid=%s",
                 (json.dumps(inventory), group_uuid)
             )
 
-            # Update request status and message
+            # Update request status and teacher message
             cursor.execute(
                 "UPDATE request_forms SET status='accepted', teacherMessage=%s WHERE uuid=%s",
                 (message, request_uuid)
             )
-            
-            print("HI!")
-            print(instance_uuid)
-            print(group_uuid)
-            print("BYE!")
 
             conn.commit()
-    return jsonify({"success": True, "message": "Request accepted."})
+
+    return jsonify({"success": True, "message": f"Request accepted for instance {instance_uuid} in group {group_uuid}."})
 
 
 def reject_request(token, request_uuid, message):
@@ -472,7 +491,6 @@ def reject_request(token, request_uuid, message):
 
     with get_connection() as conn:
         with conn.cursor() as cursor:
-            # Get instance UUID
             cursor.execute(
                 "SELECT component_instance FROM request_forms WHERE uuid=%s",
                 (request_uuid,)
@@ -480,17 +498,15 @@ def reject_request(token, request_uuid, message):
             row = cursor.fetchone()
             if not row:
                 return jsonify({"success": False, "message": "Request not found."})
-            instance_uuid = row[0]
+            instance_uuid = row["component_instance"]
 
-            # Update request status and message
             cursor.execute(
                 "UPDATE request_forms SET status='rejected', teacherMessage=%s WHERE uuid=%s",
                 (message, request_uuid)
             )
 
-            # Set instance as available and not pending
             cursor.execute(
-                "UPDATE component_instances SET available=true, pendingReq=false WHERE uuid=%s",
+                "UPDATE component_instances SET available=TRUE, pendingReq=FALSE WHERE uuid=%s",
                 (instance_uuid,)
             )
 
@@ -501,7 +517,6 @@ def reject_request(token, request_uuid, message):
 def cancel_request(request_uuid):
     with get_connection() as conn:
         with conn.cursor() as cursor:
-            # Get instance UUID and group UUID
             cursor.execute(
                 "SELECT component_instance, group_uuid FROM request_forms WHERE uuid=%s",
                 (request_uuid,)
@@ -509,18 +524,22 @@ def cancel_request(request_uuid):
             row = cursor.fetchone()
             if not row:
                 return jsonify({"success": False, "message": "Request not found."})
-            instance_uuid, group_uuid = row
 
-            # Set instance as available and not pending
+            instance_uuid = row["component_instance"]
+            group_uuid = row["group_uuid"]
+
+            # Set instance available and not pending
             cursor.execute(
-                "UPDATE component_instances SET available=true, pendingReq=false WHERE uuid=%s",
+                "UPDATE component_instances SET available=TRUE, pendingReq=FALSE WHERE uuid=%s",
                 (instance_uuid,)
             )
 
-            # Fetch and update group requests
+            # Fetch current requests JSON and parse it
             cursor.execute("SELECT requests FROM group_data WHERE uuid=%s", (group_uuid,))
             res = cursor.fetchone()
-            requests = res[0] if res and res[0] else []
+            requests_json = res["requests"] if res and res["requests"] else "[]"
+            requests = json.loads(requests_json)
+
             if request_uuid in requests:
                 requests.remove(request_uuid)
 
@@ -529,7 +548,6 @@ def cancel_request(request_uuid):
                 (json.dumps(requests), group_uuid)
             )
 
-            # Delete request form
             cursor.execute(
                 "DELETE FROM request_forms WHERE uuid=%s",
                 (request_uuid,)
@@ -537,8 +555,6 @@ def cancel_request(request_uuid):
 
             conn.commit()
     return jsonify({"success": True, "message": "Request cancelled."})
-
-
 
 ################################
 ###### COMMAND PROCESSING ######

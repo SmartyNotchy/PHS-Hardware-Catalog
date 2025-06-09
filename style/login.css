@@ -1,0 +1,78 @@
+#login-container {
+  max-width: 360px;
+  margin: 50px auto;
+  padding: 20px 25px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  color: #222;
+  box-sizing: border-box;
+}
+
+#login-container > div,
+#login-container > select,
+#login-container > input,
+#login-container > button {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+#login-container > div {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #0066ff;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+select, input[type="password"] {
+  padding: 10px 12px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  color: #222;
+  transition: border-color 0.2s ease;
+}
+
+select:focus,
+input[type="password"]:focus {
+  border-color: #0066ff;
+  outline: none;
+  background-color: #fff;
+}
+
+button {
+  background-color: #0066ff;
+  border: none;
+  color: white;
+  padding: 11px 0;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #004bb5;
+}
+
+button:disabled {
+  background-color: #aac8ff;
+  cursor: default;
+}
+
+button + button {
+  margin-top: 10px;
+  background-color: #eee;
+  color: #333;
+  font-weight: 500;
+}
+
+button + button:hover {
+  background-color: #ccc !important;
+}
+

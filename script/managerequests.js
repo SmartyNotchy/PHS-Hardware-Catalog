@@ -80,7 +80,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         card.querySelector('.approve-btn').addEventListener('click', async () => {
         const msg = prompt("Enter a message to send to the group.", "Approved.") 
         if (msg) {
-          await post_cmd(new DataCommand("accept-request", [loginState.token, req.uuid, msg]));
+          const res = await post_cmd(new DataCommand("accept-request", [loginState.token, req.uuid, msg]));
+          console.log(res);
 
           card.innerHTML = `
             <div class="field">

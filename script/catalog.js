@@ -160,15 +160,17 @@ async function openModal(comp) {
   instanceList.appendChild(placeholder);
   } else {
 
-  instances.forEach(inst => {
+  instances.forEach(async (inst) => {
     const item = document.createElement('div');
     item.className = 'instance-item';
 
     const content = document.createElement('div');
+    const group = inst.available ? null : (await get_cmd(new DataCommand("get-obj", ["group", inst.group_uuid])));
+    
     content.innerHTML = `
       <strong>Condition:</strong> ${inst.itemCondition} <br>
       <strong>Details:</strong> ${inst.details} <br>
-      <strong>Available:</strong> ${inst.available ? (inst.pendingReq ? "Requested by Other Group" : 'Yes') : 'No'}
+      <strong>Available:</strong> ${inst.available ? (inst.pendingReq ? "Requested by Other Group" : 'Yes') : 'No' + (group != null && group.data != undefined ? " (In use by " + group.data.name + ")" : "")}
     `;
 
     // Admin: Edit buttons
@@ -255,7 +257,7 @@ document.getElementById('component-submit-btn').addEventListener('click', async 
 
 // Placeholder function definition
 async function add_component(component) {
-  await post_cmd(new DataCommand('admin-add-component', [loginState.token, component.name, "./images/raspberry-pi-5.png", component.details]));
+  await post_cmd(new DataCommand('admin-add-component', [loginState.token, component.name, "./images/arduino-uno-rev3.png", component.details]));
 }
 
 document.addEventListener('DOMContentLoaded', () => {

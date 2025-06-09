@@ -8,6 +8,7 @@ body {
 .inventory-container {
   max-width: 800px;
   margin: auto;
+
 }
 
 .scroll-box {
@@ -17,6 +18,10 @@ body {
   background-color: #fff;
   padding: 10px;
   border-radius: 4px;
+  
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .inventory-card {
