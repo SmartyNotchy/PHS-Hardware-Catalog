@@ -18,7 +18,7 @@ async function renderProjects() {
         addGroupBtn.addEventListener('click', async () => {
             const groupName = prompt('Enter new group name:');
             if (groupName) {
-                const groupStudents = prompt('Enter students in group (can be changed later):');
+                const groupStudents = "";//prompt('Enter students in group (can be changed later):');
                 await post_cmd(new DataCommand("admin-add-group", [loginState.token, project.uuid, groupName, groupStudents]));
                 renderProjects();
             }

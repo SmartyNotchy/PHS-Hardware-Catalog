@@ -16,6 +16,7 @@
 
     <script src="server/requests.js" defer></script>
     <script src="script/global.js" defer></script>
+    <script src="script/catalog.js" defer></script>
   </head>
 
   <body>
@@ -77,49 +78,28 @@
 
     
     <main>
-      <!--
-      <section class="item-info">
-        <button class="close-item-info">
-          <img
-            src="https://smartynotchy.github.io/PHS-Hardware-Catalog/icons/close.png"
-            class="invert"
-            alt="X"
-          />
-        </button>
+      <div id="catalog" class="catalog-container"></div>
+      <div id="modal-container"></div>
 
-        <h2 class="item-name">Arduino Motor Shield Rev3</h2>
-        <p class="item-description"></p>
+      <!-- Add Component Button -->
+      <div style="padding: 1rem;">
+        <button id="add-component-btn">Add Component</button>
+      </div>
 
-        <div class="specifications-container container">
-          <h3 class="title">Specifications</h3>
-          <div class="body">
-            <ul class="specifications-list"></ul>
-            <div class="img-wrapper">
-              <img class="item-img" />
-            </div>
+      <!-- Add Component Modal -->
+      <div id="add-component-modal" class="component-modal component-modal-hidden">
+        <div class="component-modal-content">
+          <h2>Add New Component</h2>
+          <label>Name: <input type="text" id="component-name" /></label>
+          <label>Image: <input type="file" id="component-image" accept="image/*" /></label>
+          <label>Details: <textarea id="component-details"></textarea></label>
+          <div class="component-modal-actions">
+            <button id="component-submit-btn">Submit</button>
+            <button id="component-cancel-btn">Cancel</button>
           </div>
         </div>
+      </div>
 
-        <div class="pins-and-ports-container container">
-          <h3 class="title">Pins & Ports</h3>
-          <div class="body">
-            <ul class="pins-and-ports-list"></ul>
-            <div class="img-wrapper">
-              <img class="item-pins-and-ports-img" />
-            </div>
-          </div>
-        </div>
-
-        <div class="btn-wrapper">
-          <a class="request-item-btn" href="https://smartynotchy.github.io/PHS-Hardware-Catalog/student-requestform/student-requestform.html">Request Item</a>
-        </div>
-      </section>
-
-      <section class="catalog-section">
-        <h2 class="section-title">Entire Catalog</h2>
-        <div class="catalog-container section-body"></div>
-      </section>
-        -->
     </main>
 
     <template class="catalog-item-template">

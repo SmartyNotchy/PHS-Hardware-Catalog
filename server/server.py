@@ -271,6 +271,33 @@ def add_instance(token, component_uuid, details, itemCondition):
             conn.commit()
     return jsonify({"success": True, "uuid": uuid})
 
+def edit_component(token, comp_uuid, comp_name, comp_details):
+    if not verify_admin_token(token):
+        return jsonify({"success": False, "message": "Admin access required."})
+
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                "UPDATE components SET name=%s, details=%s WHERE uuid=%s",
+                (comp_name, comp_details, comp_uuid)
+            )
+            conn.commit()
+    return jsonify({"success": True, "message": "Component updated."})
+
+def edit_instance(token, instance_uuid, instance_details, instance_condition):
+    if not verify_admin_token(token):
+        return jsonify({"success": False, "message": "Admin access required."})
+
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                "UPDATE component_instances SET details=%s, itemCondition=%s WHERE uuid=%s",
+                (instance_details, instance_condition, instance_uuid)
+            )
+            conn.commit()
+    return jsonify({"success": True, "message": "Instance updated."})
+
+
 def create_project(token, name):
     if not verify_admin_token(token):
         return jsonify({"success": False, "message": "Admin access required."})
@@ -354,6 +381,10 @@ def processPostCommand(cmdName, uuid, args):
         return add_group(*args)
     elif cmdName == "admin-edit-group":
         return edit_group(*args)
+    elif cmdName == "admin-edit-component":
+        return edit_component(*args)
+    elif cmdName == "admin-edit-instance":
+        return edit_instance(*args)
     elif cmdName == "admin-update-group-students":
         return update_group_students(*args)
     elif cmdName == "admin-reset-db":

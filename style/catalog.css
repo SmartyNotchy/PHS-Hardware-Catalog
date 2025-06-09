@@ -1,253 +1,123 @@
-main {
-  position: relative;
-}
-
-:root.show-item-info .catalog-section {
-  filter: blur(5px);
-  pointer-events: none;
-}
-
 .catalog-container {
-  gap: 16px;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
-  grid-auto-rows: 250px;
-  justify-content: center;
-  align-items: center;
-
-  color: var(--text-dark);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+.component-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+}
+.component-card img {
+    max-width: 100%;
+    height: auto;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+.instance-list {
+    margin-top: 1rem;
+}
+.instance-item {
+    border-top: 1px solid #ddd;
+    padding: 0.5rem 0;
 }
 
-.item {
-  height: 100%;
-  width: 100%;
 
-  padding: 16px;
-  gap: 8px;
-  overflow: hidden;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
 
-  background-color: var(--secondary-d1);
 
-  border: none;
-  border-radius: var(--medium-border-radius);
-}
-.item:hover {
-  background-color: var(--secondary-d2);
-}
-.item:active {
-  background-color: var(--secondary-d3);
-}
 
-.item-name {
-  min-height: 64px;
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 24px;
-  font-weight: var(--medium-font-weight);
-
-  border: none;
-}
-.img-wrapper {
-  height: 100%;
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  overflow: hidden;
-}
-.qty {
-  height: 32px;
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 20px;
-  font-weight: var(--medium-font-weight);
-
-  border: none;
-}
-
-.item-info {
-  position: absolute;
+/* Modal backdrop */
+.component-modal {
+  position: fixed;
   top: 0;
-  left: calc(50% - max(30%, 300px));
-  z-index: 2;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
-  width: 60%;
-  min-width: 600px;
-
-  margin: 16px;
-  padding: 16px;
-  gap: 16px;
-
+/* Hidden state */
+.component-modal-hidden {
   display: none;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-
-  border: none;
-  border-radius: var(--big-border-radius);
-  background-color: var(--primary-l3);
-  opacity: 95%;
-}
-:root.show-item-info .item-info {
-  display: flex;
 }
 
-.close-item-info {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-
-  height: 32px;
-  width: 32px;
-
-  padding: 8px;
-
-  background-color: var(--primary);
-  opacity: 50%;
-
-  border: none;
-  border-radius: var(--small-border-radius);
-}
-.close-item-info:hover {
-  opacity: 75%;
-}
-.close-item-info:active {
-  opacity: 100%;
-}
-
-.item-info .item-header {
-  width: 100%;
-
-  padding: 8px;
-
+/* Modal content box */
+.component-modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 1rem;
 }
-.item-info .item-name {
-  height: 100%;
-  width: 100%;
 
+/* Inputs */
+.component-modal-content input,
+.component-modal-content textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Resizable text area */
+.component-modal-content textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Modal buttons */
+.component-modal-actions {
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 32px;
-  font-weight: var(--medium-font-weight);
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
-.item-info .item-description {
-  min-height: 56px;
-  width: 100%;
-
-  padding: 16px;
-
-  font-size: 16px;
-  font-weight: var(--regular-font-weight);
-
-  background-color: var(--primary-l4);
-
+.component-modal-actions button {
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: var(--medium-border-radius);
-}
-.item-info .container {
-  width: 100%;
-
-  padding: 16px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-
-  background-color: var(--primary-l4);
-
-  border: none;
-  border-radius: var(--medium-border-radius);
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.item-info .title {
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 28px;
-  font-weight: var(--medium-font-weight);
+#component-submit-btn {
+  background-color: #007bff;
+  color: white;
 }
 
-.item-info .body {
-  width: 100%;
-
-  gap: 8px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.item-info .img-wrapper {
-  height: 200px;
-  width: 50%;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.item-info ul {
-  height: 100%;
-  width: 50%;
-
-  list-style-type: disc;
-  list-style-position: inside;
-
-  font-size: 16px;
-  font-weight: var(--regular-font-weight);
-}
-
-.item-info .btn-wrapper {
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.request-item-btn {
-  height: 48px;
-  width: 30%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: var(--primary-l4);
-
-  border: 2px solid var(--primary-l4);
-  border-radius: var(--small-border-radius);
-  font-size: 24px;
-  font-weight: var(--regular-font-weight);
-}
-.request-item-btn:hover,
-.request-item-btn:active {
-  background-color: transparent;
-  color: var(--primary-l4);
+#component-cancel-btn {
+  background-color: #ccc;
 }
