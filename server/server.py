@@ -8,6 +8,7 @@ import random
 import math
 import json
 import pymysql
+import time
 
 ######################################
 ###### GENERAL HELPER FUNCTIONS ######
@@ -101,7 +102,8 @@ def initialize_database():
                     group_uuid VARCHAR(36),
                     reason TEXT,
                     status TEXT,
-                    teacherMessage TEXT
+                    teacherMessage TEXT,
+                    timestamp TEXT
                 )
             ''')
 
@@ -111,9 +113,10 @@ def initialize_database():
                     component_instance VARCHAR(36),
                     group_uuid VARCHAR(36),
                     itemCondition TEXT,
+                    timestamp TEXT
                 )
             ''')
-            
+
             cursor.execute('''
                 CREATE TABLE teachers (
                     uuid VARCHAR(36) PRIMARY KEY,
@@ -200,12 +203,13 @@ def verify_admin_token(token):
 
 def send_request_form(component_uuid, group_uuid, reason):
     form_uuid = gen_uuid()
+    timestamp = int(time.time())
     with get_connection() as conn:
         with conn.cursor() as cursor:
             # Insert request form
             cursor.execute(
-                "INSERT INTO request_forms (uuid, component_instance, group_uuid, reason, status) VALUES (%s, %s, %s, %s, 'pending')",
-                (form_uuid, component_uuid, group_uuid, "Requested " + datetime.today().strftime("%B %-d") + "<br>" + reason)
+                "INSERT INTO request_forms (uuid, component_instance, group_uuid, reason, timestamp, status) VALUES (%s, %s, %s, %s, %s, 'pending')",
+                (form_uuid, component_uuid, group_uuid, "Requested " + datetime.today().strftime("%B %-d") + "<br>" + reason, timestamp,)
             )
 
             # Update the instance to mark as pending
@@ -238,12 +242,13 @@ def send_request_form(component_uuid, group_uuid, reason):
 
 def send_return_form(instance_uuid, group_uuid, itemCondition):
     form_uuid = gen_uuid()
+    timestamp = int(time.time())
     with get_connection() as conn:
         with conn.cursor() as cursor:
             # Insert the return form with 'pending' status
             cursor.execute(
-                "INSERT INTO return_forms (uuid, component_instance, group_uuid, itemCondition) VALUES (%s, %s, %s, %s, %s)",
-                (form_uuid, instance_uuid, group_uuid, itemCondition)
+                "INSERT INTO return_forms (uuid, component_instance, group_uuid, itemCondition, timestamp) VALUES (%s, %s, %s, %s, %s)",
+                (form_uuid, instance_uuid, group_uuid, itemCondition, timestamp)
             )
 
             # Clear the group_uuid from the instance

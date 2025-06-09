@@ -12,6 +12,8 @@ async function getInstances(compUUID) {
     //console.log("Project Groups");
     //console.log(project);
     const instance_data = instances.data;
+    instance_data.sort((b, a) => String(a.details).localeCompare(String(b.details)));
+    console.log(instance_data);
     //console.log(group_data);
     return instance_data;
 }
@@ -257,7 +259,7 @@ document.getElementById('component-submit-btn').addEventListener('click', async 
 
 // Placeholder function definition
 async function add_component(component) {
-  await post_cmd(new DataCommand('admin-add-component', [loginState.token, component.name, "./images/arduino-uno-rev3.png", component.details]));
+  await post_cmd(new DataCommand('admin-add-component', [loginState.token, component.name, "./images/raspberry-pi-5.png", component.details]));
 }
 
 document.addEventListener('DOMContentLoaded', () => {

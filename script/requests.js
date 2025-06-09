@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const statusDiff = statusWeight(b.status) - statusWeight(a.status);
         if (statusDiff !== 0) return statusDiff;
 
-        return String(a.reason).localeCompare(String(b.reason));
+        return String(a.timestamp).localeCompare(String(b.timestamp));
         });
 
     return req_data;

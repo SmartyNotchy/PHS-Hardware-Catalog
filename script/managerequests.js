@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const statusDiff = statusWeight(b.status) - statusWeight(a.status);
         if (statusDiff !== 0) return statusDiff;
 
-        return String(a.reason).localeCompare(String(b.reason));
+        return String(b.timestamp).localeCompare(String(a.timestamp));
         });
     
     for (const req of req_data) {

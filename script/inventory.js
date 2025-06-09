@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (confirm("Are you returning this item?")) {
             const msg = prompt("Enter the new condition of the component. Indicate if any parts are broken.", instance.itemCondition);
             if (msg) {
-                await post_cmd(new DataCommand("send-return-form", [groupUUID, instance.uuid, msg]));
+                await post_cmd(new DataCommand("send-return-form", [instance.uuid, groupUUID, msg]));
                 card.remove();
             }
         }
