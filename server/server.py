@@ -99,7 +99,9 @@ def initialize_database():
                     uuid VARCHAR(36) PRIMARY KEY,
                     component_instance VARCHAR(36),
                     group_uuid VARCHAR(36),
-                    itemCondition TEXT
+                    reason TEXT,
+                    status TEXT,
+                    teacherMessage TEXT
                 )
             ''')
 
@@ -108,12 +110,10 @@ def initialize_database():
                     uuid VARCHAR(36) PRIMARY KEY,
                     component_instance VARCHAR(36),
                     group_uuid VARCHAR(36),
-                    details TEXT,
                     itemCondition TEXT,
-                    status TEXT
                 )
             ''')
-
+            
             cursor.execute('''
                 CREATE TABLE teachers (
                     uuid VARCHAR(36) PRIMARY KEY,
