@@ -18,7 +18,7 @@ Currently accessible via [https://smartynotchy.github.io/PHS-Hardware-Catalog/](
 
 ## Deployment
 
-Backend is currently runs on a Flask webserver via [PythonAnywhere](https://smcs2027pfp.pythonanywhere.com/).
+Backend is currently run on a Flask webserver via [PythonAnywhere](https://smcs2027pfp.pythonanywhere.com/).
 
 No changes are needed to deploy to a new domain; simply clone the repo and publish the site to the domain of choice.
 
